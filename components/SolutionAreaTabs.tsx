@@ -58,7 +58,19 @@ const visuals: Record<string, { type: "gallery" | "single" | "placeholder"; shot
       { src: "/screenshots/metabase/sales-wholesale-refunds.png", label: "Metabase — Sales, Wholesale & Refunds" },
     ],
   },
-  finance: { type: "placeholder", label: "Supplier purchase drafts & expense capture" },
+  finance: {
+    type: "gallery",
+    shots: [
+      {
+        src: "/screenshots/finance/expense-extraction-workflow.png",
+        label: "n8n — expense extraction & validation (06_EXPENSE_V1)",
+      },
+      {
+        src: "/screenshots/finance/ap-payment-reminder-workflow.png",
+        label: "n8n — AP payment matching & reminders (05_AP_PAYMENT_REMINDER_V1)",
+      },
+    ],
+  },
 };
 
 function TechnicalLayer({ groups }: { groups: { heading?: string; points: string[] }[] }) {
