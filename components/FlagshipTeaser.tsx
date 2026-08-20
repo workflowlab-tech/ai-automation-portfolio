@@ -73,8 +73,8 @@ export default function FlagshipTeaser() {
 
               <div className="relative min-h-[280px] bg-[var(--color-ink)] lg:min-h-full">
                 <Image
-                  src="/screenshots/admin/overview.png"
-                  alt="Idol Fairies staff admin dashboard overview"
+                  src="/screenshots/storefront/home.png"
+                  alt="Idol Fairies storefront homepage"
                   fill
                   className="object-cover object-top opacity-95"
                   sizes="(min-width: 1024px) 50vw, 100vw"

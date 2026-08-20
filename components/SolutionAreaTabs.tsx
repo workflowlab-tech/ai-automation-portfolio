@@ -7,7 +7,18 @@ import ScreenshotGallery, { type Shot } from "./ScreenshotGallery";
 import Placeholder from "./Placeholder";
 
 const visuals: Record<string, { type: "gallery" | "single" | "placeholder"; shots?: Shot[]; label?: string }> = {
-  storefront: { type: "placeholder", label: "Public storefront — shop, product pages, cart & checkout" },
+  storefront: {
+    type: "gallery",
+    shots: [
+      { src: "/screenshots/storefront/home.png", label: "Storefront — home" },
+      { src: "/screenshots/storefront/shop-all.png", label: "Shop — all products" },
+      { src: "/screenshots/storefront/albums.png", label: "Albums category" },
+      { src: "/screenshots/storefront/cart.png", label: "Cart" },
+      { src: "/screenshots/storefront/checkout.png", label: "Demo checkout" },
+      { src: "/screenshots/storefront/order-confirmation.png", label: "Order confirmation" },
+      { src: "/screenshots/storefront/about.png", label: "About / Why Idol Fairies" },
+    ],
+  },
   sales: {
     type: "single",
     shots: [{ src: "/screenshots/admin/orders.png", label: "Admin — Orders (website + wholesale, in one list)" }],
@@ -20,7 +31,13 @@ const visuals: Record<string, { type: "gallery" | "single" | "placeholder"; shot
     type: "single",
     shots: [{ src: "/screenshots/admin/refunds.png", label: "Admin — Refund history" }],
   },
-  assistant: { type: "placeholder", label: "Idol AI chat widget — product & policy Q&A" },
+  assistant: {
+    type: "gallery",
+    shots: [
+      { src: "/screenshots/chatbot/idol-ai-suggested-prompts.png", label: "Idol AI — suggested prompts" },
+      { src: "/screenshots/chatbot/idol-ai-live-answer.png", label: "Idol AI — live catalog answer" },
+    ],
+  },
   admin: {
     type: "gallery",
     shots: [
@@ -34,7 +51,13 @@ const visuals: Record<string, { type: "gallery" | "single" | "placeholder"; shot
       { src: "/screenshots/admin/needs-review.png", label: "Needs Review" },
     ],
   },
-  reporting: { type: "placeholder", label: "Metabase — Business Dashboard & Sales/Wholesale/Refunds views" },
+  reporting: {
+    type: "gallery",
+    shots: [
+      { src: "/screenshots/metabase/business-dashboard.png", label: "Metabase — Business Dashboard" },
+      { src: "/screenshots/metabase/sales-wholesale-refunds.png", label: "Metabase — Sales, Wholesale & Refunds" },
+    ],
+  },
   finance: { type: "placeholder", label: "Supplier purchase drafts & expense capture" },
 };
 
