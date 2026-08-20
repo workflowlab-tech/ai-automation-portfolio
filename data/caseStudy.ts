@@ -13,7 +13,7 @@ export const proofBanner = {
   headline: "Workflow behavior checked across normal, duplicate, invalid, and edge-case scenarios",
   date: "August 16, 2026",
   detail:
-    "70 of 70 test cases passed, verified via live webhooks, real Gmail/Telegram triggers, and direct Supabase state checks — not just workflow execution status.",
+    "44 of 44 test cases passed, verified via live webhooks, real Gmail/Telegram triggers, and direct Supabase state checks — not just workflow execution status.",
 };
 
 export const systemOverview = {
@@ -31,7 +31,7 @@ export const solutionAreas: SolutionArea[] = [
     problem:
       "A K-pop merch store needs an online storefront where customers can browse, check stock accurately, and check out — without the owner manually tracking what's sold out.",
     whatItDoes:
-      "A public storefront (shop, category pages, product pages, cart, checkout) shows only two real states — Available or Sold Out — pulled from the same inventory data the rest of the system uses, so there's no separate 'website copy' of stock that can drift out of sync.",
+      "A public storefront (shop, category pages, product pages, cart, checkout) shows only two real states — In Stock or Sold Out — pulled from the same inventory data the rest of the system uses, so there's no separate 'website copy' of stock that can drift out of sync.",
     whatChanges:
       "No manual product/stock updates on a second system; what's shown to shoppers is always the same number used internally.",
     evidence:
@@ -182,7 +182,7 @@ export const solutionAreas: SolutionArea[] = [
         points: [
           "AR/AP Aging use standard bucket logic (current, 1–30, 31–60, 61–90, 90+ days overdue), computed with GREATEST(CURRENT_DATE - due_date, 0)",
           "Inventory Valuation uses weighted-average cost, maintained by a database trigger (011_weighted_avg_cost_trigger.sql) — the number shown always reflects real historical purchase cost, not a placeholder",
-          "Native SQL questions, presentation-only column cleanup (technical IDs hidden, human-friendly labels), Field Filter variables wired to sales_orders.created_at / refunds.created_at for the date filter",
+          "Native SQL questions, with Field Filter variables wired to sales_orders.created_at / refunds.created_at for the date filter",
         ],
       },
     ],
@@ -198,14 +198,13 @@ export const solutionAreas: SolutionArea[] = [
     whatChanges:
       "Supplier purchases are captured from the inbox automatically, but the business keeps a human checkpoint before anything hits the books. Expense capture doesn't depend on remembering to log something — it happens from wherever the receipt or note originally landed.",
     evidence:
-      "04_INVENTORY_PURCHASE_AP_V1 (5/5) and 05_AP_PAYMENT_REMINDER_V1 (6/6) passed regression. 06_EXPENSE_V1 passed 13/13 regression tests across both intake paths, including the Gmail auto-classification logic shared with 00_GMAIL_AUTO_LABELER_V1.",
+      "04_INVENTORY_PURCHASE_AP_V1 (5/5) and 05_AP_PAYMENT_REMINDER_V1 (6/6) passed regression. 06_EXPENSE_V1 passed 10/10 regression tests across both intake paths (Telegram and Gmail).",
     technical: [
       {
         heading: "Purchases & Payables (AP)",
         points: [
           "Workflows: 04_INVENTORY_PURCHASE_AP_V1.json, 05_AP_PAYMENT_REMINDER_V1.json",
           "Merchandise purchases (purchases table, restricted to the 4 approved inventory suppliers by a database trigger) are kept structurally separate from operating expenses (expenses table) — can't be confused with each other by design, not just convention",
-          "accounts_payable aging mirrors the AR aging logic",
           "Draft/confirm pattern avoids acting on unverified email content",
         ],
       },
@@ -214,7 +213,6 @@ export const solutionAreas: SolutionArea[] = [
         points: [
           "Workflows: 06_EXPENSE_V1.json, 00_GMAIL_AUTO_LABELER_V1.json",
           "Gmail classification (expense / supplier / ignore) applies labels and routes messages so downstream workflows only see relevant emails",
-          "Expenses reported by account code / account name for the owner-reporting layer",
         ],
       },
     ],

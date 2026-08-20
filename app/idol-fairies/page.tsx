@@ -7,6 +7,7 @@ import FadeIn from "@/components/FadeIn";
 import SystemDiagram from "@/components/SystemDiagram";
 import SolutionAreaTabs from "@/components/SolutionAreaTabs";
 import DemoVideo from "@/components/DemoVideo";
+import GithubIcon from "@/components/icons/GithubIcon";
 
 export const metadata: Metadata = {
   title: "Idol Fairies — Finance & E-Commerce Automation Demo | Mary Joyce Ablanque",
@@ -65,6 +66,18 @@ export default function IdolFairiesPage() {
                 </span>
               </p>
             </div>
+          </FadeIn>
+
+          <FadeIn delay={220}>
+            <a
+              href="https://github.com/workflowlab-tech/idol-fairies-storefront"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+            >
+              <GithubIcon size={16} />
+              View project code on GitHub
+            </a>
           </FadeIn>
         </div>
       </section>
