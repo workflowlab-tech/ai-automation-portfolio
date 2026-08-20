@@ -6,11 +6,12 @@ import { proofBanner, systemOverview } from "@/data/caseStudy";
 import FadeIn from "@/components/FadeIn";
 import SystemDiagram from "@/components/SystemDiagram";
 import SolutionAreaTabs from "@/components/SolutionAreaTabs";
+import DemoVideo from "@/components/DemoVideo";
 
 export const metadata: Metadata = {
-  title: "Idol Fairies — Flagship Case Study | Mary Joyce Ablanque",
+  title: "Idol Fairies — Finance & E-Commerce Automation Demo | Mary Joyce Ablanque",
   description:
-    "A working e-commerce + finance automation ecosystem: storefront, order processing, wholesale & receivables, refunds, an AI assistant, an admin dashboard, and owner reporting — built and regression-tested end to end.",
+    "A self-directed finance + e-commerce automation portfolio project, built with AI-assisted development: storefront, order processing, wholesale & receivables, refunds, an AI assistant, an admin dashboard, and owner reporting.",
 };
 
 export default function IdolFairiesPage() {
@@ -32,8 +33,8 @@ export default function IdolFairiesPage() {
               Idol Fairies
             </h1>
             <p className="mt-3 text-lg text-[var(--color-body)]">
-              A working K-pop merch e-commerce and finance automation ecosystem — built, automated,
-              and tested end to end.
+              A self-directed finance &amp; e-commerce automation portfolio project — modeled on
+              real business processes, built end to end with AI-assisted development.
             </p>
           </FadeIn>
 
@@ -42,11 +43,14 @@ export default function IdolFairiesPage() {
               <Info size={18} className="mt-0.5 shrink-0 text-[var(--color-primary)]" />
               <p className="text-sm text-[var(--color-body)]">
                 <strong className="font-semibold text-[var(--color-ink)]">
-                  This is a portfolio/demo environment.
+                  This is a self-directed portfolio/demo project, not a live client deployment.
                 </strong>{" "}
                 Everything here — the storefront, orders, customers, resellers — runs on realistic
-                simulated data, built specifically to demonstrate a production-grade system safely
-                without exposing a live business.
+                simulated data. It&rsquo;s modeled on finance and e-commerce processes I&rsquo;ve
+                personally worked with (Order-to-Cash, accounts payable, running an online store),
+                and built with substantial AI-assisted development: I defined the business rules,
+                workflow requirements, and test scenarios, and used AI coding assistants to help
+                implement and troubleshoot the technical solution.
               </p>
             </div>
           </FadeIn>
@@ -63,6 +67,24 @@ export default function IdolFairiesPage() {
             </div>
           </FadeIn>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <FadeIn>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
+              See the automation in action
+            </h2>
+            <p className="mt-3 text-[var(--color-body)]">
+              A walkthrough of the customer journey, checkout flow, and n8n automation from trigger
+              to completion.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={100} className="mt-8">
+          <DemoVideo />
+        </FadeIn>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20">

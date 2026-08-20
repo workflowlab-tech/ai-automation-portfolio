@@ -10,10 +10,10 @@ export type SolutionArea = {
 };
 
 export const proofBanner = {
-  headline: "70 / 70 regression tests passed across all 8 automation workflows",
+  headline: "Workflow behavior checked across normal, duplicate, invalid, and edge-case scenarios",
   date: "August 16, 2026",
   detail:
-    "Verified via live webhooks, real Gmail/Telegram triggers, and direct Supabase state checks — not just workflow execution status.",
+    "70 of 70 test cases passed, verified via live webhooks, real Gmail/Telegram triggers, and direct Supabase state checks — not just workflow execution status.",
 };
 
 export const systemOverview = {
@@ -56,7 +56,7 @@ export const solutionAreas: SolutionArea[] = [
     whatItDoes:
       "Two n8n workflows normalize both order types into the same sales_orders / sales_order_items tables, matching SKUs against the product catalog, and flagging anything that can't be matched instead of guessing or silently dropping it.",
     whatChanges:
-      "An order becomes a verified, queryable sales record automatically — with duplicate protection (resending the same order number is rejected, not double-counted) and a 'needs review' state for unmatched items instead of silent data loss.",
+      "An order becomes a verified, queryable sales record automatically — duplicate order numbers are rejected, and unmatched items land in a 'needs review' state instead of getting silently dropped.",
     evidence:
       "01_SALES_B2C_V1 and 02_SALES_WHOLESALE_AR_V1 each passed their full regression suite (5/5) against a live webhook and real Supabase state, including duplicate and unmatched-SKU cases.",
     technical: [
@@ -80,14 +80,14 @@ export const solutionAreas: SolutionArea[] = [
     whatItDoes:
       "Wholesale orders automatically create an Accounts Receivable record; reseller payments (recorded through Gmail-triggered intake) reduce the balance; a scheduled reminder checks for overdue balances and emails resellers automatically, with duplicate-reminder protection.",
     whatChanges:
-      "The owner doesn't have to manually track reseller balances in a spreadsheet or remember to chase overdue payments — the system surfaces aging automatically and sends the first-line reminder itself.",
+      "The owner no longer tracks reseller balances by hand — the system surfaces aging automatically and sends the first reminder itself.",
     evidence:
       "02_SALES_WHOLESALE_AR_V1 (5/5) and 03_AR_PAYMENT_REMINDER_V1 (5/5) passed regression, including a real duplicate-reminder suppression test.",
     technical: [
       {
         points: [
           "Workflows: 02_SALES_WHOLESALE_AR_V1.json, 03_AR_PAYMENT_REMINDER_V1.json",
-          "accounts_receivable balance is derived from the actual sum of completed customer_payments each time, not incremented in place — self-correcting if a payment is later adjusted",
+          "accounts_receivable holds a stored balance (amount due minus amount paid) created per wholesale order via customer_invoices, and kept in sync as customer_payments are recorded",
           "Aging buckets (current / 1–30 / 31–60 / 61–90 / 90+ days) computed in the reporting layer",
         ],
       },
@@ -152,7 +152,7 @@ export const solutionAreas: SolutionArea[] = [
     whatItDoes:
       "A password-protected dashboard scoped specifically to operational tasks: Overview, Orders (list + detail), Customers, Resellers, Wholesale Inquiries, Inventory, Refunds, and a Needs Review queue for anything the automation couldn't resolve automatically.",
     whatChanges:
-      "Staff have one place to work from, deliberately kept separate from the finance/owner reporting layer — an intentional design decision, not a missing feature.",
+      "Staff have one place to work from, deliberately kept separate from the owner reporting layer.",
     evidence:
       "Session-based auth with middleware route protection; verified end-to-end through the full demo flow including auth gating.",
     technical: [
@@ -176,7 +176,7 @@ export const solutionAreas: SolutionArea[] = [
     whatChanges:
       "The owner gets a management view built for decisions (aging, margin, valuation) — deliberately separate from the admin dashboard, so the demo shows the difference between running the store and reviewing the business.",
     evidence:
-      "All report SQL independently verified against live Supabase data before being wired into Metabase; the date-range filter was tested to confirm it actually changes results, not just cosmetically present.",
+      "All report SQL verified against live Supabase data before being wired into Metabase; the date-range filter was tested to confirm it actually changes results.",
     technical: [
       {
         points: [

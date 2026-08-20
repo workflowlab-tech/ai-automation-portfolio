@@ -52,9 +52,9 @@ export default function Footer() {
         </div>
 
         <p className="mt-10 border-t border-[var(--color-border)] pt-6 text-xs text-[var(--color-muted)]">
-          Idol Fairies is a portfolio/demo environment built to demonstrate production-grade
-          automation systems safely — it uses realistic simulated data and is not a live commercial
-          store.
+          Idol Fairies is a self-directed portfolio/demo project, built with substantial
+          AI-assisted development on realistic simulated data — it is not a live client
+          deployment.
         </p>
       </div>
     </footer>

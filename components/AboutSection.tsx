@@ -1,4 +1,4 @@
-import { GraduationCap, ShoppingBag, Landmark } from "lucide-react";
+import { GraduationCap, ShoppingBag, Landmark, Sparkles } from "lucide-react";
 import FadeIn from "./FadeIn";
 import CredentialsRow from "./CredentialsRow";
 
@@ -7,7 +7,7 @@ const pillars = [
     icon: Landmark,
     title: "Finance & accounting background",
     body:
-      "BS Accountancy (Polytechnic University of the Philippines, 2017). Worked Order-to-Cash / Cash Application at Accenture, then accounts payable, payroll, and statutory remittances as Accounting Staff at Red Scentinial Corporation.",
+      "BS Accountancy (Polytechnic University of the Philippines, 2017). Worked Order-to-Cash / Cash Application at Accenture, then accounts payable, payroll, and statutory remittances as Accounting Staff at Red Scentennial Corporation.",
   },
   {
     icon: ShoppingBag,
@@ -20,6 +20,12 @@ const pillars = [
     title: "Automation, built and tested",
     body:
       "Learned automation by building it: n8n workflows, Supabase/Postgres, RAG chatbots, and Metabase reporting — designed around real accounting and order-processing logic, then regression-tested before calling it done.",
+  },
+  {
+    icon: Sparkles,
+    title: "AI-assisted development",
+    body:
+      "I use tools like Claude and ChatGPT throughout development to accelerate implementation and troubleshoot issues. My focus stays on the business process — defining workflow requirements, business rules, and expected outcomes — then reviewing, testing, and refining what the AI helps build.",
   },
 ];
 
@@ -38,7 +44,7 @@ export default function AboutSection() {
         </div>
       </FadeIn>
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-3">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {pillars.map((pillar, i) => (
           <FadeIn key={pillar.title} delay={i * 100}>
             <div className="h-full rounded-2xl border border-[var(--color-border)] bg-white p-7 shadow-sm">
