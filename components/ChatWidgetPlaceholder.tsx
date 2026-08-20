@@ -195,7 +195,8 @@ export default function ChatWidgetPlaceholder() {
     } finally {
       setLoading(false);
       setJustAnswered(true);
-      answeredTimeout.current = setTimeout(() => setJustAnswered(false), 2500);
+      // Matches the real Idol Fairies chatbot's success-pose duration (components/chat/ChatWidget.tsx).
+      answeredTimeout.current = setTimeout(() => setJustAnswered(false), 1600);
     }
   }
 
