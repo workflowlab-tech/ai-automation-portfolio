@@ -4,8 +4,10 @@ import {
   Bot,
   ChartNoAxesCombined,
   FileText,
+  GraduationCap,
   Landmark,
   Mail,
+  MapPin,
   Rocket,
   Settings2,
   ShoppingCart,
@@ -62,10 +64,10 @@ export default function AboutSection() {
           <div className="relative grid gap-8 lg:grid-cols-[330px_minmax(0,1fr)] lg:items-stretch">
             <FadeIn>
               <aside className="h-full overflow-hidden rounded-[1.75rem] border border-slate-100 bg-gradient-to-b from-blue-50 to-white shadow-lg shadow-slate-200/70">
-                <div className="flex flex-col items-center px-6 pb-7 pt-8">
+                <div className="flex h-full flex-col items-center px-6 pb-7 pt-8">
                   <div className="relative h-52 w-52 overflow-hidden rounded-full border-[7px] border-white bg-blue-100 shadow-[0_15px_38px_-16px_rgba(29,78,216,0.55)] sm:h-56 sm:w-56">
                     <Image
-                      src="/about/mj-ablanque.png"
+                      src="/about/mj-ablanque-profile.jpeg"
                       alt={`${site.fullName} — portrait`}
                       fill
                       sizes="(max-width: 640px) 208px, 224px"
@@ -92,6 +94,24 @@ export default function AboutSection() {
                         </p>
                       </div>
                     ))}
+                  </div>
+
+                  <div className="mt-auto w-full pt-8">
+                    <div className="rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm">
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-700">
+                        Quick Profile
+                      </p>
+                      <div className="mt-3 space-y-3 text-sm text-slate-700">
+                        <div className="flex items-center gap-3">
+                          <MapPin size={17} className="shrink-0 text-blue-600" aria-hidden="true" />
+                          <span>{site.location}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <GraduationCap size={18} className="shrink-0 text-blue-600" aria-hidden="true" />
+                          <span>BS Accountancy</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </aside>
@@ -161,7 +181,7 @@ export default function AboutSection() {
                       className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-200 transition-colors hover:bg-blue-700"
                     >
                       <FileText size={16} aria-hidden="true" />
-                      View Resume
+                      View Resume PDF
                     </a>
                     <Link
                       href={site.contactHref}

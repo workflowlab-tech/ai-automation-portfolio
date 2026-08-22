@@ -7,7 +7,7 @@ export const site = {
   github: "https://github.com/workflowlab-tech",
   githubHandle: "workflowlab-tech",
   location: "Antipolo, Philippines",
-  resumeHref: "/documents/Mary_Joyce_Ablanque_AI_Automation_Resume_FINAL.docx",
+  resumeHref: "/documents/Mary_Joyce_Ablanque_AI_Automation_Resume_FINAL.pdf",
   caseStudyHref: "/idol-fairies",
   projectsHref: "/projects",
   aboutHref: "/#about",
