@@ -1,5 +1,6 @@
 export const site = {
-  name: "Mary Joyce Ablanque",
+  name: "MJ Ablanque",
+  fullName: "Mary Joyce Ablanque",
   role: "AI Automation Specialist",
   tagline: "Finance & E-commerce Systems",
   email: "mjablanque97@gmail.com",
@@ -8,6 +9,8 @@ export const site = {
   location: "Antipolo, Philippines",
   resumeHref: "/documents/Mary_Joyce_Ablanque_AI_Automation_Resume_FINAL.docx",
   caseStudyHref: "/idol-fairies",
+  projectsHref: "/projects",
+  aboutHref: "/about",
   contactHref: "/contact",
 };
 

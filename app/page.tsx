@@ -1,7 +1,8 @@
 import Hero from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import FlagshipTeaser from "@/components/FlagshipTeaser";
-import AboutSection from "@/components/AboutSection";
+import ProjectsPreview from "@/components/ProjectsPreview";
+import AboutPreview from "@/components/AboutPreview";
 import ContactCTA from "@/components/ContactCTA";
 
 export default function Home() {
@@ -10,7 +11,8 @@ export default function Home() {
       <Hero />
       <ServicesGrid />
       <FlagshipTeaser />
-      <AboutSection />
+      <ProjectsPreview />
+      <AboutPreview />
       <ContactCTA />
     </>
   );

@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import GithubIcon from "@/components/icons/GithubIcon";
 
 export const metadata: Metadata = {
-  title: "Contact — Mary Joyce Ablanque",
+  title: "Contact — MJ Ablanque",
   description: "Talk to me about your finance or e-commerce process — see if automation is a good fit.",
 };
 

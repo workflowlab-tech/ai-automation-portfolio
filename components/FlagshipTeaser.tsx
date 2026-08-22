@@ -28,7 +28,7 @@ export default function FlagshipTeaser() {
                     className="rounded-lg"
                   />
                   <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
-                    Flagship case study
+                    Flagship Project
                   </span>
                 </div>
 

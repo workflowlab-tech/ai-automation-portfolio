@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Info, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ExternalLink, Info, CheckCircle2 } from "lucide-react";
 import { proofBanner, systemOverview } from "@/data/caseStudy";
 import FadeIn from "@/components/FadeIn";
 import SystemDiagram from "@/components/SystemDiagram";
@@ -10,7 +10,7 @@ import DemoVideo from "@/components/DemoVideo";
 import GithubIcon from "@/components/icons/GithubIcon";
 
 export const metadata: Metadata = {
-  title: "Idol Fairies — Finance & E-Commerce Automation Demo | Mary Joyce Ablanque",
+  title: "Idol Fairies — Finance & E-Commerce Automation Demo | MJ Ablanque",
   description:
     "A self-directed finance + e-commerce automation portfolio project, built with AI-assisted development: storefront, order processing, wholesale & receivables, refunds, an AI assistant, an admin dashboard, and owner reporting.",
 };
@@ -30,7 +30,10 @@ export default function IdolFairiesPage() {
                 className="rounded-xl"
               />
             </div>
-            <h1 className="mt-5 text-4xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl">
+            <span className="mt-4 inline-flex items-center rounded-full bg-[var(--color-primary-light)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
+              Flagship Project
+            </span>
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl">
               Idol Fairies
             </h1>
             <p className="mt-3 text-lg text-[var(--color-body)]">
@@ -69,15 +72,26 @@ export default function IdolFairiesPage() {
           </FadeIn>
 
           <FadeIn delay={220}>
-            <a
-              href="https://github.com/workflowlab-tech/idol-fairies-storefront"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
-            >
-              <GithubIcon size={16} />
-              View project code on GitHub
-            </a>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="https://idolfairies.workflowlab.site/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+              >
+                Visit Live Website
+                <ExternalLink size={16} />
+              </a>
+              <a
+                href="https://github.com/workflowlab-tech/idol-fairies-storefront"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+              >
+                <GithubIcon size={16} />
+                View project code on GitHub
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>

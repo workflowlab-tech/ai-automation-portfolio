@@ -6,9 +6,10 @@ import { Menu, X } from "lucide-react";
 import { site } from "@/data/site";
 
 const links = [
-  { href: "/#services", label: "Work" },
+  { href: "/", label: "Home" },
   { href: "/idol-fairies", label: "Idol Fairies" },
-  { href: "/#about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Nav() {

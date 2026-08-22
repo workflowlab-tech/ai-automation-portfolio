@@ -146,19 +146,19 @@ export default function SolutionAreaTabs() {
         <div className="mt-6 grid gap-6 lg:grid-cols-5">
           <div className="space-y-5 lg:col-span-3">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">
                 Business problem
               </p>
               <p className="mt-1.5 text-[15px] leading-7 text-[var(--color-body)]">{active.problem}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
                 What it does
               </p>
               <p className="mt-1.5 text-[15px] leading-7 text-[var(--color-body)]">{active.whatItDoes}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-cyan)]">
                 What changes
               </p>
               <p className="mt-1.5 text-[15px] leading-7 text-[var(--color-body)]">{active.whatChanges}</p>
