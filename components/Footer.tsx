@@ -48,7 +48,7 @@ export default function Footer() {
             <Link href="/projects" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
               Projects
             </Link>
-            <Link href="/about" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
+            <Link href="/#about" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
               About
             </Link>
             <Link href="/contact" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">

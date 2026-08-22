@@ -9,7 +9,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/idol-fairies", label: "Idol Fairies" },
   { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
+  { href: "/#about", label: "About" },
 ];
 
 export default function Nav() {

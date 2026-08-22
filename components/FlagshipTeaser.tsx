@@ -40,7 +40,7 @@ export default function FlagshipTeaser() {
                 <p className="mt-4 text-[var(--color-body)]">
                   Not a pile of separate automations — one pipeline. Retail checkout and wholesale
                   orders both flow into the same sales, inventory, receivables, and reporting
-                  layer, with an AI assistant answering questions from the same live data.
+                  layer, with an AI assistant answering questions from the same project data.
                 </p>
 
                 <div className="mt-6 flex flex-wrap items-center gap-2 text-sm text-[var(--color-body)]">

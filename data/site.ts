@@ -10,7 +10,7 @@ export const site = {
   resumeHref: "/documents/Mary_Joyce_Ablanque_AI_Automation_Resume_FINAL.docx",
   caseStudyHref: "/idol-fairies",
   projectsHref: "/projects",
-  aboutHref: "/about",
+  aboutHref: "/#about",
   contactHref: "/contact",
 };
 
