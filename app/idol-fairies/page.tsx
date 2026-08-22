@@ -7,7 +7,7 @@ import SystemDiagram from "@/components/SystemDiagram";
 export const metadata: Metadata = {
   title: "Idol Fairies — Finance & E-commerce Automation Demo | MJ Ablanque",
   description:
-    "A self-directed finance and e-commerce automation portfolio project connecting storefront, operations, finance, AI support, and reporting.",
+    "A connected finance and e-commerce portfolio project linking a live storefront with AI support, operations, finance, and reporting.",
 };
 
 export default function IdolFairiesPage() {

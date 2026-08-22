@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, PlayCircle, Target, Workflow } from "lucide-react";
 import type { Project } from "@/data/projects";
 import FadeIn from "../FadeIn";
 import BestForBand from "./BestForBand";
@@ -25,19 +25,22 @@ export default function ProjectCaseStudy({
         <FadeIn>
           <div className="grid gap-4 sm:grid-cols-3">
             <article className="rounded-2xl border border-red-100 bg-[var(--color-accent-red-light)] p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">
+                <Target size={16} />
                 Problem
               </p>
               <p className="mt-2 text-[15px] leading-7 text-[var(--color-ink)]">{project.problem}</p>
             </article>
             <article className="rounded-2xl border border-blue-100 bg-[var(--color-accent-blue-light)] p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
+                <Workflow size={16} />
                 Solution
               </p>
               <p className="mt-2 text-[15px] leading-7 text-[var(--color-ink)]">{project.solution}</p>
             </article>
             <article className="rounded-2xl border border-green-100 bg-[var(--color-accent-green-light)] p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-green)]">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-green)]">
+                <CheckCircle2 size={16} />
                 Result
               </p>
               <p className="mt-2 text-[15px] leading-7 text-[var(--color-ink)]">{project.result}</p>
@@ -122,17 +125,19 @@ export default function ProjectCaseStudy({
       <section className="border-y border-[var(--color-border)] bg-[var(--color-surface-alt)] py-20">
         <div className="mx-auto max-w-6xl px-6">
           <FadeIn>
+            <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
               {project.screenshotsHeading ?? "Screenshots and outputs"}
             </h2>
-            <p className="mt-3 max-w-3xl leading-7 text-[var(--color-body)]">
+            <p className="mt-3 leading-7 text-[var(--color-body)]">
               {project.screenshotsDescription ??
                 "Income and expense workflows follow the same dependable pattern while recording the correct transaction type."}
             </p>
+            </div>
           </FadeIn>
           <FadeIn delay={80} className="mt-8">
             {showcase ?? (
-              <div className="grid gap-8 sm:grid-cols-2">
+              <div className="grid gap-6 sm:grid-cols-2">
                 {project.screenshots.map((shot) => (
                   <ProjectVisual key={shot.label} visual={shot} />
                 ))}
@@ -160,17 +165,17 @@ export default function ProjectCaseStudy({
           <div className="flex flex-col items-center justify-between gap-6 rounded-3xl bg-[var(--color-ink)] px-8 py-14 text-center shadow-xl shadow-slate-200 sm:flex-row sm:text-left">
             <div>
               <h2 className="text-2xl font-semibold text-white">
-                {project.ctaTitle ?? "Have a similar process to automate?"}
+                {project.ctaTitle ?? "Turn a manual bottleneck into a system you can trust."}
               </h2>
               <p className="mt-2 max-w-xl text-slate-300">
-                {project.ctaDescription ?? "Tell me what the process looks like today."}
+                {project.ctaDescription ?? "Share the process, tools, and outcome you need. I’ll map the clearest practical next step—automation, process cleanup, or a better workflow."}
               </p>
             </div>
             <Link
               href="/contact"
               className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[var(--color-primary)] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
             >
-              Talk to me about your process
+              Discuss your process
               <ArrowRight size={18} />
             </Link>
           </div>

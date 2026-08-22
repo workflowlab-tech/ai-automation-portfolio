@@ -41,6 +41,28 @@ export const solutionAreas: SolutionArea[] = [
     ],
   },
   {
+    id: "assistant",
+    tabLabel: "AI Customer Assistant",
+    title: "AI Customer Assistant (Idol AI)",
+    problem:
+      "Customers ask product and policy questions (stock, price, shipping, returns) that would otherwise need a person answering the same questions repeatedly.",
+    whatItDoes:
+      "A RAG-based chatbot answers using two tools — one that searches the live product catalog, one that searches store policy — explicitly instructed to never answer from memory or guess. If it doesn't have a real answer, it says so instead of inventing one.",
+    whatChanges:
+      "Customers get accurate, real-time answers (stock status, pricing) instead of static FAQ text that can go stale, with no risk of the bot promising something that isn't true.",
+    evidence:
+      "Every product/policy fact the assistant states is traceable to a tool call result — verifiable directly by asking it something outside the catalog and confirming it declines rather than fabricates.",
+    technical: [
+      {
+        points: [
+          "Powered by Google Gemini (@google/genai) with function calling — two tools: search_products, search_policy",
+          "Custom RAG pipeline (lib/rag/chunk.ts, embed.ts, retrieve.ts) over store policy/FAQ content",
+          "Explicit routing rules in the system prompt prevent hallucination: mixed questions call both tools; a failed policy lookup is reported as unavailable rather than retried indefinitely or guessed",
+        ],
+      },
+    ],
+  },
+  {
     id: "sales",
     tabLabel: "Sales & Order Processing",
     title: "Sales & Order Processing",
@@ -104,28 +126,6 @@ export const solutionAreas: SolutionArea[] = [
           "Workflow: 07_REFUND_V1.json",
           "Restock decision recorded per line item (refund_items.restock) — never inferred or assumed",
           "Refund amount vs. gross sales calculated as a refund-rate KPI on the Business Dashboard",
-        ],
-      },
-    ],
-  },
-  {
-    id: "assistant",
-    tabLabel: "AI Customer Assistant",
-    title: "AI Customer Assistant (Idol AI)",
-    problem:
-      "Customers ask product and policy questions (stock, price, shipping, returns) that would otherwise need a person answering the same questions repeatedly.",
-    whatItDoes:
-      "A RAG-based chatbot answers using two tools — one that searches the live product catalog, one that searches store policy — explicitly instructed to never answer from memory or guess. If it doesn't have a real answer, it says so instead of inventing one.",
-    whatChanges:
-      "Customers get accurate, real-time answers (stock status, pricing) instead of static FAQ text that can go stale, with no risk of the bot promising something that isn't true.",
-    evidence:
-      "Every product/policy fact the assistant states is traceable to a tool call result — verifiable directly by asking it something outside the catalog and confirming it declines rather than fabricates.",
-    technical: [
-      {
-        points: [
-          "Powered by Google Gemini (@google/genai) with function calling — two tools: search_products, search_policy",
-          "Custom RAG pipeline (lib/rag/chunk.ts, embed.ts, retrieve.ts) over store policy/FAQ content",
-          "Explicit routing rules in the system prompt prevent hallucination: mixed questions call both tools; a failed policy lookup is reported as unavailable rather than retried indefinitely or guessed",
         ],
       },
     ],

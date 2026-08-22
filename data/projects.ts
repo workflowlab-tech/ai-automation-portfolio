@@ -54,15 +54,15 @@ export const projects: Project[] = [
     workflowCountLabel: "2 workflows: Income + Expense",
     tools: ["n8n", "Gemini", "Gmail", "Google Sheets", "Google Drive"],
     overview:
-      "Two sibling n8n workflows automatically capture income and expense records from emails/files, validate and de-duplicate the data, then organize everything in Google Sheets and Drive.",
+      "Turns receipts, emails, and messages into clean income and expense records—without repetitive encoding or duplicate entries.",
     headerOverview:
-      "Personal Income & Expense Automation is a two-workflow personal finance system for tracking money in and money out without repetitive manual encoding. Both workflows share the same reliable pattern — capture, AI extraction, validation, duplicate checks, structured recording, archiving, and confirmation — while applying the correct income or expense rules.",
+      "Receipts, income notices, and statements arrive through email or Telegram. The system captures each transaction, checks it, prevents duplicates, updates the right sheet, stores the source file, and confirms what happened.",
     problem:
-      "Income and expense records arrive through emails, receipts, statements, and files, making manual tracking repetitive, inconsistent, and easy to duplicate.",
+      "Financial records arrive in different places, so tracking takes time and the same transaction can be entered twice.",
     solution:
-      "Two sibling n8n workflows use AI extraction, validation, duplicate checks, transaction-type rules, categorization, review routing, Google Sheets recording, Drive archiving, and confirmations.",
+      "Two automated workflows capture each record, check the details, block duplicates, and file everything in the right place.",
     result:
-      "Creates one consistent record of money in and money out, reduces repetitive encoding, and keeps supporting files organized for easier review and reporting.",
+      "Income and expenses stay organized, supporting files are easy to find, and review takes less manual effort.",
     bestFor: [
       "Freelancers / self-employed",
       "Small online sellers and small business owners",
@@ -109,37 +109,37 @@ export const projects: Project[] = [
         type: "image",
         src: "/projects/personal-income-expense/income-workflow.png",
         label: "Income workflow — real n8n canvas",
-        aspect: "wide",
+        aspect: "standard",
       },
       {
         type: "image",
         src: "/projects/personal-income-expense/expense-workflow.png",
         label: "Expense workflow — real n8n canvas",
-        aspect: "wide",
+        aspect: "standard",
       },
       {
         type: "image",
         src: "/projects/personal-income-expense/gmail-processed.png",
         label: "Gmail intake with processed labels",
-        aspect: "wide",
+        aspect: "standard",
       },
       {
         type: "image",
         src: "/projects/personal-income-expense/income-sheet.png",
         label: "Structured income records in Google Sheets",
-        aspect: "wide",
+        aspect: "standard",
       },
       {
         type: "image",
         src: "/projects/personal-income-expense/expense-sheet.png",
         label: "Structured expense records in Google Sheets",
-        aspect: "wide",
+        aspect: "standard",
       },
       {
         type: "image",
         src: "/projects/personal-income-expense/expense-telegram.png",
         label: "Telegram receipt intake, duplicate warning, and confirmation",
-        aspect: "portrait",
+        aspect: "standard",
       },
     ],
     testing: [
@@ -182,6 +182,9 @@ export const projects: Project[] = [
     ],
     testingSummary:
       "63 conclusive test executions passed across 3 independent regression rounds in August 2026, covering both workflows and both Gmail and Telegram intake paths.",
+    screenshotsHeading: "Project screenshots and outputs",
+    screenshotsDescription:
+      "A balanced view of both workflows, their intake channels, and the organized records they produce.",
   },
 ];
 
@@ -192,15 +195,15 @@ export const idolFairiesProject: Project = {
   workflowCountLabel: "Connected e-commerce + finance system",
   tools: ["Next.js", "n8n", "Supabase", "Gemini", "Metabase"],
   overview:
-    "A connected storefront, operations, finance, AI support, and reporting system built as one end-to-end portfolio demonstration.",
+    "Connects a live storefront to orders, inventory, finance, customer support, and owner reporting through one shared system.",
   headerOverview:
-    "Idol Fairies connects a live K-pop merchandise storefront with order processing, inventory, receivables, expenses, refunds, AI customer support, admin operations, and management reporting.",
+    "A live K-pop merchandise storefront feeds the same system used for orders, inventory, finance, customer support, and reporting. Staff and owners get different views of the same reliable business data instead of maintaining disconnected records.",
   problem:
-    "E-commerce, wholesale, finance, customer support, and reporting often sit in separate tools, creating duplicate entry, inconsistent records, and limited visibility.",
+    "When sales, stock, finance, support, and reporting sit in separate places, teams repeat work and make decisions from inconsistent information.",
   solution:
-    "One connected system normalizes retail and wholesale orders, updates shared operational data, automates finance workflows, supports staff, and feeds owner reporting.",
+    "One shared system connects every shopper action to the operational work that follows, from support and order handling to finance and reporting.",
   result:
-    "The project demonstrates how storefront activity can flow into operations and finance without rebuilding the same data in disconnected systems.",
+    "Staff work from one operational view, while owners see clear performance without rebuilding the same records in multiple tools.",
   bestFor: [
     "Online retailers managing storefront and back-office operations",
     "Wholesale or reseller businesses tracking receivables",
@@ -210,11 +213,11 @@ export const idolFairiesProject: Project = {
   ],
   workflowFlow: [
     "Storefront / Wholesale",
+    "AI Support",
     "Order Validation",
     "Sales Processing",
     "Inventory & Finance",
     "Admin Operations",
-    "AI Support",
     "Management Reporting",
   ],
   previewVisual: {
@@ -233,10 +236,10 @@ export const idolFairiesProject: Project = {
   howItWorks: {
     shared: [
       "Capture — a storefront checkout or wholesale order enters one shared order pipeline.",
+      "Support — Idol AI answers shopper questions using current catalog and policy information.",
       "Validate — customer, order, and SKU data are checked before records are created; anything unresolved is sent to review.",
       "Process — approved orders create consistent sales records and update the operational view.",
       "Coordinate — inventory, receivables, payables, expenses, and refunds use the same underlying business data.",
-      "Support — the admin dashboard gives staff a focused workspace while Idol AI answers from live catalog and policy information.",
       "Report — Metabase turns the connected records into owner-level sales, margin, aging, expense, and inventory views.",
     ],
   },
@@ -265,12 +268,12 @@ export const idolFairiesProject: Project = {
   logoSrc: "/brand/idol-fairies-logo.jpg",
   liveSiteHref: "https://idolfairies.workflowlab.site/",
   githubHref: "https://github.com/workflowlab-tech/idol-fairies-storefront",
-  screenshotsHeading: "Explore the connected system",
+  screenshotsHeading: "Project screenshots and outputs",
   screenshotsDescription:
     "Each area follows the same clear format: business problem, what the system does, what changes, supporting evidence, and optional technical details.",
-  ctaTitle: "Want a connected system for your business?",
+  ctaTitle: "Turn disconnected operations into one dependable system.",
   ctaDescription:
-    "Tell me where your orders, operations, and finance processes are disconnected today.",
+    "Share where orders, support, inventory, or finance break apart today. I’ll map the clearest practical next step.",
 };
 
 export function getProject(slug: string) {

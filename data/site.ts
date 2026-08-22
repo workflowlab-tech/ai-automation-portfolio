@@ -16,9 +16,9 @@ export const site = {
 
 export const heroCopy = {
   eyebrow: "AI Automation Specialist — Finance & E-commerce Systems",
-  headline: "I turn manual finance and e-commerce processes into automated systems that actually work.",
+  headline: "Turn manual finance and e-commerce work into systems that run with less rework.",
   subhead:
-    "Accounting background + hands-on e-commerce experience, built into working automation — not just workflows.",
-  primaryCta: { label: "View the Idol Fairies System", href: "/idol-fairies" },
-  secondaryCta: { label: "Talk to me about your process", href: "/contact" },
+    "I map the business process first, then build automation that captures, checks, records, and reports the work—so teams spend less time chasing details.",
+  primaryCta: { label: "See the flagship case study", href: "/idol-fairies" },
+  secondaryCta: { label: "Discuss a process", href: "/contact" },
 };

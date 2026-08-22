@@ -10,18 +10,18 @@ export const services: Service[] = [
     icon: "cart",
     title: "E-commerce Operations",
     description:
-      "Storefront, checkout, order processing, and inventory kept in sync so what customers see always matches what's actually in stock.",
+      "Connect storefront, checkout, order handling, and inventory so customers and staff work from the same information.",
     points: [
       "Order intake from storefront and wholesale channels",
       "Inventory that updates automatically as orders move",
-      "Refunds handled as a single tracked action, not a manual scramble",
+      "Refunds handled as one visible, trackable process",
     ],
   },
   {
     icon: "calculator",
     title: "Finance & Accounting Automation",
     description:
-      "Receivables, payables, and expenses captured from email and chat, with human checkpoints kept where judgment still matters.",
+      "Capture receivables, payables, and expenses from email and chat while keeping human review where judgment still matters.",
     points: [
       "Accounts receivable aging and automatic payment reminders",
       "Supplier purchases staged for owner confirmation, not auto-posted",
@@ -32,10 +32,10 @@ export const services: Service[] = [
     icon: "bot",
     title: "AI Assistants / Knowledge Systems",
     description:
-      "Chatbots that answer from real data instead of guessing — built on retrieval, not a prompt hoping for the best.",
+      "Give customers and staff useful answers from current product, policy, and business information instead of guesswork.",
     points: [
-      "RAG-based product and policy lookups with tool-calling",
-      "Explicit refusal to answer from memory when a tool comes back empty",
+      "Product and policy answers grounded in approved information",
+      "Clear fallback when the system cannot verify an answer",
       "Structured to add new tools without rewriting the routing logic",
     ],
   },
@@ -43,11 +43,11 @@ export const services: Service[] = [
     icon: "chart",
     title: "Reporting & Business Visibility",
     description:
-      "Owner-level dashboards separate from day-to-day admin screens, so reviewing the business doesn't mean digging through raw tables.",
+      "Separate daily operations from owner reporting so reviewing the business does not mean digging through raw tables.",
     points: [
       "Revenue, margin, and AR/AP aging in one place",
       "Inventory valuation kept current, not a stale snapshot",
-      "Built with Metabase on real report SQL, verified before wiring in",
+      "Reports checked against the underlying business records",
     ],
   },
 ];

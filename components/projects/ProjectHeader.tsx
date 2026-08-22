@@ -31,7 +31,11 @@ export default function ProjectHeader({ project }: { project: Project }) {
           {project.title}
         </h1>
 
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-1.5">
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[var(--color-body)]">
+          {project.headerOverview}
+        </p>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-1.5">
           {project.tools.map((tool) => (
             <span
               key={tool}
@@ -41,10 +45,6 @@ export default function ProjectHeader({ project }: { project: Project }) {
             </span>
           ))}
         </div>
-
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[var(--color-body)]">
-          {project.headerOverview}
-        </p>
 
         {project.liveSiteHref || project.demo.available || project.githubHref ? (
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
