@@ -67,29 +67,32 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
             </div>
           </div>
 
-          <WorkflowDetailsToggle id={project.slug} steps={project.workflowFlow}>
-            {project.demo.available ? (
-              <a
-                href={project.demo.videoSrc}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
-              >
-                <PlayCircle size={16} /> Watch Demo
-              </a>
-            ) : (
-              <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-[var(--color-border)] px-5 py-2.5 text-sm font-medium text-[var(--color-muted)]">
-                <PlayCircle size={16} /> Demo coming soon
-              </span>
-            )}
-            <Link
-              href={project.viewProjectHref}
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
-            >
-              View Project <ArrowRight size={16} />
-            </Link>
-          </WorkflowDetailsToggle>
         </div>
+      </div>
+
+      <div className="border-t border-[var(--color-border)] bg-white px-6 py-8 sm:px-8 lg:px-10">
+        <WorkflowDetailsToggle id={project.slug} steps={project.workflowFlow}>
+          {project.demo.available ? (
+            <a
+              href={project.demo.videoSrc}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] sm:w-auto sm:min-w-44"
+            >
+              <PlayCircle size={16} /> Watch Demo
+            </a>
+          ) : (
+            <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-dashed border-[var(--color-border)] px-5 py-2.5 text-sm font-medium text-[var(--color-muted)] sm:w-auto sm:min-w-44">
+              <PlayCircle size={16} /> Demo coming soon
+            </span>
+          )}
+          <Link
+            href={project.viewProjectHref}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)] sm:w-auto sm:min-w-44"
+          >
+            View Project <ArrowRight size={16} />
+          </Link>
+        </WorkflowDetailsToggle>
       </div>
     </div>
   );

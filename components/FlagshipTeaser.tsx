@@ -89,8 +89,6 @@ export default function FlagshipTeaser() {
                   layer, with an AI assistant answering questions from the same project data.
                 </p>
 
-                <WorkflowDetailsToggle id="idol-fairies" steps={journeySteps} />
-
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
                     href="https://idolfairies.workflowlab.site/"
@@ -114,6 +112,10 @@ export default function FlagshipTeaser() {
                   </Link>
                 </div>
               </div>
+            </div>
+
+            <div className="border-t border-[var(--color-border)] bg-white px-6 py-8 sm:px-8 lg:px-10">
+              <WorkflowDetailsToggle id="idol-fairies" steps={journeySteps} />
             </div>
           </div>
         </FadeIn>
