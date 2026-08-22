@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, ExternalLink, Info, Maximize2, PlayCircle } from "lucide-react";
 import { proofBanner } from "@/data/caseStudy";
 import FadeIn from "./FadeIn";
-import WorkflowFlow from "./projects/WorkflowFlow";
+import WorkflowDetailsToggle from "./projects/WorkflowDetailsToggle";
 
 const journeySteps = [
   "Storefront",
@@ -89,9 +89,7 @@ export default function FlagshipTeaser() {
                   layer, with an AI assistant answering questions from the same project data.
                 </p>
 
-                <div className="mt-7">
-                  <WorkflowFlow steps={journeySteps} />
-                </div>
+                <WorkflowDetailsToggle id="idol-fairies" steps={journeySteps} />
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a

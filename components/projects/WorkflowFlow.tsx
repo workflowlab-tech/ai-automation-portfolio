@@ -8,18 +8,17 @@ export default function WorkflowFlow({ steps }: { steps: string[] }) {
         <h4 className="text-sm font-semibold uppercase tracking-wide">Workflow Architecture</h4>
       </div>
 
-      <ol className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <ol className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-3">
         {steps.map((step, index) => (
-          <li key={step} className="relative flex min-h-14 items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 shadow-sm">
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-light)] text-xs font-semibold text-[var(--color-primary)]">
-              {String(index + 1).padStart(2, "0")}
+          <li key={step} className="flex w-full items-center gap-2 sm:w-auto">
+            <span className="rounded-lg border border-[var(--color-border)] bg-white px-3.5 py-2 text-sm font-medium leading-5 text-[var(--color-ink)] shadow-sm">
+              {step}
             </span>
-            <span className="text-sm font-medium leading-5 text-[var(--color-ink)]">{step}</span>
             {index < steps.length - 1 && (
               <ArrowRight
                 size={15}
                 aria-hidden="true"
-                className="absolute -bottom-[15px] left-1/2 z-10 -translate-x-1/2 rotate-90 text-[var(--color-primary)] sm:hidden"
+                className="shrink-0 rotate-90 text-[var(--color-primary)] sm:rotate-0"
               />
             )}
           </li>

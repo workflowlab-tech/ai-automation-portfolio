@@ -1,16 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight, PlayCircle } from "lucide-react";
+import { ArrowRight, PlayCircle } from "lucide-react";
 import type { Project } from "@/data/projects";
 import BestForBand from "./BestForBand";
-import WorkflowFlow from "./WorkflowFlow";
+import WorkflowDetailsToggle from "./WorkflowDetailsToggle";
 import ProjectVisual from "./ProjectVisual";
 
 export default function ProjectPreviewCard({ project }: { project: Project }) {
-  const [open, setOpen] = useState(false);
-
   return (
     <div className="overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white shadow-sm">
       <div className="grid gap-0 lg:grid-cols-2">
@@ -72,62 +67,28 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
             </div>
           </div>
 
-          <div className="mt-6">
-            <WorkflowFlow steps={project.workflowFlow} />
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls={`${project.slug}-workflow-details`}
-            className="mt-6 flex w-full items-center justify-between gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-left"
-          >
-            <span className="text-sm font-semibold text-[var(--color-ink)]">Workflow Details</span>
-            <ChevronDown
-              size={18}
-              className={`shrink-0 text-[var(--color-muted)] transition-transform ${open ? "rotate-180" : ""}`}
-            />
-          </button>
-
-          {open && (
-            <div
-              id={`${project.slug}-workflow-details`}
-              className="mt-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5"
+          <WorkflowDetailsToggle id={project.slug} steps={project.workflowFlow}>
+            {project.demo.available ? (
+              <a
+                href={project.demo.videoSrc}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+              >
+                <PlayCircle size={16} /> Watch Demo
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-[var(--color-border)] px-5 py-2.5 text-sm font-medium text-[var(--color-muted)]">
+                <PlayCircle size={16} /> Demo coming soon
+              </span>
+            )}
+            <Link
+              href={project.viewProjectHref}
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
             >
-              <p className="text-sm font-semibold text-[var(--color-ink)]">Detailed workflow logic</p>
-              <ul className="mt-3 space-y-2">
-                {project.howItWorks.shared.map((step) => (
-                  <li key={step} className="flex gap-2 text-sm leading-6 text-[var(--color-body)]">
-                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-primary)]" />
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {project.demo.available ? (
-                  <a
-                    href={project.demo.videoSrc}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
-                  >
-                    <PlayCircle size={16} /> Watch Demo
-                  </a>
-                ) : (
-                  <span className="inline-flex items-center gap-2 rounded-full border border-dashed border-[var(--color-border)] px-5 py-2.5 text-sm font-medium text-[var(--color-muted)]">
-                    <PlayCircle size={16} /> Demo coming soon
-                  </span>
-                )}
-                <Link
-                  href={project.viewProjectHref}
-                  className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
-                >
-                  View Project <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          )}
+              View Project <ArrowRight size={16} />
+            </Link>
+          </WorkflowDetailsToggle>
         </div>
       </div>
     </div>
