@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20">
+    <div className="mx-auto max-w-7xl px-6 py-20">
       <FadeIn>
         <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
           Projects

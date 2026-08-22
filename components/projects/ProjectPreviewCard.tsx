@@ -13,8 +13,17 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
 
   return (
     <div className="overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white shadow-sm">
-      <div className="grid gap-0 lg:grid-cols-5">
-        <div className="p-8 sm:p-10 lg:col-span-3">
+      <div className="grid gap-0 lg:grid-cols-2">
+        <div className="bg-[var(--color-surface-alt)] p-6 sm:p-8 lg:p-10">
+          <ProjectVisual visual={project.previewVisual} />
+          <p className="mt-2 text-xs leading-5 text-[var(--color-muted)]">{project.previewVisualNote}</p>
+
+          <div className="mt-6">
+            <BestForBand items={project.bestFor} />
+          </div>
+        </div>
+
+        <div className="p-6 sm:p-8 lg:p-10">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
               {project.category}
@@ -42,7 +51,7 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
             ))}
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <div className="rounded-xl bg-[var(--color-accent-red-light)] p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">
                 Problem
@@ -55,7 +64,7 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
               </p>
               <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink)]">{project.solution}</p>
             </div>
-            <div className="rounded-xl bg-[var(--color-accent-green-light)] p-4">
+            <div className="rounded-xl bg-[var(--color-accent-green-light)] p-4 sm:col-span-2">
               <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-green)]">
                 Result
               </p>
@@ -64,19 +73,14 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
           </div>
 
           <div className="mt-6">
-            <BestForBand items={project.bestFor} />
-          </div>
-        </div>
-
-        <div className="flex flex-col justify-between bg-[var(--color-surface-alt)] p-8 sm:p-10 lg:col-span-2">
-          <div>
-            <ProjectVisual visual={project.previewVisual} />
-            <p className="mt-2 text-xs text-[var(--color-muted)]">{project.previewVisualNote}</p>
+            <WorkflowFlow steps={project.workflowFlow} />
           </div>
 
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls={`${project.slug}-workflow-details`}
             className="mt-6 flex w-full items-center justify-between gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 text-left"
           >
             <span className="text-sm font-semibold text-[var(--color-ink)]">Workflow Details</span>
@@ -87,9 +91,20 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
           </button>
 
           {open && (
-            <div className="mt-4 space-y-5 rounded-xl border border-[var(--color-border)] bg-white p-5">
-              <WorkflowFlow steps={project.workflowFlow} />
-              <div className="flex flex-wrap gap-3">
+            <div
+              id={`${project.slug}-workflow-details`}
+              className="mt-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-5"
+            >
+              <p className="text-sm font-semibold text-[var(--color-ink)]">Detailed workflow logic</p>
+              <ul className="mt-3 space-y-2">
+                {project.howItWorks.shared.map((step) => (
+                  <li key={step} className="flex gap-2 text-sm leading-6 text-[var(--color-body)]">
+                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-primary)]" />
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4 flex flex-wrap gap-3">
                 {project.demo.available ? (
                   <a
                     href={project.demo.videoSrc}

@@ -7,7 +7,7 @@ import ProjectPreviewCard from "./projects/ProjectPreviewCard";
 export default function ProjectsPreview() {
   return (
     <section className="bg-[var(--color-surface-alt)] py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">

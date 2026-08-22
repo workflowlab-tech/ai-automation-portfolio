@@ -1,26 +1,72 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, PlayCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, ExternalLink, Info, Maximize2, PlayCircle } from "lucide-react";
 import { proofBanner } from "@/data/caseStudy";
 import FadeIn from "./FadeIn";
+import WorkflowFlow from "./projects/WorkflowFlow";
 
 const journeySteps = [
   "Storefront",
   "Orders",
-  "Sales processing",
-  "Inventory & finance",
-  "AI support",
+  "Sales Processing",
+  "Inventory",
+  "Finance Operations",
+  "AI Support",
   "Reporting",
 ];
 
 export default function FlagshipTeaser() {
   return (
     <section className="bg-[var(--color-surface-alt)] py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <FadeIn>
           <div className="overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white shadow-sm">
             <div className="grid gap-0 lg:grid-cols-2">
-              <div className="flex flex-col justify-center p-8 sm:p-12">
+              <div className="bg-[var(--color-surface-alt)] p-6 sm:p-8 lg:p-10">
+                <figure>
+                  <a
+                    href="/screenshots/storefront/home.png"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block aspect-video overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-sm"
+                    aria-label="Open full-size image: Idol Fairies storefront homepage"
+                  >
+                    <Image
+                      src="/screenshots/storefront/home.png"
+                      alt="Idol Fairies storefront homepage"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                    />
+                    <span className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)]/90 px-3 py-2 text-xs font-semibold text-white shadow-sm transition-transform group-hover:scale-[1.03]">
+                      <Maximize2 size={14} />
+                      Click to view full size
+                    </span>
+                  </a>
+                  <figcaption className="mt-3 text-sm font-medium text-[var(--color-body)]">
+                    Real Idol Fairies storefront
+                  </figcaption>
+                </figure>
+
+                <div className="mt-6 space-y-3">
+                  <div className="flex items-start gap-3 rounded-2xl border border-[var(--color-border)] bg-white px-5 py-4">
+                    <Info size={18} className="mt-0.5 shrink-0 text-[var(--color-primary)]" />
+                    <p className="text-sm leading-6 text-[var(--color-body)]">
+                      <strong className="font-semibold text-[var(--color-ink)]">Self-directed portfolio/demo project.</strong>{" "}
+                      Built with realistic simulated business data.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3 rounded-2xl bg-[var(--color-accent-green-light)] px-5 py-4">
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--color-accent-green)]" />
+                    <p className="text-sm leading-6 text-[var(--color-ink)]">
+                      <strong className="font-semibold">{proofBanner.headline}</strong>{" "}
+                      <span className="text-[var(--color-body)]">({proofBanner.date})</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
                 <div className="flex items-center gap-3">
                   <Image
                     src="/brand/idol-fairies-logo.jpg"
@@ -43,22 +89,9 @@ export default function FlagshipTeaser() {
                   layer, with an AI assistant answering questions from the same project data.
                 </p>
 
-                <div className="mt-6 flex flex-wrap items-center gap-2 text-sm text-[var(--color-body)]">
-                  {journeySteps.map((step, i) => (
-                    <span key={step} className="flex items-center gap-2">
-                      <span className="rounded-full bg-[var(--color-surface-alt)] px-3 py-1.5 font-medium text-[var(--color-ink)]">
-                        {step}
-                      </span>
-                      {i < journeySteps.length - 1 && (
-                        <ArrowRight size={14} className="text-[var(--color-muted)]" />
-                      )}
-                    </span>
-                  ))}
+                <div className="mt-7">
+                  <WorkflowFlow steps={journeySteps} />
                 </div>
-
-                <p className="mt-6 text-sm font-medium text-[var(--color-accent-green)]">
-                  {proofBanner.headline} · {proofBanner.date}
-                </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
@@ -82,16 +115,6 @@ export default function FlagshipTeaser() {
                     View Full Project <ArrowRight size={16} />
                   </Link>
                 </div>
-              </div>
-
-              <div className="relative min-h-[280px] bg-[var(--color-ink)] lg:min-h-full">
-                <Image
-                  src="/screenshots/storefront/home.png"
-                  alt="Idol Fairies storefront homepage"
-                  fill
-                  className="object-cover object-top opacity-95"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
               </div>
             </div>
           </div>
