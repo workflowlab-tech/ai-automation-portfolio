@@ -77,11 +77,11 @@ function TechnicalLayer({ groups }: { groups: { heading?: string; points: string
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="rounded-xl border border-[var(--color-border)]">
+    <div className="overflow-hidden rounded-xl border border-blue-100 bg-blue-50/40">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left"
+        className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-blue-50"
       >
         <span className="text-sm font-semibold text-[var(--color-ink)]">
           Technical details <span className="font-normal text-[var(--color-muted)]">— architecture, data model, testing</span>
@@ -92,7 +92,7 @@ function TechnicalLayer({ groups }: { groups: { heading?: string; points: string
         />
       </button>
       {open && (
-        <div className="space-y-4 border-t border-[var(--color-border)] bg-[var(--color-surface-alt)] px-5 py-4">
+        <div className="space-y-4 border-t border-blue-100 bg-white px-5 py-5">
           {groups.map((group, i) => (
             <div key={i}>
               {group.heading && (
@@ -140,30 +140,30 @@ export default function SolutionAreaTabs() {
         ))}
       </div>
 
-      <div className="mt-8 rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
+      <div className="mt-8 rounded-3xl border border-blue-100 bg-white p-6 shadow-sm sm:p-8">
         <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)]">{active.title}</h3>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-5">
-          <div className="space-y-5 lg:col-span-3">
-            <div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-3">
+            <div className="rounded-2xl bg-[var(--color-accent-red-light)] p-4 sm:col-span-2">
               <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">
                 Business problem
               </p>
               <p className="mt-1.5 text-[15px] leading-7 text-[var(--color-body)]">{active.problem}</p>
             </div>
-            <div>
+            <div className="rounded-2xl bg-[var(--color-accent-blue-light)] p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
                 What it does
               </p>
               <p className="mt-1.5 text-[15px] leading-7 text-[var(--color-body)]">{active.whatItDoes}</p>
             </div>
-            <div>
+            <div className="rounded-2xl bg-[var(--color-accent-cyan-light)] p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-cyan)]">
                 What changes
               </p>
               <p className="mt-1.5 text-[15px] leading-7 text-[var(--color-body)]">{active.whatChanges}</p>
             </div>
-            <div className="flex items-start gap-2 rounded-xl bg-[var(--color-accent-green-light)] px-4 py-3">
+            <div className="flex items-start gap-2 rounded-2xl border border-green-100 bg-[var(--color-accent-green-light)] px-4 py-4 sm:col-span-2">
               <ShieldCheck size={18} className="mt-0.5 shrink-0 text-[var(--color-accent-green)]" />
               <p className="text-sm text-[var(--color-ink)]">{active.evidence}</p>
             </div>

@@ -1,7 +1,7 @@
 import { site } from "@/data/site";
 import { services } from "@/data/services";
 import { credentials } from "@/data/credentials";
-import { proofBanner, systemOverview, solutionAreas } from "@/data/caseStudy";
+import { systemOverview, solutionAreas } from "@/data/caseStudy";
 
 // Deliberately a short summary, not a job-by-job history — the detailed
 // employer-by-employer background lives in the resume, not this chat.
@@ -43,7 +43,6 @@ This is a self-directed portfolio/demo project — not a live client deployment 
 finance and e-commerce processes she has personally worked with, and built with substantial
 AI-assisted development (she defined business rules, workflow requirements, and test scenarios;
 AI coding assistants like Claude and ChatGPT helped implement and troubleshoot).
-${proofBanner.headline} (${proofBanner.date}). ${proofBanner.detail}
 
 Idol Fairies solution areas:
 ${solutionAreasBlock}

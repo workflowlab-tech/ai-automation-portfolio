@@ -9,13 +9,6 @@ export type SolutionArea = {
   technical: { heading?: string; points: string[] }[];
 };
 
-export const proofBanner = {
-  headline: "Workflow behavior checked across normal, duplicate, invalid, and edge-case scenarios",
-  date: "August 16, 2026",
-  detail:
-    "44 of 44 test cases passed, verified via live webhooks, real Gmail/Telegram triggers, and direct Supabase state checks — not just workflow execution status.",
-};
-
 export const systemOverview = {
   paragraph1:
     "Idol Fairies is a working K-pop merch e-commerce system, built end-to-end as a portfolio demonstration: a real storefront, real backend automation, and real reporting — running on synthetic order data so the mechanics can be shown safely without exposing a live business.",

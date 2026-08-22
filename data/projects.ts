@@ -23,7 +23,7 @@ export type Project = {
   solution: string;
   result: string;
   bestFor: string[];
-  /** Ordered step labels for the collapsed "Workflow Details" flow */
+  /** Ordered step labels for the collapsed workflow-details flow */
   workflowFlow: string[];
   previewVisual: ProjectVisual;
   previewVisualNote: string;
@@ -33,11 +33,17 @@ export type Project = {
   viewProjectHref: string;
   howItWorks: {
     shared: string[];
-    branches: { label: string; steps: string[] }[];
   };
   screenshots: ProjectVisual[];
   testing: ProjectTestRow[];
   testingSummary: string;
+  logoSrc?: string;
+  liveSiteHref?: string;
+  githubHref?: string;
+  screenshotsHeading?: string;
+  screenshotsDescription?: string;
+  ctaTitle?: string;
+  ctaDescription?: string;
 };
 
 export const projects: Project[] = [
@@ -96,25 +102,6 @@ export const projects: Project[] = [
         "Duplicate check — attachment hashing plus reference/amount/date matching blocks repeat submissions, including near-identical resends.",
         "Categorization — the AI assigns one category from the workflow's fixed list; there's no free-text categorizing.",
         "Recording — a validated, non-duplicate record is appended to the Income or Expense sheet, the source file is archived to Drive, and a confirmation is sent once the write succeeds.",
-      ],
-      branches: [
-        {
-          label: "Income-specific rules",
-          steps: [
-            "A refund (e.g. a courier or platform-fee refund) is treated as normal income and auto-posted under its own Refund category.",
-            "A self-transfer, reversal, or a payment still shown as pending is rejected — never recorded as income.",
-            "An expense mistakenly sent to the income channel is rejected, not recorded.",
-          ],
-        },
-        {
-          label: "Expense-specific rules",
-          steps: [
-            "A refund or credit is never auto-posted — it always routes to a review queue for manual confirmation.",
-            "A credit-card bill payment that settles purchases already recorded from an earlier statement is rejected as a transfer, so it isn't double-counted.",
-            "Income mistakenly sent to the expense channel is rejected, not recorded.",
-            "A multi-page statement is read as one document, with each real purchase posted as its own line — not one row per statement.",
-          ],
-        },
       ],
     },
     screenshots: [
@@ -197,6 +184,94 @@ export const projects: Project[] = [
       "63 conclusive test executions passed across 3 independent regression rounds in August 2026, covering both workflows and both Gmail and Telegram intake paths.",
   },
 ];
+
+export const idolFairiesProject: Project = {
+  slug: "idol-fairies",
+  category: "Flagship case study",
+  title: "Idol Fairies",
+  workflowCountLabel: "Connected e-commerce + finance system",
+  tools: ["Next.js", "n8n", "Supabase", "Gemini", "Metabase"],
+  overview:
+    "A connected storefront, operations, finance, AI support, and reporting system built as one end-to-end portfolio demonstration.",
+  headerOverview:
+    "Idol Fairies connects a live K-pop merchandise storefront with order processing, inventory, receivables, expenses, refunds, AI customer support, admin operations, and management reporting.",
+  problem:
+    "E-commerce, wholesale, finance, customer support, and reporting often sit in separate tools, creating duplicate entry, inconsistent records, and limited visibility.",
+  solution:
+    "One connected system normalizes retail and wholesale orders, updates shared operational data, automates finance workflows, supports staff, and feeds owner reporting.",
+  result:
+    "The project demonstrates how storefront activity can flow into operations and finance without rebuilding the same data in disconnected systems.",
+  bestFor: [
+    "Online retailers managing storefront and back-office operations",
+    "Wholesale or reseller businesses tracking receivables",
+    "Teams connecting orders, inventory, finance, and reporting",
+    "Owners who need separate operational and management views",
+    "Businesses adding AI support grounded in live catalog data",
+  ],
+  workflowFlow: [
+    "Storefront / Wholesale",
+    "Order Validation",
+    "Sales Processing",
+    "Inventory & Finance",
+    "Admin Operations",
+    "AI Support",
+    "Management Reporting",
+  ],
+  previewVisual: {
+    type: "image",
+    src: "/screenshots/storefront/home.png",
+    label: "Idol Fairies live storefront",
+    aspect: "wide",
+  },
+  previewVisualNote: "Live storefront connected to the wider operations and finance system.",
+  demo: {
+    available: true,
+    posterSrc: "/videos/idol-fairies-demo-poster.jpg",
+    videoSrc: "/videos/idol-fairies-demo.mp4",
+  },
+  viewProjectHref: "/idol-fairies",
+  howItWorks: {
+    shared: [
+      "Capture — a storefront checkout or wholesale order enters one shared order pipeline.",
+      "Validate — customer, order, and SKU data are checked before records are created; anything unresolved is sent to review.",
+      "Process — approved orders create consistent sales records and update the operational view.",
+      "Coordinate — inventory, receivables, payables, expenses, and refunds use the same underlying business data.",
+      "Support — the admin dashboard gives staff a focused workspace while Idol AI answers from live catalog and policy information.",
+      "Report — Metabase turns the connected records into owner-level sales, margin, aging, expense, and inventory views.",
+    ],
+  },
+  screenshots: [
+    {
+      type: "image",
+      src: "/screenshots/storefront/home.png",
+      label: "Idol Fairies storefront",
+      aspect: "wide",
+    },
+    {
+      type: "image",
+      src: "/screenshots/admin/overview.png",
+      label: "Admin operations overview",
+      aspect: "wide",
+    },
+    {
+      type: "image",
+      src: "/screenshots/metabase/business-dashboard.png",
+      label: "Management reporting dashboard",
+      aspect: "wide",
+    },
+  ],
+  testing: [],
+  testingSummary: "",
+  logoSrc: "/brand/idol-fairies-logo.jpg",
+  liveSiteHref: "https://idolfairies.workflowlab.site/",
+  githubHref: "https://github.com/workflowlab-tech/idol-fairies-storefront",
+  screenshotsHeading: "Explore the connected system",
+  screenshotsDescription:
+    "Each area follows the same clear format: business problem, what the system does, what changes, supporting evidence, and optional technical details.",
+  ctaTitle: "Want a connected system for your business?",
+  ctaDescription:
+    "Tell me where your orders, operations, and finance processes are disconnected today.",
+};
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);

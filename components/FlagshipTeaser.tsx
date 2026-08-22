@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ExternalLink, Info, Maximize2, PlayCircle } from "lucide-react";
-import { proofBanner } from "@/data/caseStudy";
+import { ArrowRight, ExternalLink, Info, Layers3, Maximize2, PlayCircle } from "lucide-react";
 import FadeIn from "./FadeIn";
 import WorkflowDetailsToggle from "./projects/WorkflowDetailsToggle";
 
@@ -56,11 +55,13 @@ export default function FlagshipTeaser() {
                       Built with realistic simulated business data.
                     </p>
                   </div>
-                  <div className="flex items-start gap-3 rounded-2xl bg-[var(--color-accent-green-light)] px-5 py-4">
-                    <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--color-accent-green)]" />
+                  <div className="flex items-start gap-3 rounded-2xl border border-blue-100 bg-[var(--color-primary-light)] px-5 py-4">
+                    <Layers3 size={18} className="mt-0.5 shrink-0 text-[var(--color-primary)]" />
                     <p className="text-sm leading-6 text-[var(--color-ink)]">
-                      <strong className="font-semibold">{proofBanner.headline}</strong>{" "}
-                      <span className="text-[var(--color-body)]">({proofBanner.date})</span>
+                      <strong className="font-semibold">Connected demonstration.</strong>{" "}
+                      <span className="text-[var(--color-body)]">
+                        Storefront, workflows, operations, finance, AI support, and reporting share one system.
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -96,19 +97,19 @@ export default function FlagshipTeaser() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
                   >
-                    Visit Live Website <ExternalLink size={16} />
+                    Visit live website <ExternalLink size={16} />
                   </a>
                   <a
                     href="/videos/idol-fairies-demo.mp4"
                     className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-3 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                   >
-                    <PlayCircle size={16} /> Watch Demo
+                    <PlayCircle size={16} /> Watch demo
                   </a>
                   <Link
                     href="/idol-fairies"
                     className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-3 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                   >
-                    View Full Project <ArrowRight size={16} />
+                    View full project <ArrowRight size={16} />
                   </Link>
                 </div>
               </div>

@@ -34,19 +34,19 @@ const boxes: Box[] = [
 ];
 
 const variantFill: Record<NonNullable<Box["variant"]>, string> = {
-  primary: "#eff6ff",
-  neutral: "#f8fafc",
-  accent: "#f0fdf4",
+  primary: "#eef4ff",
+  neutral: "#f7f9fc",
+  accent: "#effaf3",
   dark: "#0f172a",
 };
 const variantStroke: Record<NonNullable<Box["variant"]>, string> = {
-  primary: "#2563eb",
-  neutral: "#cbd5e1",
-  accent: "#16a34a",
+  primary: "#155eef",
+  neutral: "#dbe4f0",
+  accent: "#15803d",
   dark: "#0f172a",
 };
 const variantText: Record<NonNullable<Box["variant"]>, string> = {
-  primary: "#1d4ed8",
+  primary: "#155eef",
   neutral: "#334155",
   accent: "#15803d",
   dark: "#ffffff",
@@ -120,11 +120,11 @@ export default function SystemDiagram() {
         </defs>
 
         {/* primary spine: retail + wholesale -> sales processing */}
-        <Arrow color="#2563eb" d="M210,44 H255 V84 H300" />
-        <Arrow color="#2563eb" d="M210,124 H255 V84 H300" />
+        <Arrow color="#155eef" d="M210,44 H255 V84 H300" />
+        <Arrow color="#155eef" d="M210,124 H255 V84 H300" />
         {/* sales processing -> inventory + AR */}
-        <Arrow color="#2563eb" d="M510,84 H550 V44 H590" />
-        <Arrow color="#2563eb" d="M510,84 H560 V168 H590" />
+        <Arrow color="#155eef" d="M510,84 H550 V44 H590" />
+        <Arrow color="#155eef" d="M510,84 H560 V168 H590" />
 
         {/* finance intake lanes */}
         <Arrow d="M210,274 H300" />
@@ -137,11 +137,11 @@ export default function SystemDiagram() {
         <Arrow d="M510,480 H760 V250 H870" />
 
         {/* shared data -> reporting */}
-        <Arrow color="#16a34a" d="M780,44 H830 V210 H870" />
-        <Arrow color="#16a34a" d="M780,168 H840 V220 H870" />
+        <Arrow color="#15803d" d="M780,44 H830 V210 H870" />
+        <Arrow color="#15803d" d="M780,168 H840 V220 H870" />
 
         {/* idol AI reads product/policy data */}
-        <Arrow color="#2563eb" dashed d="M870,50 H830 V44 H780" />
+        <Arrow color="#155eef" dashed d="M870,50 H830 V44 H780" />
 
         {boxes.map((box) => (
           <Node key={box.label} box={box} />
@@ -153,7 +153,7 @@ export default function SystemDiagram() {
         </text>
 
         {/* admin dashboard band */}
-        <rect x={20} y={556} width={1050} height={48} rx={12} fill="#f8fafc" stroke="#cbd5e1" strokeWidth={1.5} />
+        <rect x={20} y={556} width={1050} height={48} rx={12} fill="#f7f9fc" stroke="#dbe4f0" strokeWidth={1.5} />
         <text x={545} y={585} textAnchor="middle" fontSize={13} fontWeight={600} fill="#334155">
           Admin Operations Dashboard — staff view across orders, customers, resellers, inventory, and refunds
         </text>
@@ -161,10 +161,10 @@ export default function SystemDiagram() {
 
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-xs text-[var(--color-muted)]">
         <span className="flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#2563eb]" /> Retail + wholesale order flow
+          <span className="h-2.5 w-2.5 rounded-full bg-[#155eef]" /> Retail + wholesale order flow
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#16a34a]" /> Shared data feeding owner reporting
+          <span className="h-2.5 w-2.5 rounded-full bg-[#15803d]" /> Shared data feeding owner reporting
         </span>
         <span className="flex items-center gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-[#94a3b8]" /> Finance intake &amp; supporting automation

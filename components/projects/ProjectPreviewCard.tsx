@@ -79,7 +79,7 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] sm:w-auto sm:min-w-44"
             >
-              <PlayCircle size={16} /> Watch Demo
+              <PlayCircle size={16} /> Watch demo
             </a>
           ) : (
             <span className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-dashed border-[var(--color-border)] px-5 py-2.5 text-sm font-medium text-[var(--color-muted)] sm:w-auto sm:min-w-44">
@@ -90,7 +90,7 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
             href={project.viewProjectHref}
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)] sm:w-auto sm:min-w-44"
           >
-            View Project <ArrowRight size={16} />
+            View project <ArrowRight size={16} />
           </Link>
         </WorkflowDetailsToggle>
       </div>
