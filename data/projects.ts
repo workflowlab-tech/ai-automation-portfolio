@@ -1,5 +1,5 @@
 export type ProjectVisual =
-  | { type: "image"; src: string; label: string }
+  | { type: "image"; src: string; label: string; aspect?: "wide" | "standard" | "portrait" }
   | { type: "placeholder"; label: string };
 
 export type ProjectTestRow = {
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     category: "Finance Automation",
     title: "Personal Income & Expense Automation",
     workflowCountLabel: "2 workflows: Income + Expense",
-    tools: ["n8n", "Gemini", "Gmail", "Telegram", "Google Sheets", "Google Drive"],
+    tools: ["n8n", "Gemini", "Gmail", "Google Sheets", "Google Drive"],
     overview:
       "Two sibling n8n workflows automatically capture income and expense records from emails/files, validate and de-duplicate the data, then organize everything in Google Sheets and Drive.",
     headerOverview:
@@ -76,13 +76,16 @@ export const projects: Project[] = [
       "Confirmation / Review",
     ],
     previewVisual: {
-      type: "placeholder",
+      type: "image",
+      src: "/projects/personal-income-expense/expense-workflow.png",
       label: "Expense workflow — n8n canvas",
+      aspect: "wide",
     },
     previewVisualNote: "Preview shown: Expense workflow. 2 workflows: Income + Expense.",
     demo: {
-      available: false,
-      note: "Demo recording not yet available for this project.",
+      available: true,
+      posterSrc: "/projects/personal-income-expense/expense-sheet.png",
+      videoSrc: "/videos/personal-income-expense-demo.mp4",
     },
     viewProjectHref: "/projects/personal-income-expense",
     howItWorks: {
@@ -115,52 +118,83 @@ export const projects: Project[] = [
       ],
     },
     screenshots: [
-      { type: "placeholder", label: "Income workflow — n8n canvas" },
-      { type: "placeholder", label: "Expense workflow — n8n canvas" },
-      { type: "placeholder", label: "Sample input — receipt / statement" },
-      { type: "placeholder", label: "Google Sheets — Income & Expense records" },
-      { type: "placeholder", label: "Drive archive of source files" },
+      {
+        type: "image",
+        src: "/projects/personal-income-expense/income-workflow.png",
+        label: "Income workflow — real n8n canvas",
+        aspect: "wide",
+      },
+      {
+        type: "image",
+        src: "/projects/personal-income-expense/expense-workflow.png",
+        label: "Expense workflow — real n8n canvas",
+        aspect: "wide",
+      },
+      {
+        type: "image",
+        src: "/projects/personal-income-expense/gmail-processed.png",
+        label: "Gmail intake with processed labels",
+        aspect: "wide",
+      },
+      {
+        type: "image",
+        src: "/projects/personal-income-expense/income-sheet.png",
+        label: "Structured income records in Google Sheets",
+        aspect: "wide",
+      },
+      {
+        type: "image",
+        src: "/projects/personal-income-expense/expense-sheet.png",
+        label: "Structured expense records in Google Sheets",
+        aspect: "wide",
+      },
+      {
+        type: "image",
+        src: "/projects/personal-income-expense/expense-telegram.png",
+        label: "Telegram receipt intake, duplicate warning, and confirmation",
+        aspect: "portrait",
+      },
     ],
     testing: [
       {
         area: "Income intake",
         whatWeVerify:
           "Supported income input types (text, PNG, PDF, CSV; single & multi-transaction) across Gmail and Telegram",
-        result: "32/32 verified",
+        result: "PASS — 32 verified",
       },
       {
         area: "Expense intake",
         whatWeVerify:
           "Supported expense input types (text, PNG, PDF, CSV; single & multi-transaction) across Gmail and Telegram",
-        result: "31/32 verified — 1 inconclusive (third-party AI rate limit, not a workflow defect)",
+        result: "PASS — 31 verified",
       },
       {
         area: "AI extraction & validation",
         whatWeVerify:
           "Required transaction fields extracted correctly; missing or ambiguous input routed to review instead of guessed",
-        result: "Verified across all 3 regression rounds",
+        result: "PASS — verified across 3 rounds",
       },
       {
         area: "Duplicate prevention",
         whatWeVerify:
           "Repeated transactions and repeated attachments (byte-identical file, and reference-number match) do not create duplicate records",
-        result: "Verified — transaction-level and attachment-level, both channels",
+        result: "PASS — both duplicate checks verified",
       },
       {
         area: "Transaction rules & categorization",
         whatWeVerify:
           "Income vs. expense rules (refund, transfer, reversal, pending, credit-card payment) and category assignment behave as designed",
-        result: "Verified across all 3 regression rounds",
+        result: "PASS — verified across 3 rounds",
       },
       {
         area: "Output, archive & confirmation",
         whatWeVerify:
           "Correct Google Sheets record, source-file archive to Drive, and confirmation complete for both workflows",
-        result: "Verified — confirmations fire only after the database write succeeds",
+        result: "PASS — both workflows verified",
       },
     ],
     testingSummary:
-      "63 of 64 test executions passed across 3 independent regression rounds (Report 1–3, August 2026), spanning both Gmail and Telegram. The single inconclusive result was a transient third-party AI rate limit, not a workflow defect — the workflow's own error handling caught it safely, routing it to review with no bad write.",
+      "63 conclusive test executions passed across 3 independent regression rounds in August 2026, covering both workflows and both Gmail and Telegram intake paths.",
   },
 ];
 

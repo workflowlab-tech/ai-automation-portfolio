@@ -201,7 +201,7 @@ export default function ChatWidgetPlaceholder() {
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-3 right-3 z-50 flex flex-col items-end gap-3 sm:bottom-5 sm:right-5">
       {open && (
         <div className="idol-panel-in flex w-[min(24rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-xl">
           <div className="flex items-center gap-2 border-b border-[var(--color-border)] bg-[var(--color-primary-light)] px-3 py-2.5">
@@ -440,7 +440,7 @@ export default function ChatWidgetPlaceholder() {
           type="button"
           onClick={toggle}
           aria-label="Open portfolio assistant"
-          className="idol-launcher h-24 w-24 sm:h-28 sm:w-28"
+          className="idol-launcher h-16 w-16 sm:h-24 sm:w-24"
         >
           <Image
             src={poseImages.idle}

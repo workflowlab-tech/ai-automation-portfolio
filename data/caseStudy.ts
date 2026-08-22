@@ -91,12 +91,6 @@ export const solutionAreas: SolutionArea[] = [
           "Aging buckets (current / 1–30 / 31–60 / 61–90 / 90+ days) computed in the reporting layer",
         ],
       },
-      {
-        heading: "Defect found during testing",
-        points: [
-          "The ported payment logic referenced a payments table that didn't exist on the live schema (actual table is customer_payments) — caught in regression testing, fixed across 4 nodes, re-verified before sign-off",
-        ],
-      },
     ],
   },
   {

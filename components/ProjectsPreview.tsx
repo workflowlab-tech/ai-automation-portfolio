@@ -17,8 +17,8 @@ export default function ProjectsPreview() {
               Standalone automation builds
             </h2>
             <p className="mt-4 text-[var(--color-body)]">
-              Smaller builds alongside the Idol Fairies flagship — each one a real problem and a
-              working, tested n8n workflow.
+              Focused standalone builds alongside the Idol Fairies flagship — each one presented
+              around the business problem, the working system, and real proof.
             </p>
           </div>
         </FadeIn>

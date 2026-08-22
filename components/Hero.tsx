@@ -10,7 +10,7 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-40 h-96 bg-[radial-gradient(ellipse_at_top,_var(--color-primary-light),_transparent_70%)]"
       />
-      <div className="relative mx-auto max-w-4xl px-6 py-16 text-center sm:py-32">
+      <div className="relative mx-auto max-w-4xl px-6 py-20 text-center sm:py-32">
         <FadeIn>
           <span className="inline-flex items-center rounded-full border border-[var(--color-border)] bg-white px-4 py-1.5 text-sm font-medium text-[var(--color-primary)]">
             {heroCopy.eyebrow}
@@ -18,7 +18,7 @@ export default function Hero() {
         </FadeIn>
 
         <FadeIn delay={80}>
-          <h1 className="mt-6 text-3xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl">
+          <h1 className="mt-6 text-4xl font-semibold tracking-[-0.035em] text-[var(--color-ink)] sm:text-6xl sm:leading-[1.08]">
             {heroCopy.headline}
           </h1>
         </FadeIn>

@@ -6,8 +6,11 @@ Built with Next.js (App Router) + TypeScript + Tailwind CSS 4.
 
 ## Structure
 
-- `app/page.tsx` — homepage: hero, service categories, Idol Fairies flagship teaser, about/credentials, contact CTA
+- `app/page.tsx` — homepage: text-first hero, Idol Fairies flagship, project preview, About preview, and contact CTA
 - `app/idol-fairies/page.tsx` — Idol Fairies case study: honesty disclosure, proof banner, system diagram, and 8 solution-area tabs (business-facing main layer + collapsible technical layer)
+- `app/projects/page.tsx` — standalone project index using the large one-project-per-row format
+- `app/projects/[slug]/page.tsx` — long-form standalone project detail pages
+- `app/about/page.tsx` — business background and credentials; the only page that uses MJ's portrait
 - `app/contact/page.tsx` — contact page
 - `components/` — shared UI (Nav, Footer, Hero, SystemDiagram, SolutionAreaTabs, ScreenshotGallery, ChatWidgetPlaceholder, etc.)
 - `data/` — site copy and case study content, kept separate from presentation
@@ -16,15 +19,14 @@ Built with Next.js (App Router) + TypeScript + Tailwind CSS 4.
 
 ## Content source of truth
 
-Case study copy is pulled directly from `Idol_Fairies_Case_Study_Content.docx` and
-`Compiled_Portfolio_Brief.docx` (in the parent `AI Automation Portfolio/` folder) — see
-`data/caseStudy.ts` to edit it.
+The current rebuild follows `MJ_Portfolio_Full_Rebuild_Implementation_Brief_FINAL.docx` in the
+workspace root. Idol Fairies content remains in `data/caseStudy.ts`; standalone project content
+is maintained in `data/projects.ts`.
 
-## Intentional placeholders
+## Current project scope
 
-The AI portfolio assistant, automation diagnostic, AI avatar, and demo-video generation are
-out of scope for this build. `components/ChatWidgetPlaceholder.tsx` and the "Screenshot coming
-soon" cards in the case study are built so those can be wired in later without a redesign.
+Idol Fairies is the flagship project. Personal Income & Expense Automation is the only standalone
+project included in this rebuild, using real workflow screenshots, outputs, and a demo recording.
 
 ## Setup
 

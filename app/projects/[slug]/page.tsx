@@ -110,7 +110,15 @@ export default async function ProjectDetailPage(props: PageProps<"/projects/[slu
           {project.demo.available ? (
             <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-ink)] shadow-sm">
               <video controls preload="none" poster={project.demo.posterSrc} className="aspect-video w-full">
-                <source src={project.demo.videoSrc} type="video/mp4" />
+                <source
+                  src={project.demo.videoSrc}
+                  type="video/mp4"
+                />
+                Your browser doesn&rsquo;t support the embedded recording. You can{" "}
+                <a href={project.demo.videoSrc} className="underline">
+                  open the demo directly
+                </a>
+                .
               </video>
             </div>
           ) : (
@@ -132,7 +140,7 @@ export default async function ProjectDetailPage(props: PageProps<"/projects/[slu
           </p>
         </FadeIn>
         <FadeIn delay={80} className="mt-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2">
             {project.screenshots.map((shot) => (
               <ProjectVisual key={shot.label} visual={shot} />
             ))}

@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ExternalLink, PlayCircle } from "lucide-react";
 import { proofBanner } from "@/data/caseStudy";
 import FadeIn from "./FadeIn";
 
 const journeySteps = [
-  "Storefront checkout / wholesale order",
-  "Sales & order processing",
-  "Inventory + receivables",
-  "Owner reporting (Metabase)",
+  "Storefront",
+  "Orders",
+  "Sales processing",
+  "Inventory & finance",
+  "AI support",
+  "Reporting",
 ];
 
 export default function FlagshipTeaser() {
@@ -54,21 +56,32 @@ export default function FlagshipTeaser() {
                   ))}
                 </div>
 
-                <div className="mt-7 flex items-start gap-2 rounded-xl bg-[var(--color-accent-green-light)] px-4 py-3">
-                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--color-accent-green)]" />
-                  <p className="text-sm text-[var(--color-ink)]">
-                    <strong className="font-semibold">{proofBanner.headline}</strong>{" "}
-                    <span className="text-[var(--color-body)]">({proofBanner.date})</span>
-                  </p>
-                </div>
+                <p className="mt-6 text-sm font-medium text-[var(--color-accent-green)]">
+                  {proofBanner.headline} · {proofBanner.date}
+                </p>
 
-                <Link
-                  href="/idol-fairies"
-                  className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
-                >
-                  View the Idol Fairies System
-                  <ArrowRight size={16} />
-                </Link>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href="https://idolfairies.workflowlab.site/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+                  >
+                    Visit Live Website <ExternalLink size={16} />
+                  </a>
+                  <a
+                    href="/videos/idol-fairies-demo.mp4"
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-3 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                  >
+                    <PlayCircle size={16} /> Watch Demo
+                  </a>
+                  <Link
+                    href="/idol-fairies"
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-3 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                  >
+                    View Full Project <ArrowRight size={16} />
+                  </Link>
+                </div>
               </div>
 
               <div className="relative min-h-[280px] bg-[var(--color-ink)] lg:min-h-full">

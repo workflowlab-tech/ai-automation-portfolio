@@ -35,14 +35,6 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={site.resumeHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-[var(--color-body)] transition-colors hover:text-[var(--color-primary)]"
-          >
-            Resume
-          </a>
           <Link
             href="/contact"
             className="rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
@@ -73,15 +65,6 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={site.resumeHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="rounded-lg px-3 py-2.5 text-sm font-medium text-[var(--color-body)] hover:bg-[var(--color-surface-alt)]"
-          >
-            Resume
-          </a>
           <Link
             href="/contact"
             onClick={() => setOpen(false)}

@@ -19,9 +19,8 @@ export default function ProjectsPage() {
           Standalone automation builds
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--color-body)]">
-          Idol Fairies is the flagship — a full connected e-commerce and finance system. Everything
-          below is a smaller, standalone build: a real problem, a working n8n workflow, and proof
-          it holds up under testing.
+          Idol Fairies remains the flagship connected system. This page presents focused standalone
+          builds one project at a time, beginning with Personal Income &amp; Expense Automation.
         </p>
       </FadeIn>
 

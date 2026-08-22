@@ -18,85 +18,104 @@ export const metadata: Metadata = {
 export default function IdolFairiesPage() {
   return (
     <div>
-      <section className="bg-[var(--color-surface-alt)]">
-        <div className="mx-auto max-w-5xl px-6 py-20 text-center">
+      <section className="overflow-hidden bg-[var(--color-surface-alt)]">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-24">
           <FadeIn>
-            <div className="flex items-center justify-center gap-3">
-              <Image
-                src="/brand/idol-fairies-logo.jpg"
-                alt="Idol Fairies logo"
-                width={48}
-                height={48}
-                className="rounded-xl"
-              />
-            </div>
-            <span className="mt-4 inline-flex items-center rounded-full bg-[var(--color-primary-light)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
-              Flagship Project
-            </span>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl">
-              Idol Fairies
-            </h1>
-            <p className="mt-3 text-lg text-[var(--color-body)]">
-              A self-directed finance &amp; e-commerce automation portfolio project — modeled on
-              real business processes, built end to end with AI-assisted development.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={100}>
-            <div className="mx-auto mt-8 flex max-w-2xl items-start gap-3 rounded-xl border border-[var(--color-border)] bg-white px-5 py-4 text-left">
-              <Info size={18} className="mt-0.5 shrink-0 text-[var(--color-primary)]" />
-              <p className="text-sm text-[var(--color-body)]">
-                <strong className="font-semibold text-[var(--color-ink)]">
-                  This is a self-directed portfolio/demo project, not a live client deployment.
-                </strong>{" "}
-                Everything here — the storefront, orders, customers, resellers — runs on realistic
-                simulated data. It&rsquo;s modeled on finance and e-commerce processes I&rsquo;ve
-                personally worked with (Order-to-Cash, accounts payable, running an online store),
-                and built with substantial AI-assisted development: I defined the business rules,
-                workflow requirements, and test scenarios, and used AI coding assistants to help
-                implement and troubleshoot the technical solution.
-              </p>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={180}>
-            <div className="mx-auto mt-4 flex max-w-2xl items-start gap-3 rounded-xl bg-[var(--color-accent-green-light)] px-5 py-4 text-left">
-              <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--color-accent-green)]" />
-              <p className="text-sm text-[var(--color-ink)]">
-                <strong className="font-semibold">{proofBanner.headline}</strong>{" "}
-                <span className="text-[var(--color-body)]">
-                  ({proofBanner.date}) — {proofBanner.detail}
+            <div>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/brand/idol-fairies-logo.jpg"
+                  alt="Idol Fairies logo"
+                  width={44}
+                  height={44}
+                  className="rounded-xl"
+                />
+                <span className="inline-flex items-center rounded-full bg-[var(--color-primary-light)] px-3.5 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
+                  Flagship Project
                 </span>
+              </div>
+              <h1 className="mt-6 text-5xl font-semibold tracking-[-0.04em] text-[var(--color-ink)] sm:text-6xl">
+                Idol Fairies
+              </h1>
+              <p className="mt-5 text-xl leading-8 text-[var(--color-body)]">
+                A connected e-commerce and finance system spanning storefront, orders, sales
+                processing, inventory, finance operations, AI support, and owner reporting.
               </p>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={220}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="https://idolfairies.workflowlab.site/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
-              >
-                Visit Live Website
-                <ExternalLink size={16} />
-              </a>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://idolfairies.workflowlab.site/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+                >
+                  Visit Live Website <ExternalLink size={16} />
+                </a>
+                <a
+                  href="#demo"
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-6 py-3 text-sm font-semibold text-[var(--color-ink)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                >
+                  Watch Demo <ArrowRight size={16} />
+                </a>
+              </div>
               <a
                 href="https://github.com/workflowlab-tech/idol-fairies-storefront"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
               >
-                <GithubIcon size={16} />
-                View project code on GitHub
+                <GithubIcon size={16} /> View project code on GitHub
               </a>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <a
+              href="https://idolfairies.workflowlab.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white p-3 shadow-xl shadow-blue-950/10"
+              aria-label="Open the live Idol Fairies storefront"
+            >
+              <Image
+                src="/screenshots/storefront/home.png"
+                alt="Live Idol Fairies storefront homepage"
+                width={1920}
+                height={1080}
+                priority
+                className="h-auto w-full rounded-2xl border border-[var(--color-border)] transition-transform duration-300 group-hover:scale-[1.01]"
+              />
+              <span className="flex items-center justify-between px-2 pb-1 pt-3 text-sm font-semibold text-[var(--color-ink)]">
+                Actual live storefront <ExternalLink size={15} className="text-[var(--color-primary)]" />
+              </span>
+            </a>
+          </FadeIn>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pt-14">
+        <div className="grid gap-4 lg:grid-cols-[1fr_1fr]">
+          <FadeIn>
+            <div className="flex h-full items-start gap-3 rounded-2xl border border-[var(--color-border)] bg-white px-5 py-4">
+              <Info size={18} className="mt-0.5 shrink-0 text-[var(--color-primary)]" />
+              <p className="text-sm leading-6 text-[var(--color-body)]">
+                <strong className="font-semibold text-[var(--color-ink)]">Self-directed portfolio/demo project.</strong>{" "}
+                It uses realistic simulated business data and is not presented as a live client deployment.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn delay={80}>
+            <div className="flex h-full items-start gap-3 rounded-2xl bg-[var(--color-accent-green-light)] px-5 py-4">
+              <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-[var(--color-accent-green)]" />
+              <p className="text-sm leading-6 text-[var(--color-ink)]">
+                <strong className="font-semibold">{proofBanner.headline}</strong>{" "}
+                <span className="text-[var(--color-body)]">({proofBanner.date})</span>
+              </p>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section id="demo" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">

@@ -93,6 +93,8 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
                 {project.demo.available ? (
                   <a
                     href={project.demo.videoSrc}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                   >
                     <PlayCircle size={16} /> Watch Demo

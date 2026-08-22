@@ -50,6 +50,16 @@ body {
   color: var(--color-ink);
 }
 
+::selection {
+  background: #bfdbfe;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
 @keyframes fade-in-up {
   from {
     opacity: 0;

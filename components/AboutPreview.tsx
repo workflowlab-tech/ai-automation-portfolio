@@ -21,8 +21,8 @@ export default function AboutPreview() {
             Business experience behind the automation
           </h2>
           <p className="mt-4 text-[var(--color-body)]">
-            {site.name} — finance &amp; accounting background, hands-on e-commerce experience, and
-            automation built to solve real business problems, not automation for its own sake.
+            {site.name} brings finance and accounting knowledge, hands-on e-commerce operations,
+            and AI automation together to solve real business problems.
           </p>
         </div>
       </FadeIn>
