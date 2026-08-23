@@ -13,14 +13,17 @@ const suggestedPrompts = [
   "What finance and operations workflows can MJ automate?",
 ];
 
-type Pose = "idle" | "open" | "thinking" | "answered";
+type Pose = "idle" | "open" | "thinking" | "answered" | "cozy";
 
 const poseImages: Record<Pose, string> = {
   idle: "/brand/chat/idol-ai-idle.png",
   open: "/brand/chat/idol-ai-open.png",
   thinking: "/brand/chat/idol-ai-thinking.png",
   answered: "/brand/chat/idol-ai-answered.png",
+  cozy: "/brand/chat/idol-ai-cozy.png",
 };
+
+const ambientPoses: Pose[] = ["idle", "open", "thinking", "answered", "cozy"];
 
 type Area = "Finance / Accounting" | "Sales / Orders" | "Inventory / Operations" | "Customer Support" | "Marketing / Content" | "Other";
 type Process = "Mostly manual" | "Spreadsheets" | "Email/messages" | "Multiple apps that don't connect" | "Already partially automated" | "Other";
@@ -142,6 +145,7 @@ export default function ChatWidgetPlaceholder() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [justAnswered, setJustAnswered] = useState(false);
+  const [ambientPose, setAmbientPose] = useState<Pose>("idle");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const answeredTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -153,6 +157,17 @@ export default function ChatWidgetPlaceholder() {
     return () => {
       if (answeredTimeout.current) clearTimeout(answeredTimeout.current);
     };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAmbientPose((current) => {
+        const currentIndex = ambientPoses.indexOf(current);
+        return ambientPoses[(currentIndex + 1) % ambientPoses.length];
+      });
+    }, 2600);
+
+    return () => clearInterval(interval);
   }, []);
 
   const resetDiagnostic = () => {
@@ -443,11 +458,12 @@ export default function ChatWidgetPlaceholder() {
           className="idol-launcher h-16 w-16 sm:h-24 sm:w-24"
         >
           <Image
-            src={poseImages.idle}
-            alt="Idol Fairies AI assistant"
+            key={ambientPose}
+            src={poseImages[ambientPose]}
+            alt="MJ AI portfolio assistant"
             width={224}
             height={224}
-            className="h-full w-full object-contain drop-shadow-[0_10px_18px_rgba(15,23,42,0.28)]"
+            className="pose-pop h-full w-full object-contain drop-shadow-[0_10px_18px_rgba(15,23,42,0.28)]"
             priority
           />
         </button>
