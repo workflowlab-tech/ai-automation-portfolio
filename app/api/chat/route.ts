@@ -1,6 +1,4 @@
-import { GoogleGenAI, type Content } from "@google/genai";
 import { NextResponse, type NextRequest } from "next/server";
-import { SYSTEM_PROMPT } from "@/lib/chat/systemPrompt";
 import {
   MAX_HISTORY_MESSAGES,
   MAX_MESSAGE_LENGTH,
@@ -8,23 +6,18 @@ import {
   type ChatReply,
 } from "@/types/chat";
 
-// Calls Gemini directly — must run in the Node.js runtime, never statically cached.
+// Proxies to the n8n Portfolio AI Agent webhook — must run in the Node.js runtime,
+// never statically cached.
 export const runtime = "nodejs";
 
-// Pinned rather than a "-latest" alias, to avoid surprise quota/behavior changes.
-const MODEL = "gemini-3.5-flash";
 const MAX_REPLY_LENGTH = 900;
-// Short, grounded Q&A answers don't need extended reasoning — disabling the
-// thinking budget keeps the full maxOutputTokens available for the visible
-// reply instead of being consumed by hidden thinking tokens first.
-const MAX_OUTPUT_TOKENS = 600;
+const N8N_TIMEOUT_MS = 15000;
 const FALLBACK_TEXT = "Idol AI is temporarily unavailable. Please try again in a moment, or reach out directly.";
 const RATE_LIMIT_TEXT = "You've sent a lot of messages in a short time — please wait a minute and try again.";
 
-// Best-effort per-IP rate limit. In-memory, so it resets on redeploy and
-// doesn't span multiple instances — good enough to blunt casual abuse of a
-// public, unauthenticated endpoint that spends real API quota; not a
-// substitute for a real rate limiter if this ever needs to scale.
+// Best-effort per-IP rate limit, in front of n8n's own rate limiting. In-memory, so
+// it resets on redeploy and doesn't span multiple instances — good enough to blunt
+// casual abuse of a public, unauthenticated endpoint before it ever reaches n8n.
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 12;
 const requestLog = new Map<string, number[]>();
@@ -85,38 +78,36 @@ export async function POST(request: NextRequest) {
   if (!parsed) return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   const { message, history } = parsed;
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error("[api/chat] GEMINI_API_KEY is not set.");
+  const webhookUrl = process.env.N8N_CHAT_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.error("[api/chat] N8N_CHAT_WEBHOOK_URL is not set.");
     return NextResponse.json<ChatReply>({ text: FALLBACK_TEXT, error: true });
   }
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), N8N_TIMEOUT_MS);
+
   try {
-    const ai = new GoogleGenAI({ apiKey });
-
-    const contents: Content[] = [
-      ...history.map((turn): Content => ({
-        role: turn.role === "assistant" ? "model" : "user",
-        parts: [{ text: turn.text }],
-      })),
-      { role: "user", parts: [{ text: message }] },
-    ];
-
-    const response = await ai.models.generateContent({
-      model: MODEL,
-      contents,
-      config: {
-        systemInstruction: SYSTEM_PROMPT,
-        maxOutputTokens: MAX_OUTPUT_TOKENS,
-        thinkingConfig: { thinkingBudget: 0 },
-      },
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, history }),
+      signal: controller.signal,
     });
 
-    const text = (response.text ?? "").trim();
+    if (!res.ok) {
+      console.error(`[api/chat] n8n webhook responded with status ${res.status}`);
+      return NextResponse.json<ChatReply>({ text: FALLBACK_TEXT, error: true });
+    }
+
+    const data = (await res.json()) as { text?: unknown };
+    const text = typeof data.text === "string" ? data.text.trim() : "";
     const payload: ChatReply = { text: text ? text.slice(0, MAX_REPLY_LENGTH) : FALLBACK_TEXT };
     return NextResponse.json(payload);
   } catch (error) {
-    console.error("[api/chat] Gemini request failed:", error);
+    console.error("[api/chat] n8n webhook request failed:", error);
     return NextResponse.json<ChatReply>({ text: FALLBACK_TEXT, error: true });
+  } finally {
+    clearTimeout(timeout);
   }
 }
