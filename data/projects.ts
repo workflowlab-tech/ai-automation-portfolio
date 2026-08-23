@@ -90,7 +90,7 @@ export const projects: Project[] = [
     previewVisualNote: "Preview shown: Expense workflow. 2 workflows: Income + Expense.",
     demo: {
       available: true,
-      posterSrc: "/projects/personal-income-expense/expense-sheet.png",
+      posterSrc: "/projects/personal-income-expense/personal-income-expense-thumbnail.png",
       videoSrc: "/videos/personal-income-expense-demo.mp4",
     },
     viewProjectHref: "/projects/personal-income-expense",
@@ -125,6 +125,12 @@ export const projects: Project[] = [
       },
       {
         type: "image",
+        src: "/projects/personal-income-expense/expense-telegram.png",
+        label: "Telegram receipt intake, duplicate warning, and confirmation",
+        aspect: "standard",
+      },
+      {
+        type: "image",
         src: "/projects/personal-income-expense/income-sheet.png",
         label: "Structured income records in Google Sheets",
         aspect: "standard",
@@ -133,12 +139,6 @@ export const projects: Project[] = [
         type: "image",
         src: "/projects/personal-income-expense/expense-sheet.png",
         label: "Structured expense records in Google Sheets",
-        aspect: "standard",
-      },
-      {
-        type: "image",
-        src: "/projects/personal-income-expense/expense-telegram.png",
-        label: "Telegram receipt intake, duplicate warning, and confirmation",
         aspect: "standard",
       },
     ],

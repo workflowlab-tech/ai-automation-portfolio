@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ExternalLink, PlayCircle } from "lucide-react";
 import type { Project } from "@/data/projects";
 import GithubIcon from "../icons/GithubIcon";
+import ToolStack from "./ToolStack";
 
 export default function ProjectHeader({ project }: { project: Project }) {
   return (
@@ -35,15 +36,8 @@ export default function ProjectHeader({ project }: { project: Project }) {
           {project.headerOverview}
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-1.5">
-          {project.tools.map((tool) => (
-            <span
-              key={tool}
-              className="rounded-full border border-[var(--color-border)] bg-white px-3 py-1 text-xs font-medium text-[var(--color-body)]"
-            >
-              {tool}
-            </span>
-          ))}
+        <div className="mx-auto mt-7 max-w-3xl">
+          <ToolStack tools={project.tools} />
         </div>
 
         {project.liveSiteHref || project.demo.available || project.githubHref ? (

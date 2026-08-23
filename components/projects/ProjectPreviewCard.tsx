@@ -4,6 +4,7 @@ import type { Project } from "@/data/projects";
 import BestForBand from "./BestForBand";
 import WorkflowDetailsToggle from "./WorkflowDetailsToggle";
 import ProjectVisual from "./ProjectVisual";
+import ToolStack from "./ToolStack";
 
 export default function ProjectPreviewCard({ project }: { project: Project }) {
   return (
@@ -35,15 +36,8 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
           </h3>
           <p className="mt-3 text-[15px] leading-7 text-[var(--color-body)]">{project.overview}</p>
 
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {project.tools.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-alt)] px-2.5 py-1 text-xs font-medium text-[var(--color-body)]"
-              >
-                {tool}
-              </span>
-            ))}
+          <div className="mt-5">
+            <ToolStack tools={project.tools} compact />
           </div>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
