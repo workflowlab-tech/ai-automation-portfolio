@@ -8,9 +8,9 @@ import { site } from "@/data/site";
 import { MAX_MESSAGE_LENGTH, type ChatHistoryMessage } from "@/types/chat";
 
 const suggestedPrompts = [
-  "What eats the most manual time in my business?",
+  "Which business tasks should I automate first?",
   "Can you show me how the Idol Fairies system works?",
-  "Do you build automations for accounting-heavy businesses?",
+  "What finance and operations workflows can MJ automate?",
 ];
 
 type Pose = "idle" | "open" | "thinking" | "answered";
@@ -190,7 +190,7 @@ export default function ChatWidgetPlaceholder() {
     } catch {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", text: "Sorry, something went wrong reaching Idol AI. Please try again in a moment." },
+        { role: "assistant", text: "Sorry, something went wrong reaching MJ AI. Please try again in a moment." },
       ]);
     } finally {
       setLoading(false);
@@ -219,7 +219,7 @@ export default function ChatWidgetPlaceholder() {
               <Image src={poseImages[pose]} alt="" width={56} height={56} className="h-full w-full object-contain" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-[var(--color-ink)]">Idol AI</p>
+              <p className="text-sm font-semibold text-[var(--color-ink)]">MJ AI</p>
               <p className="text-xs text-[var(--color-muted)]">
                 {loading ? "Thinking…" : "Portfolio assistant"}
               </p>
