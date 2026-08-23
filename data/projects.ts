@@ -188,6 +188,178 @@ export const projects: Project[] = [
       "A balanced view of both workflows, their intake channels, and the organized records they produce.",
   },
   {
+    slug: "portfolio-ai-agent",
+    category: "AI Assistant Automation",
+    title: "Portfolio AI Agent",
+    workflowCountLabel: "2 Workflows: Chat + Lead Capture",
+    tools: ["n8n", "Gemini", "Google Sheets", "Telegram"],
+    overview:
+      "Answers grounded questions about MJ’s work, recommends relevant projects, and captures genuine hiring or project inquiries.",
+    headerOverview:
+      "A live n8n AI agent works behind the existing portfolio chatbot to answer questions using approved information instead of guessing. It also recognizes genuine contact intent, collects the required details, logs conversations and leads, and notifies MJ after a lead is saved.",
+    problem:
+      "Visitors may leave a portfolio without finding the right project or knowing how to turn their interest into a clear inquiry.",
+    solution:
+      "A grounded AI agent answers portfolio questions, finds approved project links, and guides interested visitors through a conversational lead-capture flow.",
+    result:
+      "Visitors get useful answers immediately, while genuine opportunities are organized in Google Sheets and sent to MJ through Telegram.",
+    bestFor: [
+      "Portfolio websites with several projects or services",
+      "Freelancers who want conversational lead capture",
+      "Recruiters looking for relevant skills and project proof",
+      "Service businesses that need grounded website answers",
+      "Teams that want inquiry logging without a full CRM",
+    ],
+    workflowFlow: [
+      "Visitor Message",
+      "n8n Webhook",
+      "Validate & Rate Limit",
+      "AI Agent",
+      "Portfolio Knowledge & Links",
+      "Conversation Log",
+      "Lead Capture",
+      "Google Sheets",
+      "Telegram Alert",
+      "Chat Response",
+    ],
+    previewVisual: {
+      type: "image",
+      src: "/projects/portfolio-ai-agent/main-workflow.png",
+      label: "Portfolio AI Agent — main n8n workflow",
+      aspect: "wide",
+    },
+    previewVisualNote:
+      "The main agent answers portfolio questions, finds approved links, logs conversations, and calls a separate lead-capture workflow when needed.",
+    demo: {
+      available: true,
+      posterSrc: "/projects/portfolio-ai-agent/portfolio-ai-agent-thumbnail.png",
+      videoSrc: "/videos/portfolio-ai-agent.m4v",
+    },
+    viewProjectHref: "/projects/portfolio-ai-agent",
+    howItWorks: {
+      shared: [
+        "Receive — the existing portfolio chat sends the visitor’s message and short conversation context to an n8n webhook.",
+        "Validate — the workflow checks message length, input quality, session data, and basic request limits before the agent runs.",
+        "Answer — Gemini uses approved portfolio knowledge and controlled project links to give a concise, grounded response.",
+        "Recognize — genuine hiring or project intent activates lead capture, while ordinary questions remain normal conversations.",
+        "Capture — the agent collects name, email, and project message, validates the details, and prevents duplicate submissions where possible.",
+        "Record — every exchange is logged in All Conversations; confirmed inquiries are added to Leads and trigger one Telegram notification.",
+        "Confirm — the visitor receives a clear success message only after the lead has been saved.",
+      ],
+    },
+    screenshots: [
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/main-workflow.png",
+        label: "Main n8n workflow with AI Agent, portfolio tools, validation, and conversation logging",
+        aspect: "standard",
+      },
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/lead-capture-workflow.png",
+        label: "Lead-capture subworkflow with validation, deduplication, Google Sheets, and Telegram",
+        aspect: "standard",
+      },
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/chat-start.png",
+        label: "MJ AI portfolio assistant and suggested questions",
+        aspect: "portrait",
+      },
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/chat-answer.png",
+        label: "Grounded automation recommendation in the portfolio chat",
+        aspect: "portrait",
+      },
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/chat-contact.png",
+        label: "Contact intent recognized and conversational lead capture offered",
+        aspect: "portrait",
+      },
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/leads-sheet.png",
+        label: "Confirmed inquiries organized in the Leads sheet",
+        aspect: "standard",
+      },
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/conversations-sheet.png",
+        label: "Portfolio conversations logged separately from confirmed leads",
+        aspect: "standard",
+      },
+      {
+        type: "image",
+        src: "/projects/portfolio-ai-agent/telegram-leads.png",
+        label: "Telegram notifications sent only for saved portfolio leads",
+        aspect: "standard",
+      },
+    ],
+    testing: [
+      {
+        area: "Grounded Portfolio Answer",
+        whatWeVerify: "A known portfolio question returns the correct approved information",
+        result: "PASS",
+      },
+      {
+        area: "Unknown Claim Handling",
+        whatWeVerify: "An unknown or unapproved claim is declined without inventing information",
+        result: "PASS",
+      },
+      {
+        area: "Approved Project Link",
+        whatWeVerify: "A request for a project demo returns the correct controlled link",
+        result: "PASS",
+      },
+      {
+        area: "Complete Lead Capture",
+        whatWeVerify: "Clear contact intent with complete details creates one lead and one Telegram alert",
+        result: "PASS",
+      },
+      {
+        area: "Missing Email Handling",
+        whatWeVerify: "The agent asks for a missing email and does not save an incomplete lead",
+        result: "PASS",
+      },
+      {
+        area: "Invalid Email Handling",
+        whatWeVerify: "An invalid email is rejected and the visitor is asked to correct it",
+        result: "PASS",
+      },
+      {
+        area: "Ordinary Question Routing",
+        whatWeVerify: "A normal portfolio question is logged without creating a lead or Telegram alert",
+        result: "PASS",
+      },
+      {
+        area: "Duplicate Prevention",
+        whatWeVerify: "A repeated submission does not create a duplicate lead notification or write",
+        result: "PASS",
+      },
+      {
+        area: "Credential Protection",
+        whatWeVerify: "Prompt and credential extraction requests expose no secrets or hidden instructions",
+        result: "PASS",
+      },
+      {
+        area: "Concurrent Sessions",
+        whatWeVerify: "Two simultaneous requests from different sessions are handled independently",
+        result: "PASS",
+      },
+    ],
+    testingSummary:
+      "10 of 10 acceptance tests passed, covering grounded answers, approved links, lead validation, duplicate protection, credential safety, and concurrent sessions.",
+    logoSrc: "/projects/portfolio-ai-agent/avatar.png",
+    screenshotsHeading: "Project Screenshots and Outputs",
+    screenshotsDescription:
+      "See the main agent, lead-capture workflow, live chat experience, conversation and lead records, and confirmed-lead notifications.",
+    ctaTitle: "Turn Website Interest into Qualified Conversations.",
+    ctaDescription:
+      "Share what visitors need to learn or do on your website. I’ll map the clearest assistant, knowledge, and lead-capture flow.",
+  },
+  {
     slug: "daily-task-reminder",
     category: "Productivity Automation",
     title: "Daily Task Reminder",
