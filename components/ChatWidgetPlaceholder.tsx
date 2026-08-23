@@ -165,7 +165,7 @@ export default function ChatWidgetPlaceholder() {
         const currentIndex = ambientPoses.indexOf(current);
         return ambientPoses[(currentIndex + 1) % ambientPoses.length];
       });
-    }, 2600);
+    }, 1600);
 
     return () => clearInterval(interval);
   }, []);
