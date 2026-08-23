@@ -12,7 +12,7 @@ export const runtime = "nodejs";
 
 const MAX_REPLY_LENGTH = 900;
 const N8N_TIMEOUT_MS = 15000;
-const FALLBACK_TEXT = "Idol AI is temporarily unavailable. Please try again in a moment, or reach out directly.";
+const FALLBACK_TEXT = "MJ AI is temporarily unavailable. Please try again in a moment, or reach out directly.";
 const RATE_LIMIT_TEXT = "You've sent a lot of messages in a short time — please wait a minute and try again.";
 
 // Best-effort per-IP rate limit, in front of n8n's own rate limiting. In-memory, so
