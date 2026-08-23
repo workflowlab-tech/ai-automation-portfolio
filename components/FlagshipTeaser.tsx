@@ -74,18 +74,18 @@ export default function FlagshipTeaser() {
                   <ToolStack tools={idolFairiesProject.tools} compact />
                 </div>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-xl bg-[var(--color-accent-red-light)] p-4">
+                <div className="mt-6 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+                  <div className="grid gap-1 py-3.5 sm:grid-cols-[5.5rem_1fr] sm:gap-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">Problem</p>
-                    <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink)]">{idolFairiesProject.problem}</p>
+                    <p className="text-sm leading-6 text-[var(--color-ink)]">{idolFairiesProject.problem}</p>
                   </div>
-                  <div className="rounded-xl bg-[var(--color-accent-blue-light)] p-4">
+                  <div className="grid gap-1 py-3.5 sm:grid-cols-[5.5rem_1fr] sm:gap-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">Solution</p>
-                    <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink)]">{idolFairiesProject.solution}</p>
+                    <p className="text-sm leading-6 text-[var(--color-ink)]">{idolFairiesProject.solution}</p>
                   </div>
-                  <div className="rounded-xl bg-[var(--color-accent-green-light)] p-4 sm:col-span-2">
+                  <div className="grid gap-1 py-3.5 sm:grid-cols-[5.5rem_1fr] sm:gap-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-green)]">Result</p>
-                    <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink)]">{idolFairiesProject.result}</p>
+                    <p className="text-sm leading-6 text-[var(--color-ink)]">{idolFairiesProject.result}</p>
                   </div>
                 </div>
               </div>

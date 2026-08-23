@@ -40,24 +40,18 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
             <ToolStack tools={project.tools} compact />
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-xl bg-[var(--color-accent-red-light)] p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">
-                Problem
-              </p>
-              <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink)]">{project.problem}</p>
+          <div className="mt-6 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+            <div className="grid gap-1 py-3.5 sm:grid-cols-[5.5rem_1fr] sm:gap-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-red)]">Problem</p>
+              <p className="text-sm leading-6 text-[var(--color-ink)]">{project.problem}</p>
             </div>
-            <div className="rounded-xl bg-[var(--color-accent-blue-light)] p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">
-                Solution
-              </p>
-              <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink)]">{project.solution}</p>
+            <div className="grid gap-1 py-3.5 sm:grid-cols-[5.5rem_1fr] sm:gap-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary)]">Solution</p>
+              <p className="text-sm leading-6 text-[var(--color-ink)]">{project.solution}</p>
             </div>
-            <div className="rounded-xl bg-[var(--color-accent-green-light)] p-4 sm:col-span-2">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-green)]">
-                Result
-              </p>
-              <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink)]">{project.result}</p>
+            <div className="grid gap-1 py-3.5 sm:grid-cols-[5.5rem_1fr] sm:gap-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-accent-green)]">Result</p>
+              <p className="text-sm leading-6 text-[var(--color-ink)]">{project.result}</p>
             </div>
           </div>
 
