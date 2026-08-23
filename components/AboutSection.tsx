@@ -132,9 +132,9 @@ export default function AboutSection() {
                 <p className="mt-5 max-w-4xl text-base leading-7 text-[var(--color-body)] sm:text-[17px]">
                   MJ combines finance and accounting experience, e-commerce operations experience,
                   and AI automation skills to build practical business systems that save time,
-                  reduce errors, and support growth. I understand{" "}
+                  reduce errors, and support growth. She understands{" "}
                   <strong className="font-semibold text-blue-700">real business processes</strong>
-                  {" "}before I automate them—so the solutions I build are relevant, reliable, and
+                  {" "}before automating them—so the solutions she builds are relevant, reliable, and
                   easy to adopt.
                 </p>
               </FadeIn>
