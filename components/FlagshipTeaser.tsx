@@ -92,7 +92,8 @@ export default function FlagshipTeaser() {
             </div>
 
             <div className="border-t border-[var(--color-border)] bg-white px-6 py-8 sm:px-8 lg:px-10">
-              <WorkflowDetailsToggle id="idol-fairies" steps={journeySteps}>
+              <WorkflowDetailsToggle id="idol-fairies" steps={journeySteps} />
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
                 <a
                   href={idolFairiesProject.demo.available ? idolFairiesProject.demo.videoSrc : "#"}
                   target="_blank"
@@ -107,7 +108,7 @@ export default function FlagshipTeaser() {
                 >
                   View project <ArrowRight size={16} />
                 </Link>
-              </WorkflowDetailsToggle>
+              </div>
             </div>
           </div>
         </FadeIn>

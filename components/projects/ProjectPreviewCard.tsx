@@ -65,7 +65,8 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
       </div>
 
       <div className="border-t border-[var(--color-border)] bg-white px-6 py-8 sm:px-8 lg:px-10">
-        <WorkflowDetailsToggle id={project.slug} steps={project.workflowFlow}>
+        <WorkflowDetailsToggle id={project.slug} steps={project.workflowFlow} />
+        <div className="mt-5 flex flex-wrap justify-center gap-3">
           {project.demo.available ? (
             <a
               href={project.demo.videoSrc}
@@ -86,7 +87,7 @@ export default function ProjectPreviewCard({ project }: { project: Project }) {
           >
             View project <ArrowRight size={16} />
           </Link>
-        </WorkflowDetailsToggle>
+        </div>
       </div>
     </div>
   );
