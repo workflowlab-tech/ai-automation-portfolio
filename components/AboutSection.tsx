@@ -133,7 +133,7 @@ export default function AboutSection() {
                   MJ combines finance and accounting experience, e-commerce operations experience,
                   and AI automation skills to build practical business systems that save time,
                   reduce errors, and support growth. She understands{" "}
-                  <strong className="font-semibold text-blue-700">real business processes</strong>
+                  <strong className="font-semibold">real business processes</strong>
                   {" "}before automating them—so the solutions she builds are relevant, reliable, and
                   easy to adopt.
                 </p>
@@ -168,7 +168,7 @@ export default function AboutSection() {
                     </span>
                     <p className="border-l border-blue-200 pl-4 text-sm font-semibold leading-6 text-[var(--color-ink)]">
                       I build solutions that solve{" "}
-                      <strong className="text-blue-700">real business problems</strong> — not just
+                      <strong>real business problems</strong> — not just
                       automations for the sake of automation.
                     </p>
                   </div>
