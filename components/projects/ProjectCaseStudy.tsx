@@ -58,10 +58,10 @@ export default function ProjectCaseStudy({
           <FadeIn>
             <div className="mx-auto max-w-4xl">
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">
-                Workflow overview
+                Workflow Overview
               </span>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-                How the system works
+                How the System Works
               </h2>
             </div>
           </FadeIn>
@@ -97,7 +97,7 @@ export default function ProjectCaseStudy({
               Demonstration
             </span>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-              See the automation in action
+              See the Automation in Action
             </h2>
           </div>
         </FadeIn>
@@ -127,7 +127,7 @@ export default function ProjectCaseStudy({
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-              {project.screenshotsHeading ?? "Screenshots and outputs"}
+              {project.screenshotsHeading ?? "Screenshots and Outputs"}
             </h2>
             <p className="mt-3 leading-7 text-[var(--color-body)]">
               {project.screenshotsDescription ??
@@ -153,10 +153,10 @@ export default function ProjectCaseStudy({
             <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
               <div>
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">
-                  Verified workflows
+                  Verified Workflows
                 </span>
                 <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-                  Test results
+                  Test Results
                 </h2>
               </div>
               {project.regressionReportHref ? (
@@ -182,7 +182,7 @@ export default function ProjectCaseStudy({
           <div className="flex flex-col items-center justify-between gap-6 rounded-3xl bg-[var(--color-ink)] px-8 py-14 text-center shadow-xl shadow-slate-200 sm:flex-row sm:text-left">
             <div>
               <h2 className="text-2xl font-semibold text-white">
-                {project.ctaTitle ?? "Turn a manual bottleneck into a system you can trust."}
+                {project.ctaTitle ?? "Turn a Manual Bottleneck into a System You Can Trust."}
               </h2>
               <p className="mt-2 max-w-xl text-slate-300">
                 {project.ctaDescription ?? "Share the process, tools, and outcome you need. I’ll map the clearest practical next step—automation, process cleanup, or a better workflow."}

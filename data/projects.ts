@@ -52,7 +52,7 @@ export const projects: Project[] = [
     slug: "personal-income-expense",
     category: "Finance Automation",
     title: "Personal Income & Expense Automation",
-    workflowCountLabel: "2 workflows: Income + Expense",
+    workflowCountLabel: "2 Workflows: Income + Expense",
     tools: ["n8n", "Gemini", "Gmail", "Google Sheets", "Google Drive"],
     overview:
       "Turns receipts, emails, and messages into clean income and expense records—without repetitive encoding or duplicate entries.",
@@ -145,37 +145,37 @@ export const projects: Project[] = [
     ],
     testing: [
       {
-        area: "Income intake",
+        area: "Income Intake",
         whatWeVerify:
           "Supported income input types (text, PNG, PDF, CSV; single & multi-transaction) across Gmail and Telegram",
         result: "PASS — 32 verified",
       },
       {
-        area: "Expense intake",
+        area: "Expense Intake",
         whatWeVerify:
           "Supported expense input types (text, PNG, PDF, CSV; single & multi-transaction) across Gmail and Telegram",
         result: "PASS — 31 verified",
       },
       {
-        area: "AI extraction & validation",
+        area: "AI Extraction & Validation",
         whatWeVerify:
           "Required transaction fields extracted correctly; missing or ambiguous input routed to review instead of guessed",
         result: "PASS — verified across 3 rounds",
       },
       {
-        area: "Duplicate prevention",
+        area: "Duplicate Prevention",
         whatWeVerify:
           "Repeated transactions and repeated attachments (byte-identical file, and reference-number match) do not create duplicate records",
         result: "PASS — both duplicate checks verified",
       },
       {
-        area: "Transaction rules & categorization",
+        area: "Transaction Rules & Categorization",
         whatWeVerify:
           "Income vs. expense rules (refund, transfer, reversal, pending, credit-card payment) and category assignment behave as designed",
         result: "PASS — verified across 3 rounds",
       },
       {
-        area: "Output, archive & confirmation",
+        area: "Output, Archive & Confirmation",
         whatWeVerify:
           "Correct Google Sheets record, source-file archive to Drive, and confirmation complete for both workflows",
         result: "PASS — both workflows verified",
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     ],
     testingSummary:
       "63 conclusive test executions passed across 3 independent regression rounds in August 2026, covering both workflows and both Gmail and Telegram intake paths.",
-    screenshotsHeading: "Project screenshots and outputs",
+    screenshotsHeading: "Project Screenshots and Outputs",
     screenshotsDescription:
       "A balanced view of both workflows, their intake channels, and the organized records they produce.",
   },
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     slug: "daily-task-reminder",
     category: "Productivity Automation",
     title: "Daily Task Reminder",
-    workflowCountLabel: "1 scheduled daily workflow",
+    workflowCountLabel: "1 Scheduled Daily Workflow",
     tools: ["n8n", "Notion", "Google Calendar", "Gmail", "Telegram", "Open-Meteo"],
     overview:
       "Combines the day’s schedule, important emails, weather, and inspiration into one organized Telegram message every morning.",
@@ -263,9 +263,44 @@ export const projects: Project[] = [
         aspect: "standard",
       },
     ],
-    testing: [],
-    testingSummary: "",
-    screenshotsHeading: "Project screenshots and outputs",
+    testing: [
+      {
+        area: "Data Source Integration",
+        whatWeVerify:
+          "All five sources (Notion tasks, Google Calendar, Gmail invites, Open-Meteo weather, and daily inspiration) return and merge correctly in one execution",
+        result: "PASS",
+      },
+      {
+        area: "Multi-Item Handling",
+        whatWeVerify: "Multiple same-day Notion tasks all appear in the briefing, not just the first",
+        result: "PASS — 2/2 shown",
+      },
+      {
+        area: "Empty-Source Handling",
+        whatWeVerify:
+          "A source with zero results for the day, such as no calendar events, is omitted cleanly instead of breaking the message",
+        result: "PASS",
+      },
+      {
+        area: "Weather Data Integrity",
+        whatWeVerify:
+          "Formatted temperature and rain-chance figures match the raw Open-Meteo API response exactly",
+        result: "PASS — verified field-for-field",
+      },
+      {
+        area: "Invite Detection Accuracy",
+        whatWeVerify: "Matching webinar and invitation emails are correctly included in the briefing",
+        result: "PASS — field-name issue fixed and reverified live",
+      },
+      {
+        area: "Delivery Confirmation",
+        whatWeVerify: "The Telegram message sent matches the formatted workflow output",
+        result: "PASS — confirmed by Telegram delivery response",
+      },
+    ],
+    testingSummary:
+      "All six test areas passed, covering data-source integration, edge-case handling, weather accuracy, invite detection, and Telegram delivery.",
+    screenshotsHeading: "Project Screenshots and Outputs",
     screenshotsDescription:
       "The workflow, source information, and final Telegram briefing shown in the same order the automation uses them.",
   },
@@ -273,9 +308,9 @@ export const projects: Project[] = [
 
 export const idolFairiesProject: Project = {
   slug: "idol-fairies",
-  category: "Flagship project",
+  category: "Flagship Project",
   title: "Idol Fairies",
-  workflowCountLabel: "Connected e-commerce + finance system",
+  workflowCountLabel: "Connected E-commerce + Finance System",
   tools: ["Next.js", "n8n", "Supabase", "Gemini", "Metabase", "Gmail"],
   overview:
     "Connects a live storefront to orders, inventory, finance, customer support, and owner reporting through one shared system.",
@@ -395,10 +430,10 @@ export const idolFairiesProject: Project = {
   logoSrc: "/brand/idol-fairies-logo.jpg",
   liveSiteHref: "https://idolfairies.workflowlab.site/",
   regressionReportHref: "/documents/Idol_Fairies_Regression_Report.docx",
-  screenshotsHeading: "Project screenshots and outputs",
+  screenshotsHeading: "Project Screenshots and Outputs",
   screenshotsDescription:
     "Explore the current storefront, operations, AI support, finance workflows, and management reporting behind the connected system.",
-  ctaTitle: "Turn disconnected operations into one dependable system.",
+  ctaTitle: "Turn Disconnected Operations into One Dependable System.",
   ctaDescription:
     "Share where orders, support, inventory, or finance break apart today. I’ll map the clearest practical next step.",
 };

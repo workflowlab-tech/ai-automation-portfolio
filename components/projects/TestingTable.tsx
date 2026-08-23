@@ -13,8 +13,8 @@ export default function TestingTable({ rows, summary }: { rows: ProjectTestRow[]
         <table className="w-full min-w-[640px] border-collapse text-left text-sm">
           <thead>
             <tr className="border-b border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-              <th className="px-4 py-3 font-semibold text-[var(--color-ink)]">Test area</th>
-              <th className="px-4 py-3 font-semibold text-[var(--color-ink)]">What we verify</th>
+              <th className="px-4 py-3 font-semibold text-[var(--color-ink)]">Test Area</th>
+              <th className="px-4 py-3 font-semibold text-[var(--color-ink)]">What We Verify</th>
               <th className="px-4 py-3 font-semibold text-[var(--color-ink)]">Result</th>
             </tr>
           </thead>

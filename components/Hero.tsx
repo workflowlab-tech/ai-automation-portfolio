@@ -3,24 +3,24 @@ import { ArrowDown, ArrowRight, Check, FileInput, LineChart, Workflow } from "lu
 import { heroCopy } from "@/data/site";
 import FadeIn from "./FadeIn";
 
-const proofPoints = ["Accounting background", "E-commerce operations", "Working demos"];
+const proofPoints = ["Accounting Background", "E-commerce Operations", "Working Demos"];
 
 const processStages = [
   {
     icon: FileInput,
-    label: "Work coming in",
+    label: "Work Coming In",
     detail: "Emails, receipts, orders",
     tone: "bg-amber-50 text-amber-700",
   },
   {
     icon: Workflow,
-    label: "Rules doing the work",
+    label: "Rules Doing the Work",
     detail: "Capture, check, route",
     tone: "bg-blue-50 text-blue-700",
   },
   {
     icon: LineChart,
-    label: "Clear business output",
+    label: "Clear Business Output",
     detail: "Clean records, useful reporting",
     tone: "bg-emerald-50 text-emerald-700",
   },
@@ -89,8 +89,8 @@ export default function Hero() {
             <div className="relative rounded-[1.75rem] border border-blue-100 bg-white p-5 shadow-xl shadow-blue-100/60 sm:p-7">
               <div className="flex items-center justify-between border-b border-slate-100 pb-5">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">Process map</p>
-                  <p className="mt-1 text-sm font-semibold text-[var(--color-ink)]">From scattered work to a usable system</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">Process Map</p>
+                  <p className="mt-1 text-sm font-semibold text-[var(--color-ink)]">From Scattered Work to a Usable System</p>
                 </div>
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_0_5px_rgb(209_250_229)]" />
               </div>

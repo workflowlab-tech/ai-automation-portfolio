@@ -24,10 +24,10 @@ export default function FlagshipTeaser() {
         <FadeIn>
           <div className="mb-10 max-w-3xl">
             <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
-              Flagship project
+              Flagship Project
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-4xl">
-              One customer journey, one connected operating system
+              One Customer Journey, One Connected Operating System
             </h2>
             <p className="mt-4 text-lg leading-8 text-[var(--color-body)]">
               Idol Fairies shows how a live storefront can share reliable data with support, operations, finance, and reporting.

@@ -31,7 +31,7 @@ export default function WorkflowDetailsToggle({
               <Workflow size={18} aria-hidden="true" />
             </span>
             <span>
-              <span className="block text-sm font-semibold text-[var(--color-ink)]">Workflow details</span>
+              <span className="block text-sm font-semibold text-[var(--color-ink)]">Workflow Details</span>
               <span className="mt-0.5 block text-xs text-[var(--color-muted)]">Open the end-to-end architecture</span>
             </span>
           </span>

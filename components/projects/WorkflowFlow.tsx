@@ -5,7 +5,7 @@ export default function WorkflowFlow({ steps }: { steps: string[] }) {
     <div className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm sm:p-6">
       <div className="flex items-center gap-2 text-[var(--color-primary)]">
         <Workflow size={18} strokeWidth={2} />
-        <h4 className="text-sm font-semibold uppercase tracking-wide">Workflow architecture</h4>
+        <h4 className="text-sm font-semibold uppercase tracking-wide">Workflow Architecture</h4>
       </div>
 
       <ol className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-3">

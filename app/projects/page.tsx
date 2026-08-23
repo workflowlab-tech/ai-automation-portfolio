@@ -16,7 +16,7 @@ export default function ProjectsPage() {
           Projects
         </span>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[var(--color-ink)]">
-          Standalone automation builds
+          Standalone Automation Builds
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--color-body)]">
           Idol Fairies remains the flagship connected system. Here, each standalone build is presented

@@ -8,7 +8,7 @@ export default function ContactCTA() {
       <FadeIn>
         <div className="rounded-3xl bg-[var(--color-ink)] px-8 py-16 text-center sm:px-16">
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Ready to replace a manual bottleneck with a reliable system?
+            Ready to Replace a Manual Bottleneck with a Reliable System?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-300">
             Send the process, tools, and outcome you need. I&rsquo;ll reply with the clearest practical next step—automation, cleanup, or a better workflow.

@@ -17,10 +17,10 @@ export default function ServicesGrid() {
           <div className="grid gap-6 border-b border-[var(--color-border)] pb-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
             <div>
               <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
-                Where I work
+                Where I Work
               </span>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-4xl">
-                Business systems, not isolated tasks
+                Business Systems, Not Isolated Tasks
               </h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-[var(--color-body)] lg:justify-self-end">

@@ -16,15 +16,15 @@ const mailtoHref = `mailto:${site.email}?subject=${encodeURIComponent(
 )}`;
 
 const usefulDetails = [
-  { number: "01", title: "The process today", body: "A short step-by-step description is enough." },
+  { number: "01", title: "The Process Today", body: "A short step-by-step description is enough." },
   { number: "02", title: "The friction", body: "Where time, errors, follow-ups, or duplicate work appear." },
-  { number: "03", title: "The tools and outcome", body: "What you use now and what should become easier." },
+  { number: "03", title: "The Tools and Outcome", body: "What you use now and what should become easier." },
 ];
 
 const nextSteps = [
-  { icon: Search, title: "I review the process", body: "I look for the real bottleneck, not just the most visible task." },
-  { icon: CheckCircle2, title: "You get an honest fit check", body: "I’ll say whether automation, process cleanup, or neither is the right move." },
-  { icon: Send, title: "We choose a practical next step", body: "If there’s a fit, we define the smallest useful system to build first." },
+  { icon: Search, title: "I Review the Process", body: "I look for the real bottleneck, not just the most visible task." },
+  { icon: CheckCircle2, title: "You Get an Honest Fit Check", body: "I’ll say whether automation, process cleanup, or neither is the right move." },
+  { icon: Send, title: "We Choose a Practical Next Step", body: "If there’s a fit, we define the smallest useful system to build first." },
 ];
 
 export default function ContactPage() {
@@ -33,9 +33,9 @@ export default function ContactPage() {
       <section className="border-b border-blue-100 bg-gradient-to-br from-blue-50 via-white to-cyan-50/40">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:py-24">
           <FadeIn>
-            <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">Start a conversation</span>
+            <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">Start a Conversation</span>
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.035em] text-[var(--color-ink)] sm:text-5xl sm:leading-[1.08]">
-              Bring me the process that keeps slowing your team down.
+              Bring Me the Process That Keeps Slowing Your Team Down.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-body)]">
               Share what happens today, where it gets stuck, and what a better outcome would look like. I’ll help identify the clearest practical next step.
@@ -51,8 +51,8 @@ export default function ContactPage() {
 
           <FadeIn delay={100}>
             <div className="rounded-3xl bg-[var(--color-ink)] p-8 text-white shadow-xl shadow-blue-200/60 sm:p-10">
-              <span className="text-xs font-bold uppercase tracking-[0.16em] text-blue-300">Start here</span>
-              <h2 className="mt-4 text-2xl font-semibold sm:text-3xl">Send the process. I’ll help clarify the opportunity.</h2>
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-blue-300">Start Here</span>
+              <h2 className="mt-4 text-2xl font-semibold sm:text-3xl">Send the Process. I’ll Help Clarify the Opportunity.</h2>
               <p className="mt-4 leading-7 text-slate-300">
                 Your email opens with a short prompt, so you don’t need to prepare a formal brief.
               </p>
@@ -75,8 +75,8 @@ export default function ContactPage() {
         <FadeIn>
           <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
-              <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">A useful first message</span>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">Three details are enough to begin.</h2>
+              <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">A Useful First Message</span>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">Three Details Are Enough to Begin.</h2>
             </div>
             <div className="border-t border-[var(--color-border)]">
               {usefulDetails.map((item) => (
@@ -95,8 +95,8 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-6">
           <FadeIn>
             <div className="max-w-2xl">
-              <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">What happens next</span>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">A clear conversation before any build.</h2>
+              <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">What Happens Next</span>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">A Clear Conversation Before Any Build.</h2>
             </div>
           </FadeIn>
           <div className="mt-10 grid gap-8 md:grid-cols-3">

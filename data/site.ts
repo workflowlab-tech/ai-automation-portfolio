@@ -16,7 +16,7 @@ export const site = {
 
 export const heroCopy = {
   eyebrow: "AI Automation Specialist — Finance & E-commerce Systems",
-  headline: "Turn manual finance and e-commerce work into systems that run with less rework.",
+  headline: "Turn Manual Finance and E-commerce Work into Systems That Run with Less Rework.",
   subhead:
     "I map the business process first, then build automation that captures, checks, records, and reports the work—so teams spend less time chasing details.",
   primaryCta: { label: "See the flagship project", href: "/idol-fairies" },

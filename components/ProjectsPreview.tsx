@@ -14,7 +14,7 @@ export default function ProjectsPreview() {
               Projects
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-4xl">
-              Standalone automation builds
+              Standalone Automation Builds
             </h2>
             <p className="mt-4 text-[var(--color-body)]">
               Focused builds that show the business problem, automation logic, and working output—not just a workflow canvas.
