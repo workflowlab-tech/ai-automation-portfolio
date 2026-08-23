@@ -186,6 +186,88 @@ export const projects: Project[] = [
     screenshotsDescription:
       "A balanced view of both workflows, their intake channels, and the organized records they produce.",
   },
+  {
+    slug: "daily-task-reminder",
+    category: "Productivity Automation",
+    title: "Daily Task Reminder",
+    workflowCountLabel: "1 scheduled daily workflow",
+    tools: ["n8n", "Notion", "Google Calendar", "Gmail", "Telegram", "Open-Meteo"],
+    overview:
+      "Combines the day’s schedule, important emails, weather, and inspiration into one organized Telegram message every morning.",
+    headerOverview:
+      "A scheduled n8n workflow gathers tasks from Notion and Google Calendar, checks relevant Gmail messages, pulls the day’s weather, and selects a daily devotional and quote. It formats everything into one personal morning briefing and delivers it through Telegram.",
+    problem:
+      "Daily plans are spread across calendars, Notion, email, and weather apps, so important tasks or invitations are easy to miss.",
+    solution:
+      "One scheduled workflow gathers the day’s information, organizes it into a readable briefing, and sends a personalized Telegram message.",
+    result:
+      "The day starts with one clear view of tasks, events, weather, and reminders—without opening several apps.",
+    bestFor: [
+      "Professionals managing tasks across several tools",
+      "Students balancing classes, events, and webinars",
+      "Notion and Google Workspace users",
+      "People who prefer one daily mobile briefing",
+      "Anyone who wants a more consistent morning routine",
+    ],
+    workflowFlow: [
+      "Scheduled Trigger",
+      "Weather",
+      "Notion Schedule",
+      "Google Calendar",
+      "Gmail Invitations",
+      "Daily Inspiration",
+      "Merge & Format",
+      "Telegram Briefing",
+    ],
+    previewVisual: {
+      type: "image",
+      src: "/projects/daily-task-reminder/workflow.png",
+      label: "Daily Task Reminder — n8n workflow",
+      aspect: "wide",
+    },
+    previewVisualNote:
+      "A scheduled workflow combines five daily information sources into one Telegram message.",
+    demo: {
+      available: true,
+      posterSrc: "/projects/daily-task-reminder/daily-task-reminder-thumbnail.png",
+      videoSrc: "/videos/daily-task-reminder.m4v",
+    },
+    viewProjectHref: "/projects/daily-task-reminder",
+    howItWorks: {
+      shared: [
+        "Trigger — the workflow starts automatically at the scheduled morning time.",
+        "Gather — it pulls the weather, today’s calendar events, Notion tasks and inspiration, and relevant email invitations.",
+        "Combine — the separate results are brought together into one daily information set.",
+        "Format — the workflow arranges the details into a concise, personalized morning briefing.",
+        "Deliver — Telegram receives one message with the day’s schedule, weather, devotional, quote, and reminders.",
+      ],
+    },
+    screenshots: [
+      {
+        type: "image",
+        src: "/projects/daily-task-reminder/workflow.png",
+        label: "Scheduled n8n workflow and connected information sources",
+        aspect: "standard",
+      },
+      {
+        type: "image",
+        src: "/projects/daily-task-reminder/notion-sources.png",
+        label: "Notion master schedule and daily inspiration sources",
+        aspect: "standard",
+      },
+      {
+        type: "image",
+        src: "/projects/daily-task-reminder/telegram-briefing.png",
+        label: "Personalized daily briefing delivered in Telegram",
+        aspect: "standard",
+      },
+    ],
+    testing: [],
+    testingSummary: "",
+    screenshotsHeading: "Project screenshots and outputs",
+    screenshotsDescription:
+      "The workflow, source information, and final Telegram briefing shown in the same order the automation uses them.",
+  },
 ];
 
 export const idolFairiesProject: Project = {
