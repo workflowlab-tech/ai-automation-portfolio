@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import {
   Bot,
   ChartNoAxesCombined,
@@ -47,8 +50,30 @@ const strengths = [
 ];
 
 export default function AboutSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    let timeoutId: number | undefined;
+
+    const scrollToAbout = () => {
+      if (window.location.hash !== "#about") return;
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ block: "start" });
+      }, 150);
+    };
+
+    scrollToAbout();
+    window.addEventListener("hashchange", scrollToAbout);
+    return () => {
+      window.removeEventListener("hashchange", scrollToAbout);
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="about"
       className="scroll-mt-24 overflow-hidden border-y border-[var(--color-border)] bg-slate-50/70 py-20 sm:py-24"
     >
