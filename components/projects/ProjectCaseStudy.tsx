@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, PlayCircle, Target, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, PlayCircle, Target, Workflow } from "lucide-react";
 import type { Project } from "@/data/projects";
 import FadeIn from "../FadeIn";
 import BestForBand from "./BestForBand";
@@ -150,9 +150,26 @@ export default function ProjectCaseStudy({
       {project.testing.length > 0 ? (
         <section className="mx-auto max-w-4xl px-6 py-20">
           <FadeIn>
-            <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-              Testing and reliability
-            </h2>
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">
+                  Verified workflows
+                </span>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
+                  Test results
+                </h2>
+              </div>
+              {project.regressionReportHref ? (
+                <a
+                  href={project.regressionReportHref}
+                  download
+                  className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition-colors hover:bg-blue-50"
+                >
+                  <Download size={17} />
+                  Download regression report
+                </a>
+              ) : null}
+            </div>
           </FadeIn>
           <FadeIn delay={80} className="mt-8">
             <TestingTable rows={project.testing} summary={project.testingSummary} />

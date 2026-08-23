@@ -19,6 +19,6 @@ export const heroCopy = {
   headline: "Turn manual finance and e-commerce work into systems that run with less rework.",
   subhead:
     "I map the business process first, then build automation that captures, checks, records, and reports the work—so teams spend less time chasing details.",
-  primaryCta: { label: "See the flagship case study", href: "/idol-fairies" },
+  primaryCta: { label: "See the flagship project", href: "/idol-fairies" },
   secondaryCta: { label: "Discuss a process", href: "/contact" },
 };

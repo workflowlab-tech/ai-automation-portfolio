@@ -25,7 +25,7 @@ export const services: Service[] = [
     points: [
       "Accounts receivable aging and automatic payment reminders",
       "Supplier purchases staged for owner confirmation, not auto-posted",
-      "Expense capture and categorization from Gmail and Telegram",
+      "Expense capture and categorization from Gmail",
     ],
   },
   {

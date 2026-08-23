@@ -25,7 +25,7 @@ export default function ContactCTA() {
               href="/idol-fairies"
               className="inline-flex items-center gap-2 rounded-full border border-slate-600 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:border-white"
             >
-              View flagship case study
+              View flagship project
             </Link>
           </div>
         </div>

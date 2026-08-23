@@ -9,7 +9,12 @@ export type Shot = { src: string; label: string };
 export default function ScreenshotGallery({ shots }: { shots: Shot[] }) {
   const [active, setActive] = useState<Shot | null>(null);
 
-  const gridCols = shots.length === 1 ? "grid-cols-1" : shots.length <= 3 ? "grid-cols-2" : "grid-cols-2 sm:grid-cols-4";
+  const gridCols =
+    shots.length === 1
+      ? "grid-cols-1"
+      : shots.length <= 4
+        ? "grid-cols-1 sm:grid-cols-2"
+        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
 
   return (
     <>

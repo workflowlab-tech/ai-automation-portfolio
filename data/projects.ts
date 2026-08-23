@@ -40,6 +40,7 @@ export type Project = {
   logoSrc?: string;
   liveSiteHref?: string;
   githubHref?: string;
+  regressionReportHref?: string;
   screenshotsHeading?: string;
   screenshotsDescription?: string;
   ctaTitle?: string;
@@ -272,10 +273,10 @@ export const projects: Project[] = [
 
 export const idolFairiesProject: Project = {
   slug: "idol-fairies",
-  category: "Flagship case study",
+  category: "Flagship project",
   title: "Idol Fairies",
   workflowCountLabel: "Connected e-commerce + finance system",
-  tools: ["Next.js", "n8n", "Supabase", "Gemini", "Metabase"],
+  tools: ["Next.js", "n8n", "Supabase", "Gemini", "Metabase", "Gmail"],
   overview:
     "Connects a live storefront to orders, inventory, finance, customer support, and owner reporting through one shared system.",
   headerOverview:
@@ -311,8 +312,8 @@ export const idolFairiesProject: Project = {
   previewVisualNote: "Live storefront connected to the wider operations and finance system.",
   demo: {
     available: true,
-    posterSrc: "/videos/idol-fairies-demo-poster.jpg",
-    videoSrc: "/videos/idol-fairies-demo.mp4",
+    posterSrc: "/videos/idol-fairies-demo-poster.png",
+    videoSrc: "/videos/idol-fairies-demo.m4v",
   },
   viewProjectHref: "/idol-fairies",
   howItWorks: {
@@ -345,14 +346,58 @@ export const idolFairiesProject: Project = {
       aspect: "wide",
     },
   ],
-  testing: [],
-  testingSummary: "",
+  testing: [
+    {
+      area: "B2C Sales Webhook",
+      whatWeVerify:
+        "Order creation, duplicate protection, stock rules, multi-item orders, and invalid input",
+      result: "PASS — 5/5",
+    },
+    {
+      area: "Wholesale Sales & AR",
+      whatWeVerify:
+        "Existing and new resellers, negotiated prices, stock handling, and invalid input",
+      result: "PASS — 5/5",
+    },
+    {
+      area: "AR Payment Reminder",
+      whatWeVerify:
+        "Partial payments, duplicates, unmatched payments, invalid input, and overpayments",
+      result: "PASS — 5/5",
+    },
+    {
+      area: "Inventory Purchase & AP",
+      whatWeVerify:
+        "Supplier draft intake, item extraction, owner confirmation, and invalid or duplicate invoices",
+      result: "PASS — 5/5",
+    },
+    {
+      area: "AP Payment Reminder",
+      whatWeVerify:
+        "Full, partial, and credit payments; unmatched and invalid payments; duplicate protection",
+      result: "PASS — 6/6",
+    },
+    {
+      area: "Expense Automation",
+      whatWeVerify:
+        "Expense capture, file archival, duplicate prevention, supplier routing, and categorization",
+      result: "PASS — 10/10",
+    },
+    {
+      area: "Refund Automation",
+      whatWeVerify:
+        "Resellable and damaged refunds, quantity limits, and product or order validation",
+      result: "PASS — 5/5",
+    },
+  ],
+  testingSummary:
+    "41 of 41 tests passed across seven business workflows, with no blocking defects in the final tested implementations.",
   logoSrc: "/brand/idol-fairies-logo.jpg",
   liveSiteHref: "https://idolfairies.workflowlab.site/",
-  githubHref: "https://github.com/workflowlab-tech/idol-fairies-storefront",
+  regressionReportHref: "/documents/Idol_Fairies_Regression_Report.docx",
   screenshotsHeading: "Project screenshots and outputs",
   screenshotsDescription:
-    "Each area follows the same clear format: business problem, what the system does, what changes, supporting evidence, and optional technical details.",
+    "Explore the current storefront, operations, AI support, finance workflows, and management reporting behind the connected system.",
   ctaTitle: "Turn disconnected operations into one dependable system.",
   ctaDescription:
     "Share where orders, support, inventory, or finance break apart today. I’ll map the clearest practical next step.",

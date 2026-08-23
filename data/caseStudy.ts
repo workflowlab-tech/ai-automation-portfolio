@@ -179,13 +179,13 @@ export const solutionAreas: SolutionArea[] = [
     tabLabel: "Finance Automation",
     title: "Finance Automation — Purchases, Payables & Expenses",
     problem:
-      "Supplier invoices and day-to-day expenses arrive through different channels — supplier emails, receipts, Telegram messages — and need to become tracked records without manual bookkeeping, but shouldn't be trusted blindly since email content can be wrong or incomplete.",
+      "Supplier invoices and day-to-day expenses arrive by email and need to become tracked records without manual bookkeeping, but they should not be trusted blindly because email content can be incomplete.",
     whatItDoes:
-      "A Gmail-triggered workflow reads supplier emails and stages the purchase as a pending_review draft that only becomes an actual purchase + payable record after the owner confirms it. A separate combined Gmail + Telegram intake classifies and records operating expenses automatically (for example, a Canva subscription receipt is recognized and categorized without manual tagging).",
+      "A Gmail-triggered workflow reads supplier invoices and stages each purchase as a pending-review draft that becomes a purchase and payable only after owner confirmation. A separate Gmail workflow captures and categorizes operating expenses such as subscription receipts.",
     whatChanges:
-      "Supplier purchases are captured from the inbox automatically, but the business keeps a human checkpoint before anything hits the books. Expense capture doesn't depend on remembering to log something — it happens from wherever the receipt or note originally landed.",
+      "Supplier purchases are captured from the inbox automatically while the owner keeps a checkpoint before anything reaches the books. Operating expenses are recorded from the same email source instead of being re-entered manually.",
     evidence:
-      "04_INVENTORY_PURCHASE_AP_V1 (5/5) and 05_AP_PAYMENT_REMINDER_V1 (6/6) passed regression. 06_EXPENSE_V1 passed 10/10 regression tests across both intake paths (Telegram and Gmail).",
+      "Purchase, payable, and expense workflows are included in the consolidated regression report.",
     technical: [
       {
         heading: "Purchases & Payables (AP)",
@@ -198,8 +198,8 @@ export const solutionAreas: SolutionArea[] = [
       {
         heading: "Operating Expenses",
         points: [
-          "Workflows: 06_EXPENSE_V1.json, 00_GMAIL_AUTO_LABELER_V1.json",
-          "Gmail classification (expense / supplier / ignore) applies labels and routes messages so downstream workflows only see relevant emails",
+          "Workflow: 06_EXPENSE_V1.json",
+          "Email intake separates operating expenses from supplier purchases before recording",
         ],
       },
     ],

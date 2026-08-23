@@ -13,7 +13,7 @@ const boxes: Box[] = [
   { x: 20, y: 16, w: 190, h: 56, label: "Storefront Checkout", sub: "retail", variant: "primary" },
   { x: 20, y: 96, w: 190, h: 56, label: "Wholesale Order", sub: "reseller", variant: "primary" },
   { x: 20, y: 246, w: 190, h: 56, label: "Supplier Purchase", sub: "Gmail intake", variant: "neutral" },
-  { x: 20, y: 322, w: 190, h: 56, label: "Operating Expense", sub: "Gmail + Telegram", variant: "neutral" },
+  { x: 20, y: 322, w: 190, h: 56, label: "Operating Expense", sub: "Gmail intake", variant: "neutral" },
   { x: 20, y: 452, w: 190, h: 56, label: "Refund Request", sub: "storefront / admin", variant: "neutral" },
 
   // Core processing
