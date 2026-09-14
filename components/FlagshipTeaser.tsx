@@ -8,13 +8,13 @@ import ToolStack from "./projects/ToolStack";
 import WorkflowDetailsToggle from "./projects/WorkflowDetailsToggle";
 
 const journeySteps = [
-  "Live Catalog",
-  "Guest Checkout",
-  "Shipping Estimate",
-  "GCash / GoTyme",
-  "Payment Review",
-  "Fulfillment & Tracking",
-  "Referral Rewards",
+  "Storefront",
+  "AI Support",
+  "Orders",
+  "Sales Processing",
+  "Inventory",
+  "Finance Operations",
+  "Reporting",
 ];
 
 export default function FlagshipTeaser() {
@@ -30,7 +30,7 @@ export default function FlagshipTeaser() {
               One Customer Journey, One Connected Operating System
             </h2>
             <p className="mt-4 text-lg leading-8 text-[var(--color-body)]">
-              Idol Fairies Beauty connects a Korean beauty storefront with payments, delivery, referrals, support, and daily operations.
+              Idol Fairies shows how a live storefront can share reliable data with support, operations, finance, and reporting.
             </p>
           </div>
         </FadeIn>
@@ -40,16 +40,14 @@ export default function FlagshipTeaser() {
             <div className="grid lg:grid-cols-2">
               <div className="border-b border-[var(--color-border)] bg-blue-50/50 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
                 <ProjectVisual visual={idolFairiesProject.previewVisual} />
-                {idolFairiesProject.liveSiteHref ? (
-                  <a
-                    href={idolFairiesProject.liveSiteHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
-                  >
-                    Visit live website <ExternalLink size={16} />
-                  </a>
-                ) : null}
+                <a
+                  href={idolFairiesProject.liveSiteHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+                >
+                  Visit live website <ExternalLink size={16} />
+                </a>
                 <div className="mt-6">
                   <BestForBand items={idolFairiesProject.bestFor} />
                 </div>
@@ -95,16 +93,14 @@ export default function FlagshipTeaser() {
 
             <div className="border-t border-[var(--color-border)] bg-white px-6 py-8 sm:px-8 lg:px-10">
               <div className="flex flex-wrap justify-center gap-3">
-                {idolFairiesProject.demo.available ? (
-                  <a
-                    href={idolFairiesProject.demo.videoSrc}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] sm:w-auto sm:min-w-44"
-                  >
-                    <PlayCircle size={16} /> Watch demo
-                  </a>
-                ) : null}
+                <a
+                  href={idolFairiesProject.demo.available ? idolFairiesProject.demo.videoSrc : "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] sm:w-auto sm:min-w-44"
+                >
+                  <PlayCircle size={16} /> Watch demo
+                </a>
                 <Link
                   href={idolFairiesProject.viewProjectHref}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)] sm:w-auto sm:min-w-44"

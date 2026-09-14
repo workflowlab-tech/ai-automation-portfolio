@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "MJ Ablanque — AI Automation Specialist | Finance & E-commerce Systems",
   description:
-    "AI automation specialist with a BS Accountancy background and hands-on e-commerce experience. See Idol Fairies Beauty, a full-stack Korean beauty storefront with connected operations and automation.",
+    "AI automation specialist with a BS Accountancy background and hands-on e-commerce experience. See Idol Fairies, a working e-commerce + finance automation ecosystem built end-to-end as a portfolio demonstration.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

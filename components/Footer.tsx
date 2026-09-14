@@ -58,8 +58,9 @@ export default function Footer() {
         </div>
 
         <p className="mt-10 border-t border-[var(--color-border)] pt-6 text-xs text-[var(--color-muted)]">
-          Idol Fairies Beauty is a self-directed full-stack e-commerce and automation project.
-          Public case-study visuals exclude customer, payment, and private administrative data.
+          Idol Fairies is a self-directed portfolio/demo project, built with substantial
+          AI-assisted development on realistic simulated data — it is not a live client
+          deployment.
         </p>
       </div>
     </footer>

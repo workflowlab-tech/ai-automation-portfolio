@@ -61,32 +61,32 @@ const areaCopy: Record<Area, { process: string; example: string; relatedLabel: s
   "Finance / Accounting": {
     process: "accounts payable/receivable and expense tracking",
     example:
-      "MJ’s finance projects show how structured intake, validation, duplicate checks, and review steps can reduce repetitive recordkeeping without removing human oversight.",
+      "In the Idol Fairies project, AR balances age automatically with reminders sent for overdue accounts, and supplier purchases are staged for a manual confirm-before-posting checkpoint rather than auto-posted.",
     relatedLabel: "Finance Automation",
   },
   "Sales / Orders": {
     process: "order intake and processing",
     example:
-      "In Idol Fairies Beauty, guest checkout, payment-proof review, fulfillment status, transactional email, and customer order tracking all use the same order record.",
+      "In the Idol Fairies project, retail and wholesale orders are normalized into one pipeline, with duplicate protection and unmatched-item flagging instead of silent data loss.",
     relatedLabel: "Sales & Order Processing",
   },
   "Inventory / Operations": {
     process: "inventory and fulfillment tracking",
     example:
-      "In Idol Fairies Beauty, the storefront catalog and admin tools share current product and stock data, so customer availability and operational inventory stay aligned.",
+      "In the Idol Fairies project, storefront stock and the admin inventory view read from the same data, and refunds are handled as one tracked action instead of a manual multi-step correction.",
     relatedLabel: "Storefront & Ordering",
   },
   "Customer Support": {
     process: "answering repetitive customer questions",
     example:
-      "In Idol Fairies Beauty, Messenger automation can look up live products, current shipping tiers, and verified order status, with a handoff path when a person is needed.",
+      "In the Idol Fairies project, a RAG-based assistant answers product and policy questions from live catalog data, with an explicit fallback instead of guessing.",
     relatedLabel: "AI Customer Assistant",
   },
   "Marketing / Content": {
     process: "content and campaign tracking",
     example:
-      "Idol Fairies Beauty includes store-owned social workflows that plan beauty content, select current in-stock products, re-check availability before publishing, and log the result.",
-    relatedLabel: "Store-owned Publishing",
+      "This isn't the focus of the Idol Fairies build, but the same approach applies — define the rules for what gets tracked, then automate around them.",
+    relatedLabel: null,
   },
   Other: {
     process: "that process",

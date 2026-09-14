@@ -3,17 +3,37 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+const readOptional = (path) => {
+  try {
+    return read(path);
+  } catch {
+    return "";
+  }
+};
 
 const projectsData = read("data/projects.ts");
-const idolProjectData = projectsData.slice(projectsData.indexOf("export const idolFairiesProject"));
+const beautyProjectData = readOptional("data/idolFairiesBeautyProject.ts");
+const idolProjectPage = read("app/idol-fairies/page.tsx");
+const beautyProjectPage = readOptional("app/idol-fairies-beauty/page.tsx");
 
 const projectContent = [
-  idolProjectData,
+  beautyProjectData,
   read("data/beautyCaseStudy.ts"),
   read("components/BeautySystemDiagram.tsx"),
-  read("components/SolutionAreaTabs.tsx"),
-  read("app/idol-fairies/page.tsx"),
+  readOptional("components/BeautySolutionAreaTabs.tsx"),
+  beautyProjectPage,
 ].join("\n");
+
+test("the original Idol Fairies case study and new Beauty case study coexist", () => {
+  assert.match(projectsData, /export const idolFairiesProject: Project/);
+  assert.match(beautyProjectData, /export const idolFairiesBeautyProject: Project/);
+  assert.match(projectsData, /idolFairiesBeautyProject,/);
+  assert.match(idolProjectPage, /Finance & E-commerce Automation Demo/);
+  assert.match(idolProjectPage, /SystemDiagram/);
+  assert.match(beautyProjectPage, /Full-stack E-commerce Case Study/);
+  assert.match(beautyProjectPage, /BeautySystemDiagram/);
+  assert.match(beautyProjectData, /viewProjectHref: "\/idol-fairies-beauty"/);
+});
 
 test("Idol Fairies Beauty case study includes verified platform capabilities", () => {
   const required = [
