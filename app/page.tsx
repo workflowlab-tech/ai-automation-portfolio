@@ -14,8 +14,8 @@ export default function Home() {
       <FlagshipTeaser />
       <ProjectsPreview />
       <AboutSection />
-      <ContactCTA />
       <CertificateGallery />
+      <ContactCTA />
     </>
   );
 }
