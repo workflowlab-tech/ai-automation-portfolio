@@ -163,41 +163,42 @@ export default function AboutSection() {
                 ))}
               </div>
 
-              <FadeIn delay={390} className="mt-auto pt-6">
-                <div className="flex flex-col gap-5 rounded-2xl bg-blue-50/80 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-blue-600 shadow-sm">
-                      <Rocket size={23} strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-                    <p className="border-l border-blue-200 pl-4 text-sm font-semibold leading-6 text-[var(--color-ink)]">
-                      I build solutions that solve{" "}
-                      <strong>real business problems</strong> — not just
-                      automations for the sake of automation.
-                    </p>
-                  </div>
-
-                  <div className="flex shrink-0 flex-wrap gap-2.5">
-                    <a
-                      href={site.resumeHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-200 transition-colors hover:bg-blue-700"
-                    >
-                      <FileText size={16} aria-hidden="true" />
-                      View Resume PDF
-                    </a>
-                    <Link
-                      href={site.contactHref}
-                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-blue-500 bg-white px-4 py-2.5 text-sm font-semibold text-blue-700 transition-colors hover:bg-blue-50"
-                    >
-                      <Mail size={16} aria-hidden="true" />
-                      Contact Me
-                    </Link>
-                  </div>
-                </div>
-              </FadeIn>
             </div>
           </div>
+
+          <FadeIn delay={390} className="relative mt-6">
+            <div className="flex flex-col gap-5 rounded-2xl bg-blue-50/80 px-5 py-4 sm:flex-row sm:items-center sm:justify-between lg:px-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-blue-600 shadow-sm">
+                  <Rocket size={23} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <p className="border-l border-blue-200 pl-4 text-sm font-semibold leading-6 text-[var(--color-ink)]">
+                  I build solutions that solve{" "}
+                  <strong>real business problems</strong> — not just
+                  automations for the sake of automation.
+                </p>
+              </div>
+
+              <div className="flex shrink-0 flex-wrap gap-2.5">
+                <a
+                  href={site.resumeHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-200 transition-colors hover:bg-blue-700"
+                >
+                  <FileText size={16} aria-hidden="true" />
+                  View Resume PDF
+                </a>
+                <Link
+                  href={site.contactHref}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-blue-500 bg-white px-4 py-2.5 text-sm font-semibold text-blue-700 transition-colors hover:bg-blue-50"
+                >
+                  <Mail size={16} aria-hidden="true" />
+                  Contact Me
+                </Link>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>
