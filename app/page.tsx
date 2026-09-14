@@ -4,6 +4,7 @@ import ProjectsPreview from "@/components/ProjectsPreview";
 import AboutSection from "@/components/AboutSection";
 import ContactCTA from "@/components/ContactCTA";
 import ServicesGrid from "@/components/ServicesGrid";
+import CertificateGallery from "@/components/CertificateGallery";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ProjectsPreview />
       <AboutSection />
       <ContactCTA />
+      <CertificateGallery />
     </>
   );
 }

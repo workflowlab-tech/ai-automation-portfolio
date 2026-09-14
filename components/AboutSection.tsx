@@ -5,16 +5,13 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import {
   Bot,
-  ChartNoAxesCombined,
   FileText,
   GraduationCap,
   Landmark,
   Mail,
   MapPin,
   Rocket,
-  Settings2,
   ShoppingCart,
-  Target,
 } from "lucide-react";
 import { site } from "@/data/site";
 import FadeIn from "./FadeIn";
@@ -41,12 +38,6 @@ const pillars = [
     accent: "text-indigo-700",
     iconBackground: "bg-indigo-50",
   },
-];
-
-const strengths = [
-  { icon: Target, label: "Business-Driven\nThinker" },
-  { icon: Settings2, label: "Process\nOptimizer" },
-  { icon: ChartNoAxesCombined, label: "Automation for\nImpact" },
 ];
 
 export default function AboutSection() {
@@ -107,19 +98,6 @@ export default function AboutSection() {
                     {site.role}
                   </p>
                   <span className="mt-5 h-0.5 w-10 bg-blue-600" aria-hidden="true" />
-
-                  <div className="mt-6 grid w-full grid-cols-3 divide-x divide-slate-200">
-                    {strengths.map((strength) => (
-                      <div key={strength.label} className="px-2 text-center">
-                        <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-md shadow-blue-200">
-                          <strength.icon size={19} strokeWidth={1.9} aria-hidden="true" />
-                        </span>
-                        <p className="mt-3 whitespace-pre-line text-[11px] font-medium leading-4 text-slate-700 sm:text-xs">
-                          {strength.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
 
                   <div className="mt-auto w-full pt-8">
                     <div className="rounded-2xl border border-blue-100 bg-white/90 p-4 shadow-sm">
