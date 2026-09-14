@@ -1,60 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { solutionAreas } from "@/data/caseStudy";
+import { beautySolutionAreas as solutionAreas } from "@/data/beautyCaseStudy";
 import ScreenshotGallery, { type Shot } from "./ScreenshotGallery";
 
 const visuals: Record<string, Shot[]> = {
   storefront: [
-    { src: "/screenshots/storefront/home.png", label: "Storefront home" },
-    { src: "/screenshots/storefront/shop-all.png", label: "Full product catalog" },
-    { src: "/screenshots/storefront/albums.png", label: "Albums category" },
-    { src: "/screenshots/storefront/light-sticks.png", label: "Light sticks category" },
-    { src: "/screenshots/storefront/photobooks.png", label: "Photobooks and magazines" },
-    { src: "/screenshots/storefront/collectibles.png", label: "Collectibles filter" },
-    { src: "/screenshots/storefront/about.png", label: "About Idol Fairies" },
-    { src: "/screenshots/storefront/checkout.png", label: "Demo checkout" },
-  ],
-  assistant: [
-    { src: "/screenshots/chatbot/idol-ai-suggested-prompts.png", label: "Idol AI suggested questions" },
-    { src: "/screenshots/chatbot/idol-ai-korean-answer.png", label: "Idol AI Korean response" },
-    { src: "/screenshots/chatbot/idol-ai-japanese-answer.png", label: "Idol AI Japanese response" },
-    { src: "/screenshots/chatbot/idol-ai-live-answer.png", label: "Live catalog answer" },
-    { src: "/screenshots/chatbot/idol-ai-policy-answer.png", label: "Store policy answer" },
-  ],
-  sales: [
-    { src: "/screenshots/admin/orders.png", label: "Admin orders" },
-    { src: "/screenshots/workflows/b2c-sales.png", label: "B2C sales workflow" },
-    { src: "/screenshots/workflows/wholesale-sales-ar.png", label: "Wholesale sales and receivables workflow" },
-  ],
-  wholesale: [
-    { src: "/screenshots/admin/resellers.png", label: "Resellers and outstanding balances" },
-    { src: "/screenshots/workflows/ar-payment-reminder.png", label: "Accounts receivable payment workflow" },
-  ],
-  refunds: [
-    { src: "/screenshots/admin/refunds.png", label: "Admin refund history" },
-    { src: "/screenshots/workflows/refund-automation.png", label: "Refund and inventory workflow" },
-  ],
-  admin: [
-    { src: "/screenshots/admin/overview.png", label: "Operations overview" },
-    { src: "/screenshots/admin/orders.png", label: "Orders" },
-    { src: "/screenshots/admin/customers.png", label: "Customers" },
-    { src: "/screenshots/admin/resellers.png", label: "Resellers" },
-    { src: "/screenshots/admin/inventory.png", label: "Inventory" },
-    { src: "/screenshots/admin/products.png", label: "Products" },
-    { src: "/screenshots/admin/purchases.png", label: "Purchases" },
-    { src: "/screenshots/admin/refunds.png", label: "Refunds" },
-    { src: "/screenshots/admin/needs-review.png", label: "Needs review" },
-  ],
-  reporting: [
-    { src: "/screenshots/metabase/business-dashboard.png", label: "Business performance dashboard" },
-    { src: "/screenshots/metabase/sales-wholesale-refunds.png", label: "Sales, wholesale, and refunds dashboard" },
-  ],
-  finance: [
-    { src: "/screenshots/workflows/inventory-purchase-ap.png", label: "Inventory purchase and accounts payable workflow" },
-    { src: "/screenshots/workflows/ap-payment-reminder.png", label: "Accounts payable payment workflow" },
-    { src: "/screenshots/workflows/expense-automation.png", label: "Operating expense workflow" },
-    { src: "/screenshots/admin/purchases.png", label: "Owner-reviewed purchases" },
+    { src: "/projects/idol-fairies-beauty/skincare-collection.jpg", label: "Korean skincare collection" },
+    { src: "/projects/idol-fairies-beauty/makeup-collection.jpg", label: "Korean makeup collection" },
+    { src: "/projects/idol-fairies-beauty/treatment-mask-collection.jpg", label: "Treatment mask collection" },
   ],
 };
 

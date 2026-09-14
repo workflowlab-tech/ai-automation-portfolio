@@ -22,6 +22,8 @@ export type Project = {
   problem: string;
   solution: string;
   result: string;
+  role?: string;
+  contributions?: string[];
   bestFor: string[];
   /** Ordered step labels for the collapsed workflow-details flow */
   workflowFlow: string[];
@@ -480,134 +482,97 @@ export const projects: Project[] = [
 
 export const idolFairiesProject: Project = {
   slug: "idol-fairies",
-  category: "Flagship Project",
-  title: "Idol Fairies",
-  workflowCountLabel: "Connected E-commerce + Finance System",
-  tools: ["Next.js", "n8n", "Supabase", "Gemini", "Metabase", "Gmail"],
+  category: "Full-stack E-commerce",
+  title: "Idol Fairies Beauty",
+  workflowCountLabel: "Storefront + Operations + Automation",
+  tools: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Vercel", "Resend", "Gemini", "n8n"],
   overview:
-    "Connects a live storefront to orders, inventory, finance, customer support, and owner reporting through one shared system.",
+    "A full-stack Korean beauty store connecting shopping, payments, delivery, referrals, customer support, and daily operations.",
   headerOverview:
-    "A live K-pop merchandise storefront feeds the same system used for orders, inventory, finance, customer support, and reporting. Staff and owners get different views of the same reliable business data instead of maintaining disconnected records.",
+    "A responsive Korean beauty shopping platform built around the full order journey—from live product availability and guest checkout to payment verification, delivery tracking, referral rewards, and back-office control.",
   problem:
-    "When sales, stock, finance, support, and reporting sit in separate places, teams repeat work and make decisions from inconsistent information.",
+    "A growing online beauty store needs accurate stock, low-friction checkout, local payment and shipping support, and a practical way to manage every order without stitching together disconnected tools.",
   solution:
-    "One shared system connects every shopper action to the operational work that follows, from support and order handling to finance and reporting.",
+    "A single full-stack platform keeps the catalog, checkout, payment proof, shipping, order status, referrals, Messenger support, and admin workflows connected to the same operational data.",
   result:
-    "Staff work from one operational view, while owners see clear performance without rebuilding the same records in multiple tools.",
+    "Customers can complete and track an order without creating an account, while the store manages products, inventory, payments, shipping, referrals, and fulfillment from one system.",
+  role: "Full-stack developer and automation builder",
+  contributions: [
+    "Designed and implemented the responsive storefront, product catalog, cart, guest checkout, and order-tracking experience.",
+    "Built the PostgreSQL and Supabase-backed product, inventory, order, shipping, payment-proof, and referral workflows.",
+    "Created the administrative product and order tools, transactional email flow, Messenger service integration, and store-owned social publishing workflows.",
+    "Added guarded Gemini-assisted payment-proof checks and operational review paths instead of treating automated extraction as final approval.",
+  ],
   bestFor: [
-    "Online retailers managing storefront and back-office operations",
-    "Wholesale or reseller businesses tracking receivables",
-    "Teams connecting orders, inventory, finance, and reporting",
-    "Owners who need separate operational and management views",
-    "Businesses adding AI support grounded in live catalog data",
+    "Online beauty and specialty retailers",
+    "Stores using Philippine payment methods",
+    "Teams managing catalog, stock, orders, and delivery together",
+    "Businesses running a first-party customer referral program",
+    "Stores automating service and owned-channel publishing",
   ],
   workflowFlow: [
-    "Storefront / Wholesale",
-    "AI Support",
-    "Order Validation",
-    "Sales Processing",
-    "Inventory & Finance",
-    "Admin Operations",
-    "Management Reporting",
+    "Browse Live Catalog",
+    "Guest Checkout",
+    "Calculate Shipping",
+    "Pay via GCash / GoTyme",
+    "Upload Payment Proof",
+    "Review & Fulfill",
+    "Track Order",
+    "Attribute Referral Rewards",
   ],
   previewVisual: {
     type: "image",
-    src: "/screenshots/storefront/home.png",
-    label: "Idol Fairies live storefront",
+    src: "/projects/idol-fairies-beauty/skincare-collection.jpg",
+    label: "Idol Fairies Beauty Korean skincare collection",
     aspect: "wide",
   },
-  previewVisualNote: "Live storefront connected to the wider operations and finance system.",
+  previewVisualNote: "Store imagery used by the verified Idol Fairies Beauty storefront project.",
   demo: {
-    available: true,
-    posterSrc: "/videos/idol-fairies-demo-poster.png",
-    videoSrc: "/videos/idol-fairies-demo.m4v",
+    available: false,
+    note: "The current Beauty build does not yet have a verified public demo link.",
   },
   viewProjectHref: "/idol-fairies",
   howItWorks: {
     shared: [
-      "Capture — a storefront checkout or wholesale order enters one shared order pipeline.",
-      "Support — Idol AI answers shopper questions using current catalog and policy information.",
-      "Validate — customer, order, and SKU data are checked before records are created; anything unresolved is sent to review.",
-      "Process — approved orders create consistent sales records and update the operational view.",
-      "Coordinate — inventory, receivables, payables, expenses, and refunds use the same underlying business data.",
-      "Report — Metabase turns the connected records into owner-level sales, margin, aging, expense, and inventory views.",
+      "Browse — shoppers explore a responsive skincare and makeup catalog backed by current product and inventory records.",
+      "Checkout — guest checkout validates stock, accepts an optional customer referral code, and calculates nationwide shipping from the destination and order weight.",
+      "Pay — the order page presents GCash and GoTyme instructions and accepts a payment-proof image in private storage.",
+      "Review — Gemini extracts limited receipt signals and flags mismatches or duplicates for administrative review; staff retain the final payment decision.",
+      "Fulfill — the admin workspace manages products, live inventory, orders, payment status, tracking details, and referral operations.",
+      "Update — customers follow order progress through a verified tracking flow and transactional emails delivered through Resend.",
+      "Reward — first-party referral links and codes attribute qualifying orders, progress rewards through clearing, and surface balances and history in a private referral dashboard.",
+      "Support — n8n-powered Messenger automation reads live product, shipping, and order data, while separate store-owned workflows prepare and publish Idol Fairies Beauty content and in-stock product posts.",
     ],
   },
   screenshots: [
     {
       type: "image",
-      src: "/screenshots/storefront/home.png",
-      label: "Idol Fairies storefront",
+      src: "/projects/idol-fairies-beauty/skincare-collection.jpg",
+      label: "Korean skincare collection storefront artwork",
       aspect: "wide",
     },
     {
       type: "image",
-      src: "/screenshots/admin/overview.png",
-      label: "Admin operations overview",
+      src: "/projects/idol-fairies-beauty/makeup-collection.jpg",
+      label: "Korean makeup collection storefront artwork",
       aspect: "wide",
     },
     {
       type: "image",
-      src: "/screenshots/metabase/business-dashboard.png",
-      label: "Management reporting dashboard",
+      src: "/projects/idol-fairies-beauty/treatment-mask-collection.jpg",
+      label: "Treatment mask collection storefront artwork",
       aspect: "wide",
     },
   ],
-  testing: [
-    {
-      area: "B2C Sales Webhook",
-      whatWeVerify:
-        "Order creation, duplicate protection, stock rules, multi-item orders, and invalid input",
-      result: "PASS — 5/5",
-    },
-    {
-      area: "Wholesale Sales & AR",
-      whatWeVerify:
-        "Existing and new resellers, negotiated prices, stock handling, and invalid input",
-      result: "PASS — 5/5",
-    },
-    {
-      area: "AR Payment Reminder",
-      whatWeVerify:
-        "Partial payments, duplicates, unmatched payments, invalid input, and overpayments",
-      result: "PASS — 5/5",
-    },
-    {
-      area: "Inventory Purchase & AP",
-      whatWeVerify:
-        "Supplier draft intake, item extraction, owner confirmation, and invalid or duplicate invoices",
-      result: "PASS — 5/5",
-    },
-    {
-      area: "AP Payment Reminder",
-      whatWeVerify:
-        "Full, partial, and credit payments; unmatched and invalid payments; duplicate protection",
-      result: "PASS — 6/6",
-    },
-    {
-      area: "Expense Automation",
-      whatWeVerify:
-        "Expense capture, file archival, duplicate prevention, supplier routing, and categorization",
-      result: "PASS — 10/10",
-    },
-    {
-      area: "Refund Automation",
-      whatWeVerify:
-        "Resellable and damaged refunds, quantity limits, and product or order validation",
-      result: "PASS — 5/5",
-    },
-  ],
-  testingSummary:
-    "41 of 41 tests passed across seven business workflows, with no blocking defects in the final tested implementations.",
-  logoSrc: "/brand/idol-fairies-logo.jpg",
-  liveSiteHref: "https://idolfairies.workflowlab.site/",
-  regressionReportHref: "/documents/Idol_Fairies_Regression_Report.docx",
-  screenshotsHeading: "Project Screenshots and Outputs",
+  testing: [],
+  testingSummary: "",
+  logoSrc: "/projects/idol-fairies-beauty/idol-fairies-logo.jpg",
+  screenshotsHeading: "Selected Storefront Imagery",
   screenshotsDescription:
-    "Explore the current storefront, operations, AI support, finance workflows, and management reporting behind the connected system.",
-  ctaTitle: "Turn Disconnected Operations into One Dependable System.",
+    "Public-safe visual assets from the Beauty storefront. Operational screens are intentionally excluded to protect customer and payment information.",
+  ctaTitle: "Build a Storefront That Runs Beyond Checkout.",
   ctaDescription:
-    "Share where orders, support, inventory, or finance break apart today. I’ll map the clearest practical next step.",
+    "Connect the customer journey to the inventory, payment, fulfillment, referral, and support workflows behind it.",
 };
 
 export function getProject(slug: string) {

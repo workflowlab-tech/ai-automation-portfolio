@@ -48,6 +48,23 @@ export default function ProjectCaseStudy({
           </div>
         </FadeIn>
 
+        {project.role && project.contributions?.length ? (
+          <FadeIn delay={60} className="mt-6">
+            <article className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">My Role</span>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)]">{project.role}</h2>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {project.contributions.map((contribution) => (
+                  <li key={contribution} className="flex gap-3 text-[15px] leading-7 text-[var(--color-body)]">
+                    <CheckCircle2 size={18} className="mt-1 shrink-0 text-[var(--color-accent-green)]" />
+                    <span>{contribution}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </FadeIn>
+        ) : null}
+
         <FadeIn delay={80} className="mt-6">
           <BestForBand items={project.bestFor} />
         </FadeIn>
