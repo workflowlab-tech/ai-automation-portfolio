@@ -5,7 +5,7 @@ export const idolFairiesBeautyProject: Project = {
   category: "Full-stack E-commerce",
   title: "Idol Fairies Beauty",
   workflowCountLabel: "Storefront + Operations + Automation",
-  tools: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Vercel", "Resend", "Gemini", "n8n"],
+  tools: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Vercel", "Resend", "Gemini", "n8n", "GoHighLevel"],
   overview: "A full-stack Korean beauty store connecting shopping, payments, delivery, referrals, customer support, and daily operations.",
   headerOverview: "A responsive Korean beauty shopping platform built around the full order journey—from live product availability and guest checkout to payment verification, delivery tracking, referral rewards, and back-office control.",
   problem: "A growing online beauty store needs accurate stock, low-friction checkout, local payment and shipping support, and a practical way to manage every order without stitching together disconnected tools.",
@@ -15,7 +15,7 @@ export const idolFairiesBeautyProject: Project = {
   contributions: [
     "Designed and implemented the responsive storefront, product catalog, cart, guest checkout, and order-tracking experience.",
     "Built the PostgreSQL and Supabase-backed product, inventory, order, shipping, payment-proof, and referral workflows.",
-    "Created the administrative product and order tools, transactional email flow, Messenger service integration, and store-owned social publishing workflows.",
+    "Created the administrative product and order tools, transactional email flow, GHL + n8n Messenger AI integration, and store-owned social publishing workflows.",
     "Added guarded Gemini-assisted payment-proof checks and operational review paths instead of treating automated extraction as final approval.",
   ],
   bestFor: [
@@ -42,7 +42,12 @@ export const idolFairiesBeautyProject: Project = {
     aspect: "wide",
   },
   previewVisualNote: "Store imagery used by the verified Idol Fairies Beauty storefront project.",
-  demo: { available: false, note: "The current Beauty build does not yet have a verified public demo link." },
+  demo: {
+    available: true,
+    posterSrc: "/projects/idol-fairies-beauty/messenger-demo-poster.jpg",
+    videoSrc: "/videos/idol-fairies-beauty-messenger-demo.mp4",
+  },
+  liveSiteHref: "https://idolfairies-beauty.workflowlab.site",
   viewProjectHref: "/idol-fairies-beauty",
   howItWorks: {
     shared: [
@@ -53,7 +58,7 @@ export const idolFairiesBeautyProject: Project = {
       "Fulfill — the admin workspace manages products, live inventory, orders, payment status, tracking details, and referral operations.",
       "Update — customers follow order progress through a verified tracking flow and transactional emails delivered through Resend.",
       "Reward — first-party referral links and codes attribute qualifying orders, progress rewards through clearing, and surface balances and history in a private referral dashboard.",
-      "Support — n8n-powered Messenger automation reads live product, shipping, and order data, while separate store-owned workflows prepare and publish Idol Fairies Beauty content and in-stock product posts.",
+      "Support — Facebook Messenger conversations route through GoHighLevel's CRM/AI inquiry layer, which hands each message to an n8n-orchestrated Gemini agent that reads live product, shipping, and order data before GHL delivers the reply, while separate store-owned workflows prepare and publish Idol Fairies Beauty content and in-stock product posts.",
     ],
   },
   screenshots: [
@@ -64,8 +69,8 @@ export const idolFairiesBeautyProject: Project = {
   testing: [],
   testingSummary: "",
   logoSrc: "/projects/idol-fairies-beauty/idol-fairies-logo.jpg",
-  screenshotsHeading: "Selected Storefront Imagery",
-  screenshotsDescription: "Public-safe visual assets from the Beauty storefront. Operational screens are intentionally excluded to protect customer and payment information.",
+  screenshotsHeading: "Selected Storefront & Automation Evidence",
+  screenshotsDescription: "Public-safe visual assets from the Beauty storefront and the live GHL + n8n Messenger AI workflow. Operational screens are intentionally excluded to protect customer and payment information.",
   ctaTitle: "Build a Storefront That Runs Beyond Checkout.",
   ctaDescription: "Connect the customer journey to the inventory, payment, fulfillment, referral, and support workflows behind it.",
 };

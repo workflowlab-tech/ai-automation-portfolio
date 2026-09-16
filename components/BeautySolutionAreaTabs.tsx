@@ -6,9 +6,18 @@ import ScreenshotGallery, { type Shot } from "./ScreenshotGallery";
 
 const visuals: Record<string, Shot[]> = {
   storefront: [
+    { src: "/projects/idol-fairies-beauty/homepage.jpg", label: "Live storefront homepage" },
+    { src: "/projects/idol-fairies-beauty/shop-skincare.jpg", label: "Skincare catalog with live stock counts" },
+    { src: "/projects/idol-fairies-beauty/shop-makeup.jpg", label: "Makeup catalog with live stock counts" },
     { src: "/projects/idol-fairies-beauty/skincare-collection.jpg", label: "Korean skincare collection" },
     { src: "/projects/idol-fairies-beauty/makeup-collection.jpg", label: "Korean makeup collection" },
     { src: "/projects/idol-fairies-beauty/treatment-mask-collection.jpg", label: "Treatment mask collection" },
+  ],
+  orders: [{ src: "/projects/idol-fairies-beauty/track-order.jpg", label: "Guest order tracking by order number and mobile" }],
+  referrals: [{ src: "/projects/idol-fairies-beauty/join-referral.jpg", label: "Referral program signup page" }],
+  messenger: [
+    { src: "/projects/idol-fairies-beauty/n8n-messenger-workflow.jpg", label: "Live n8n Messenger AI workflow: GHL trigger, Gemini agent, tool nodes, reply back to GHL" },
+    { src: "/projects/idol-fairies-beauty/ghl-messenger-workflow.jpg", label: "GoHighLevel Messenger AI workflow builder" },
   ],
 };
 
