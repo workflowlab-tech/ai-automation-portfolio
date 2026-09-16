@@ -66,8 +66,55 @@ export const idolFairiesBeautyProject: Project = {
     { type: "image", src: "/projects/idol-fairies-beauty/makeup-collection.jpg", label: "Korean makeup collection storefront artwork", aspect: "wide" },
     { type: "image", src: "/projects/idol-fairies-beauty/treatment-mask-collection.jpg", label: "Treatment mask collection storefront artwork", aspect: "wide" },
   ],
-  testing: [],
-  testingSummary: "",
+  testing: [
+    {
+      area: "Inventory & Checkout",
+      whatWeVerify: "Stock handling from cart through order creation, including the earlier issue where stock was held indefinitely on unpaid orders",
+      result: "PASS — 1-hour reservation window auto-releases stock; confirmed in code and via a live unpaid test order",
+    },
+    {
+      area: "Guest Checkout & Shipping",
+      whatWeVerify: "Cart math, shade/variant stock caps, and destination + weight-based shipping calculation",
+      result: "PASS — verified across multiple SKUs and destinations",
+    },
+    {
+      area: "Policies & SEO",
+      whatWeVerify: "Returns/shipping/privacy/terms pages exist; robots.txt and sitemap.xml resolve",
+      result: "PASS — previously 404, now live in production",
+    },
+    {
+      area: "Payment Proof Flow",
+      whatWeVerify: "GCash/GoTyme instructions, upload accepts common image formats, Gemini extraction flags mismatches for admin review",
+      result: "PASS — human-in-the-loop decision confirmed, no auto-approval",
+    },
+    {
+      area: "Referral Program",
+      whatWeVerify: "Referral code capture at checkout, dashboard, and reward clearing lifecycle",
+      result: "PASS — verified in checkout, dashboard, and admin reward flows",
+    },
+    {
+      area: "Messenger AI — Accuracy",
+      whatWeVerify: "35 real customer questions across authenticity, pricing, condition/expiry, payment methods, delivery, returns, and owner-privacy",
+      result: "PASS — 35/35 post-fix, including one real hallucination caught live and corrected",
+    },
+    {
+      area: "Messenger AI — Live Architecture",
+      whatWeVerify: "GHL trigger → n8n Gemini agent → tool calls (Search Products, Check Order Status, Shipping Estimate, Referral Info, Human Handoff) → reply returned to GHL",
+      result: "PASS — confirmed directly in the published, live n8n workflow",
+    },
+    {
+      area: "Site Health",
+      whatWeVerify: "Console errors, broken image requests, product-level SEO metadata",
+      result: "PASS — zero console errors, zero broken images across full audit session",
+    },
+    {
+      area: "UI Regression",
+      whatWeVerify: "Messenger widget overlapping the last shade-selector button on variant-heavy product pages",
+      result: "FIXED — pointer-events hit-strip logic confirmed in code",
+    },
+  ],
+  testingSummary: "62 checks across two independent audits plus a live re-verification pass. 61 pass; 1 real hallucination was caught in an actual customer conversation and fixed the same day.",
+  regressionReportHref: "/documents/Idol_Fairies_Beauty_Regression_Report.docx",
   logoSrc: "/projects/idol-fairies-beauty/idol-fairies-logo.jpg",
   screenshotsHeading: "Selected Storefront & Automation Evidence",
   screenshotsDescription: "Public-safe visual assets from the Beauty storefront, checkout, admin, and the live GHL + n8n Messenger AI workflow. Customer names and addresses are cropped to protect privacy.",
