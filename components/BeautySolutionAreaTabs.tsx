@@ -13,7 +13,14 @@ const visuals: Record<string, Shot[]> = {
     { src: "/projects/idol-fairies-beauty/makeup-collection.jpg", label: "Korean makeup collection" },
     { src: "/projects/idol-fairies-beauty/treatment-mask-collection.jpg", label: "Treatment mask collection" },
   ],
-  orders: [{ src: "/projects/idol-fairies-beauty/track-order.jpg", label: "Guest order tracking by order number and mobile" }],
+  payments: [
+    { src: "/projects/idol-fairies-beauty/payment-proof-upload.jpg", label: "GCash / GoTyme payment instructions and proof upload" },
+    { src: "/projects/idol-fairies-beauty/order-confirmation.jpg", label: "Order confirmation after payment proof is submitted" },
+  ],
+  orders: [
+    { src: "/projects/idol-fairies-beauty/track-order.jpg", label: "Guest order tracking by order number and mobile" },
+    { src: "/projects/idol-fairies-beauty/admin-dashboard.jpg", label: "Admin dashboard: orders, payment verification, low-stock alerts" },
+  ],
   referrals: [{ src: "/projects/idol-fairies-beauty/join-referral.jpg", label: "Referral program signup page" }],
   messenger: [
     { src: "/projects/idol-fairies-beauty/n8n-messenger-workflow.jpg", label: "Live n8n Messenger AI workflow: GHL trigger, Gemini agent, tool nodes, reply back to GHL" },

@@ -31,7 +31,7 @@ export default function BeautySystemDiagram() {
         </div>
         <div className="rounded-2xl border border-green-100 bg-[var(--color-accent-green-light)] p-4">
           <p className="text-sm font-semibold text-[var(--color-accent-green)]">Automation layer</p>
-          <p className="mt-1 text-xs leading-5 text-[var(--color-body)]">Messenger → GoHighLevel CRM/AI inquiry layer → n8n Gemini agent, plus store-owned social publishing, stay connected to current product, shipping, and order data.</p>
+          <p className="mt-1 text-xs leading-5 text-[var(--color-body)]">Messenger → GoHighLevel CRM/AI inquiry layer → n8n Gemini agent stays connected to current product, shipping, and order data.</p>
         </div>
       </div>
     </div>

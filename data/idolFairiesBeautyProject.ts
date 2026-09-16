@@ -15,7 +15,7 @@ export const idolFairiesBeautyProject: Project = {
   contributions: [
     "Designed and implemented the responsive storefront, product catalog, cart, guest checkout, and order-tracking experience.",
     "Built the PostgreSQL and Supabase-backed product, inventory, order, shipping, payment-proof, and referral workflows.",
-    "Created the administrative product and order tools, transactional email flow, GHL + n8n Messenger AI integration, and store-owned social publishing workflows.",
+    "Created the administrative product and order tools, transactional email flow, and the GHL + n8n Messenger AI integration.",
     "Added guarded Gemini-assisted payment-proof checks and operational review paths instead of treating automated extraction as final approval.",
   ],
   bestFor: [
@@ -23,7 +23,7 @@ export const idolFairiesBeautyProject: Project = {
     "Stores using Philippine payment methods",
     "Teams managing catalog, stock, orders, and delivery together",
     "Businesses running a first-party customer referral program",
-    "Stores automating service and owned-channel publishing",
+    "Stores automating customer service with CRM-connected AI",
   ],
   workflowFlow: [
     "Browse Live Catalog",
@@ -58,7 +58,7 @@ export const idolFairiesBeautyProject: Project = {
       "Fulfill — the admin workspace manages products, live inventory, orders, payment status, tracking details, and referral operations.",
       "Update — customers follow order progress through a verified tracking flow and transactional emails delivered through Resend.",
       "Reward — first-party referral links and codes attribute qualifying orders, progress rewards through clearing, and surface balances and history in a private referral dashboard.",
-      "Support — Facebook Messenger conversations route through GoHighLevel's CRM/AI inquiry layer, which hands each message to an n8n-orchestrated Gemini agent that reads live product, shipping, and order data before GHL delivers the reply, while separate store-owned workflows prepare and publish Idol Fairies Beauty content and in-stock product posts.",
+      "Support — Facebook Messenger conversations route through GoHighLevel's CRM/AI inquiry layer, which hands each message to an n8n-orchestrated Gemini agent that reads live product, shipping, and order data before GHL delivers the reply.",
     ],
   },
   screenshots: [
@@ -70,7 +70,7 @@ export const idolFairiesBeautyProject: Project = {
   testingSummary: "",
   logoSrc: "/projects/idol-fairies-beauty/idol-fairies-logo.jpg",
   screenshotsHeading: "Selected Storefront & Automation Evidence",
-  screenshotsDescription: "Public-safe visual assets from the Beauty storefront and the live GHL + n8n Messenger AI workflow. Operational screens are intentionally excluded to protect customer and payment information.",
+  screenshotsDescription: "Public-safe visual assets from the Beauty storefront, checkout, admin, and the live GHL + n8n Messenger AI workflow. Customer names and addresses are cropped to protect privacy.",
   ctaTitle: "Build a Storefront That Runs Beyond Checkout.",
   ctaDescription: "Connect the customer journey to the inventory, payment, fulfillment, referral, and support workflows behind it.",
 };

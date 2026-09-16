@@ -62,16 +62,6 @@ export const beautySolutionAreas: SolutionArea[] = [
     technical: [{ points: ["GoHighLevel CRM as the Messenger inquiry layer", "n8n workflow orchestration with a Gemini AI Agent", "Authenticated server-to-server endpoints", "Live catalog, shipping, order, and referral tools", "Human handoff and conversation controls"] }],
   },
   {
-    id: "publishing",
-    tabLabel: "Publishing",
-    title: "Store-owned Social Publishing Workflows",
-    problem: "Publishing useful beauty content and current in-stock product posts across owned channels takes repetitive preparation and availability checks.",
-    whatItDoes: "Store-specific n8n workflows plan beauty content, select eligible in-stock products, prepare platform-specific copy, re-check stock before publishing, update product rotation history, and log completed posts.",
-    whatChanges: "Owned-channel content stays tied to the Idol Fairies Beauty catalog, with stock-aware safeguards and a reviewable publishing trail.",
-    evidence: "Verified in the Beauty content planner, product selector, publishing branches, stock re-checks, and publication logging logic.",
-    technical: [{ points: ["n8n scheduling and orchestration", "PostgreSQL product selection", "Gemini-assisted content preparation", "Facebook and Threads publishing branches"] }],
-  },
-  {
     id: "platform",
     tabLabel: "Platform",
     title: "Full-stack Platform Architecture",
