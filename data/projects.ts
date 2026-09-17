@@ -46,6 +46,7 @@ export type Project = {
   liveSiteHref?: string;
   githubHref?: string;
   regressionReportHref?: string;
+  regressionReportLabel?: string;
   screenshotsHeading?: string;
   screenshotsDescription?: string;
   ctaTitle?: string;

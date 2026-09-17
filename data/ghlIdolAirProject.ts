@@ -34,7 +34,8 @@ export const ghlIdolAirProject: Project = {
     "Built WF02 (Appointment Booking & Confirmation) and WF03A–D (Appointment Status Handling) for the quote-visit lifecycle.",
     "Built WF04A–C (Quote Follow-Up, Accepted, Declined) and WF05A–B (Closed Won, Job Completed & Review Request).",
     "Built WF06 (Missed Call Text-Back) as an independent operational-alert workflow.",
-    "Ran and documented a scene-by-scene successful-path QA pass across the full funnel-to-job-completed journey.",
+    "Ran a full regression pass across the happy path plus three exception branches (Cancelled, No-Show, Declined) across five test contacts.",
+    "Found and fixed a live WF02 defect during regression testing — a missing Find Opportunity step was silently skipping the booking-stage pipeline update — then re-verified the fix with a fresh contact.",
   ],
   bestFor: [
     "Home-services businesses (HVAC, electrical, trades)",
@@ -64,7 +65,7 @@ export const ghlIdolAirProject: Project = {
   previewVisualNote: "Preview shown: the live Idol Air & Electrical Free Quote funnel that feeds GHL lead capture.",
   demo: {
     available: false,
-    note: "Walkthrough video not yet recorded — CRM screenshots and the full QA regression report are available below.",
+    note: "Walkthrough video not yet recorded — CRM screenshots and the regression QA report are available below.",
   },
   liveSiteHref: "https://idolair.workflowlab.site",
   viewProjectHref: "/projects/ghl-idol-air-lead-to-job",
@@ -104,48 +105,40 @@ export const ghlIdolAirProject: Project = {
       label: "WF01A execution logs — Create Opportunity, Tag, and Confirmation Email steps executed",
       aspect: "wide",
     },
+    {
+      type: "image",
+      src: "/projects/ghl-idol-air/wf02-find-opportunity-fix.png",
+      label: "WF02 post-fix — Find Opportunity step added before Update Opportunity, branching on Opportunity Found / Not Found",
+      aspect: "wide",
+    },
   ],
   testing: [
     {
-      area: "Website Lead Capture",
-      whatWeVerify: "Free Quote Form submission creates a GHL contact and enrolls WF01A",
-      result: "PASS — test lead (Sophie Mitchell) created, Opportunity opened in New Lead",
+      area: "Scenario 1 — Happy Path (Sophie Mitchell)",
+      whatWeVerify: "Free Quote Form → WF01A intake → Quote Visit booked → estimate accepted → Opportunity Won → Job Completed",
+      result: "PASS — full lead-to-job-completed path executed live, scene by scene",
     },
     {
-      area: "Lead Intake & Speed-to-Lead (WF01A)",
-      whatWeVerify: "Speed-to-lead SMS/email, new-funnel-lead tag, Opportunity creation, staff notification",
-      result: "PASS — confirmed directly in workflow execution logs",
+      area: "Scenario 2 — Appointment Cancelled (Lucas Parker / Amelia Grant)",
+      whatWeVerify: "WF03A stops WF02 reminders, tags the appointment Cancelled, alerts the assigned staff member, and sends a self-service reschedule-link acknowledgement",
+      result: "PASS — all WF03A actions executed as designed",
     },
     {
-      area: "Quote Visit Booking (WF02)",
-      whatWeVerify: "Calendar booking enrolls WF02 and stops lead no-response follow-up",
-      result: "PASS",
+      area: "Scenario 3 — Appointment No-Show (Ethan Collins)",
+      whatWeVerify: "WF03B tags the no-show, alerts staff, waits 10 minutes, sends a rebooking SMS, and creates a follow-up task",
+      result: "PASS — all WF03B actions executed",
     },
     {
-      area: "Appointment Showed (WF03C)",
-      whatWeVerify: "Marking the visit Showed stops WF02 reminders and logs attendance",
-      result: "PASS",
-    },
-    {
-      area: "Estimate Sent & Follow-Up (WF04A)",
-      whatWeVerify: "Estimate creation (EST-1, AU$180) linked to the Opportunity; follow-up sequence begins",
+      area: "Scenario 4 — Quote Declined (Olivia Bennett)",
+      whatWeVerify: "WF04C stops quote follow-up and notifies staff on a Declined estimate",
       result:
-        "PASS — estimate generated and linked in GHL; outbound email to the test example.com.au address is not deliverable, which does not affect internal workflow execution",
+        "PASS — follow-up stopped and staff notified; the opportunity intentionally stays at Quote Completed by design (WF04C does not move the pipeline stage)",
     },
     {
-      area: "Estimate Accepted (WF04B)",
-      whatWeVerify: "Accepting the estimate fires WF04B and stops WF04A follow-up",
-      result: "PASS",
-    },
-    {
-      area: "Opportunity Closed Won (WF05A)",
-      whatWeVerify: "Moving Opportunity status to Won fires WF05A and stops estimate follow-up",
-      result: "PASS",
-    },
-    {
-      area: "Job Completed & Review Request (WF05B)",
-      whatWeVerify: "Pipeline Stage change to Job Completed tags the job, thanks the customer, and progresses to Review Requested",
-      result: "PASS",
+      area: "Defect found & fixed — WF02 booking-stage opportunity update",
+      whatWeVerify: "Whether the opportunity pipeline stage actually advances when a customer books a Quote Visit",
+      result:
+        "Found: Update Opportunity was silently SKIPPED because WF02 had no opportunity in context. Fixed: added a Find Opportunity step (most recent open Opportunity in the Idol Air & Electrical pipeline) before the update. Re-verified with a fresh contact (Ethan Collins), whose opportunity auto-advanced to Quote Visit Booked.",
     },
     {
       area: "Missed Call Text-Back (WF06)",
@@ -155,11 +148,12 @@ export const ghlIdolAirProject: Project = {
     },
   ],
   testingSummary:
-    "The full successful-path journey (Free Quote Form → Job Completed) was validated end-to-end in a live GHL sub-account, scene by scene, on September 16, 2026. WF06 was verified by configuration audit only — live telephony was not available in the simulated environment, so call/SMS delivery is reported as not executed rather than passed.",
-  regressionReportHref: "/documents/Idol_Air_GHL_Regression_Report.docx",
+    "A full regression pass (17 September 2026) covered the happy path plus three exception branches — Appointment Cancelled, Appointment No-Show, and Quote Declined — across five test contacts, in addition to the original scene-by-scene happy-path run on 16 September. All four scenarios passed. Regression testing also caught a live defect in WF02 (the opportunity wasn't advancing on booking); it was fixed and re-verified with a fresh contact. WF06 remains configuration-audited only — live telephony was not available in the simulated environment.",
+  regressionReportHref: "/documents/Idol_Air_GHL_Regression_QA_Report.docx",
+  regressionReportLabel: "Download regression QA report",
   screenshotsHeading: "Selected CRM & Automation Evidence",
   screenshotsDescription:
-    "Public-safe screenshots from the live Idol Air & Electrical GHL sub-account: the published funnel, the opportunity pipeline, and the automated contact activity timeline.",
+    "Public-safe screenshots from the live Idol Air & Electrical GHL sub-account: the published funnel, the opportunity pipeline, the automated contact activity timeline, workflow execution logs, and the WF02 fix applied during regression testing.",
   ctaTitle: "Need Leads Followed Up Without the Manual Chasing?",
   ctaDescription: "Share your current quote-to-job process and I'll map where a GHL pipeline and workflows like these can take over the repetitive follow-up.",
 };

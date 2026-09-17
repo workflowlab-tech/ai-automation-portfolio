@@ -183,7 +183,7 @@ export default function ProjectCaseStudy({
                   className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-primary)] transition-colors hover:bg-blue-50"
                 >
                   <Download size={17} />
-                  Download regression report
+                  {project.regressionReportLabel ?? "Download regression report"}
                 </a>
               ) : null}
             </div>
