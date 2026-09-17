@@ -51,6 +51,17 @@ export type Project = {
   screenshotsDescription?: string;
   ctaTitle?: string;
   ctaDescription?: string;
+  /** Real business vs. portfolio demo vs. simulated client engagement */
+  disclosure?: {
+    label: string;
+    detail: string;
+  };
+  /** Short engineering-discipline notes shown on the case study page */
+  safeguards?: {
+    boundaries: string;
+    exceptions: string;
+    security: string;
+  };
 };
 
 export const projects: Project[] = [
@@ -192,6 +203,19 @@ export const projects: Project[] = [
     screenshotsHeading: "Project Screenshots and Outputs",
     screenshotsDescription:
       "A balanced view of both workflows, their intake channels, and the organized records they produce.",
+    disclosure: {
+      label: "Portfolio demo",
+      detail:
+        "A real, working n8n system, regression-tested against real receipts and statements — built as a portfolio demonstration rather than a tool run on live personal data day to day.",
+    },
+    safeguards: {
+      boundaries:
+        "Captures income and expense records from Gmail and Telegram only; it doesn't connect to a bank feed or move money, and every record still needs a source receipt or statement to exist first.",
+      exceptions:
+        "Missing or ambiguous fields are routed to manual review instead of being guessed; duplicate submissions are blocked by both file-hash and reference/amount/date matching.",
+      security:
+        "Source files are archived to a dedicated Drive folder rather than a shared one, and the workflow only has write access to the specific Income/Expense sheets — not the full inbox or Drive.",
+    },
   },
   {
     slug: "portfolio-ai-agent",
@@ -364,6 +388,19 @@ export const projects: Project[] = [
     ctaTitle: "Turn Website Interest into Qualified Conversations.",
     ctaDescription:
       "Share what visitors need to learn or do on your website. I’ll map the clearest assistant, knowledge, and lead-capture flow.",
+    disclosure: {
+      label: "Live — running on this site",
+      detail:
+        "This isn't a screenshot of a demo — the assistant in the corner of this site is the actual n8n agent described here. Try it.",
+    },
+    safeguards: {
+      boundaries:
+        "Only answers from approved portfolio content and project links; it has no access to email, calendars, or any system beyond this site's knowledge base and its own lead-logging sheet.",
+      exceptions:
+        "An unknown or unapproved claim is declined rather than invented; incomplete or invalid contact details are rejected before a lead is ever saved, and duplicate submissions are blocked.",
+      security:
+        "Tested directly against prompt- and credential-extraction attempts with no secrets exposed; conversation logs and confirmed leads are kept in separate sheets so casual browsing never mixes with genuine inquiries.",
+    },
   },
   {
     slug: "daily-task-reminder",
@@ -481,6 +518,19 @@ export const projects: Project[] = [
     screenshotsHeading: "Project Screenshots and Outputs",
     screenshotsDescription:
       "The workflow, source information, and final Telegram briefing shown in the same order the automation uses them.",
+    disclosure: {
+      label: "Personal automation — not currently active",
+      detail:
+        "Built and run daily for a while for her own mornings; currently paused since her schedule no longer follows a fixed daily routine to brief.",
+    },
+    safeguards: {
+      boundaries:
+        "Reads from Notion, Google Calendar, Gmail, and a weather API on a fixed schedule; it doesn't write back to any of those sources, so it can't modify a calendar event or task.",
+      exceptions:
+        "A source returning zero results for the day, such as no calendar events, is omitted cleanly instead of breaking the message.",
+      security:
+        "Reads only the specific calendars and labels it needs, not the full inbox or calendar history; no financial or payment data passes through this workflow.",
+    },
   },
   idolFairiesBeautyProject,
   ghlIdolAirProject,
@@ -580,6 +630,19 @@ export const idolFairiesProject: Project = {
   ctaTitle: "Turn Disconnected Operations into One Dependable System.",
   ctaDescription:
     "Share where orders, support, inventory, or finance break apart today. I’ll map the clearest practical next step.",
+  disclosure: {
+    label: "Portfolio demo — synthetic data",
+    detail:
+      "A real, working system built end-to-end as a portfolio demonstration, running on synthetic order data so the mechanics can be shown safely without exposing a live business.",
+  },
+  safeguards: {
+    boundaries:
+      "Handles storefront orders, wholesale/reseller orders, refunds, purchases, and expenses. It does not process live payments — order and payment data here is synthetic, not a real transaction stream.",
+    exceptions:
+      "Unmatched SKUs, duplicate order numbers, and unverified supplier emails are routed to a \"needs review\" queue instead of silently failing or auto-posting.",
+    security:
+      "Admin routes are gated by session-based auth via Next.js middleware — unauthenticated API requests return 401 instead of exposing data. No real customer payment or government-ID data is stored anywhere in the system.",
+  },
 };
 
 export function getProject(slug: string) {

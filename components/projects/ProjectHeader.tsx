@@ -4,6 +4,12 @@ import type { Project } from "@/data/projects";
 import GithubIcon from "../icons/GithubIcon";
 import ToolStack from "./ToolStack";
 
+function disclosureTone(label: string) {
+  if (/live/i.test(label)) return "border-emerald-200 bg-emerald-50 text-emerald-700";
+  if (/simulated/i.test(label)) return "border-amber-200 bg-amber-50 text-amber-700";
+  return "border-slate-200 bg-slate-50 text-slate-600";
+}
+
 export default function ProjectHeader({ project }: { project: Project }) {
   return (
     <section className="border-b border-blue-100 bg-gradient-to-b from-blue-50/80 via-white to-white">
@@ -31,6 +37,17 @@ export default function ProjectHeader({ project }: { project: Project }) {
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl">
           {project.title}
         </h1>
+
+        {project.disclosure ? (
+          <div className="mx-auto mt-4 max-w-xl">
+            <span
+              className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${disclosureTone(project.disclosure.label)}`}
+            >
+              {project.disclosure.label}
+            </span>
+            <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{project.disclosure.detail}</p>
+          </div>
+        ) : null}
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[var(--color-body)]">
           {project.headerOverview}

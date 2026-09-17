@@ -120,4 +120,17 @@ export const idolFairiesBeautyProject: Project = {
   screenshotsDescription: "Public-safe visual assets from the Beauty storefront, checkout, admin, and the live GHL + n8n Messenger AI workflow. Customer names and addresses are cropped to protect privacy.",
   ctaTitle: "Build a Storefront That Runs Beyond Checkout.",
   ctaDescription: "Connect the customer journey to the inventory, payment, fulfillment, referral, and support workflows behind it.",
+  disclosure: {
+    label: "Live business",
+    detail:
+      "A real, currently operating storefront — the order, payment, and support activity behind this case study is real, with customer names and addresses cropped from every published screenshot.",
+  },
+  safeguards: {
+    boundaries:
+      "Handles catalog, checkout, payment-proof review, shipping, referrals, and Messenger support for this one storefront. Payment approval is a staff decision — the system flags proof for review, it does not auto-approve payments.",
+    exceptions:
+      "Stock reservations on unpaid orders auto-release after 1 hour instead of holding inventory indefinitely; Messenger replies outside the AI's confidence fall back to a human-handoff tool instead of guessing.",
+    security:
+      "Payment-proof images are stored in private storage, not public; customer names and addresses are cropped from every published screenshot; the Messenger AI can read order status and catalog data, not payment credentials.",
+  },
 };

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Download, PlayCircle, Target, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, PlayCircle, ShieldCheck, Target, Workflow } from "lucide-react";
 import type { Project } from "@/data/projects";
 import FadeIn from "../FadeIn";
 import BestForBand from "./BestForBand";
@@ -68,6 +68,31 @@ export default function ProjectCaseStudy({
         <FadeIn delay={80} className="mt-6">
           <BestForBand items={project.bestFor} />
         </FadeIn>
+
+        {project.safeguards ? (
+          <FadeIn delay={100} className="mt-6">
+            <article className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
+              <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">
+                <ShieldCheck size={16} />
+                System Design &amp; Safeguards
+              </span>
+              <div className="mt-5 grid gap-6 sm:grid-cols-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)]">System Boundaries</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-body)]">{project.safeguards.boundaries}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)]">Exception Handling</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-body)]">{project.safeguards.exceptions}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-ink)]">Security &amp; Privacy</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-body)]">{project.safeguards.security}</p>
+                </div>
+              </div>
+            </article>
+          </FadeIn>
+        ) : null}
       </section>
 
       <section className="border-y border-blue-100 bg-[var(--color-primary-light)]/60 py-20">

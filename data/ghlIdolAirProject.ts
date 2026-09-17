@@ -26,7 +26,7 @@ export const ghlIdolAirProject: Project = {
   solution:
     "Six purpose-built GoHighLevel workflows (WF01–WF06) connect the public quote funnel to CRM lead intake, appointment booking and status handling, estimate follow-up, and job completion — each scoped to one responsibility so the pipeline stays predictable and testable.",
   result:
-    "A lead can move from a website quote request to a completed, reviewed job without manual re-entry — the CRM opportunity, calendar, and communication history stay in sync at every stage, and missed inbound calls are acknowledged automatically.",
+    "A lead can move from a website quote request through quote visit, estimate acceptance, and a completed job without manual re-entry — the CRM opportunity, calendar, and communication history stay in sync at every stage, an automated review request goes out once the job is marked complete, and missed inbound calls are acknowledged automatically.",
   role: "GoHighLevel automation builder",
   contributions: [
     "Built the public Idol Air & Electrical free-quote funnel and connected it to GHL lead capture.",
@@ -157,4 +157,17 @@ export const ghlIdolAirProject: Project = {
     "Public-safe screenshots from the live Idol Air & Electrical GHL sub-account: the published funnel, the opportunity pipeline, the automated contact activity timeline, workflow execution logs, and the WF02 fix applied during regression testing.",
   ctaTitle: "Need Leads Followed Up Without the Manual Chasing?",
   ctaDescription: "Share your current quote-to-job process and I'll map where a GHL pipeline and workflows like these can take over the repetitive follow-up.",
+  disclosure: {
+    label: "Simulated client engagement",
+    detail:
+      "A simulated Australian home-services client built to demonstrate a full GHL lead-to-job system end-to-end — not a paid client deployment.",
+  },
+  safeguards: {
+    boundaries:
+      "Covers the lead-to-job lifecycle from quote request to job completion, plus missed-call recovery. It does not include live phone/SMS delivery — the simulated sub-account has no provisioned phone number, so WF06 is configuration-audited only, not live-tested.",
+    exceptions:
+      "Appointment Cancelled, No-Show, and Quote Declined each stop the relevant follow-up sequence and notify staff instead of continuing to message a customer who won't respond; a WF02 defect that silently skipped a pipeline update was caught in regression and fixed before re-verification.",
+    security:
+      "Customer contact and quote data stay inside the GHL CRM; no payment or card data passes through any of the six workflows.",
+  },
 };
