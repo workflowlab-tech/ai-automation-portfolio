@@ -1,4 +1,4 @@
-import { ShoppingCart, Calculator, Bot, BarChart3, Check } from "lucide-react";
+import { ShoppingCart, Calculator, Bot, BarChart3, Users, Check } from "lucide-react";
 import { services, type Service } from "@/data/services";
 import FadeIn from "./FadeIn";
 
@@ -7,6 +7,7 @@ const icons: Record<Service["icon"], typeof ShoppingCart> = {
   calculator: Calculator,
   bot: Bot,
   chart: BarChart3,
+  users: Users,
 };
 
 export default function ServicesGrid() {

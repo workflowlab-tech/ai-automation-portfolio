@@ -1,5 +1,5 @@
 export type Service = {
-  icon: "cart" | "calculator" | "bot" | "chart";
+  icon: "cart" | "calculator" | "bot" | "chart" | "users";
   title: string;
   description: string;
   points: string[];
@@ -48,6 +48,17 @@ export const services: Service[] = [
       "Revenue, margin, and AR/AP aging in one place",
       "Inventory valuation kept current, not a stale snapshot",
       "Reports checked against the underlying business records",
+    ],
+  },
+  {
+    icon: "users",
+    title: "Client & Lead Operations",
+    description:
+      "Route inbound leads and appointments through a structured pipeline, so nothing falls through email or a missed call.",
+    points: [
+      "Lead capture from web forms routed straight into a CRM pipeline",
+      "Missed-call and no-response follow-up handled automatically",
+      "Appointment booking and job status tracked end to end",
     ],
   },
 ];
