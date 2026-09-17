@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Check, FileInput, LineChart, Workflow } from "lucide-react";
-import { heroCopy } from "@/data/site";
+import { ArrowDown, ArrowRight, Check, FileInput, FileText, LineChart, Workflow } from "lucide-react";
+import { heroCopy, site } from "@/data/site";
 import FadeIn from "./FadeIn";
 
 const proofPoints = ["Accounting Background", "E-commerce Operations", "Working Demos"];
@@ -80,6 +80,17 @@ export default function Hero() {
                 {heroCopy.secondaryCta.label}
               </Link>
             </div>
+          </FadeIn>
+
+          <FadeIn delay={320}>
+            <a
+              href={site.resumeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+            >
+              <FileText size={14} /> View Resume PDF
+            </a>
           </FadeIn>
         </div>
 

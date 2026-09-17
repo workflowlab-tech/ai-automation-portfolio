@@ -42,13 +42,10 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-col gap-2 text-sm">
-            <Link href="/idol-fairies" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
-              Idol Fairies
-            </Link>
             <Link href="/projects" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
               Projects
             </Link>
-            <Link href="/#about" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
+            <Link href="/about" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
               About
             </Link>
             <Link href="/contact" className="text-[var(--color-body)] hover:text-[var(--color-primary)]">
