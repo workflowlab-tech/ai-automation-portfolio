@@ -99,8 +99,10 @@ export const ghlIdolAirProject: Project = {
       aspect: "wide",
     },
     {
-      type: "placeholder",
-      label: "TODO: add workflow canvas / estimate / Job Completed pipeline screenshot",
+      type: "image",
+      src: "/projects/ghl-idol-air/wf01a-execution-logs.png",
+      label: "WF01A execution logs — Create Opportunity, Tag, and Confirmation Email steps executed",
+      aspect: "wide",
     },
   ],
   testing: [
