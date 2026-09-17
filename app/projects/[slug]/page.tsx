@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects, getProject } from "@/data/projects";
 import ProjectCaseStudy from "@/components/projects/ProjectCaseStudy";
+import WorkflowFlowDiagram from "@/components/WorkflowFlowDiagram";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -22,5 +23,10 @@ export default async function ProjectDetailPage(props: PageProps<"/projects/[slu
   const project = getProject(slug);
   if (!project) notFound();
 
-  return <ProjectCaseStudy project={project} />;
+  return (
+    <ProjectCaseStudy
+      project={project}
+      systemVisual={<WorkflowFlowDiagram steps={project.workflowFlow} />}
+    />
+  );
 }
