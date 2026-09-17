@@ -3,6 +3,7 @@ export type ProjectVisual =
   | { type: "placeholder"; label: string };
 
 import { idolFairiesBeautyProject } from "./idolFairiesBeautyProject";
+import { ghlIdolAirProject } from "./ghlIdolAirProject";
 
 export type ProjectTestRow = {
   area: string;
@@ -481,6 +482,7 @@ export const projects: Project[] = [
       "The workflow, source information, and final Telegram briefing shown in the same order the automation uses them.",
   },
   idolFairiesBeautyProject,
+  ghlIdolAirProject,
 ];
 
 export const idolFairiesProject: Project = {
