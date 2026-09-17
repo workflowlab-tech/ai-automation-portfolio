@@ -10,6 +10,12 @@ function disclosureTone(label: string) {
   return "border-slate-200 bg-slate-50 text-slate-600";
 }
 
+function disclosureDotColor(label: string) {
+  if (/live/i.test(label)) return "bg-emerald-500";
+  if (/simulated/i.test(label)) return "bg-amber-500";
+  return "bg-slate-400";
+}
+
 export default function ProjectHeader({ project }: { project: Project }) {
   return (
     <section className="border-b border-blue-100 bg-gradient-to-b from-blue-50/80 via-white to-white">
@@ -41,8 +47,14 @@ export default function ProjectHeader({ project }: { project: Project }) {
         {project.disclosure ? (
           <div className="mx-auto mt-4 max-w-xl">
             <span
-              className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${disclosureTone(project.disclosure.label)}`}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${disclosureTone(project.disclosure.label)}`}
             >
+              <span
+                aria-hidden="true"
+                className={`h-1.5 w-1.5 rounded-full ${disclosureDotColor(project.disclosure.label)} ${
+                  /live/i.test(project.disclosure.label) ? "animate-pulse" : ""
+                }`}
+              />
               {project.disclosure.label}
             </span>
             <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{project.disclosure.detail}</p>
