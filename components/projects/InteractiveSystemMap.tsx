@@ -119,12 +119,12 @@ export default function InteractiveSystemMap() {
   useEffect(() => {
     if (flowIndex === null) return;
     if (flowIndex >= flowPath.length - 1) {
-      const done = window.setTimeout(() => setFlowIndex(null), reducedMotion ? 350 : 900);
+      const done = window.setTimeout(() => setFlowIndex(null), reducedMotion ? 350 : 1100);
       return () => window.clearTimeout(done);
     }
     const next = window.setTimeout(
       () => setFlowIndex((current) => (current === null ? 0 : current + 1)),
-      reducedMotion ? 250 : 850,
+      reducedMotion ? 250 : 1100,
     );
     return () => window.clearTimeout(next);
   }, [flowIndex, reducedMotion]);
@@ -156,14 +156,19 @@ export default function InteractiveSystemMap() {
     const isFlowActive = flowIndex !== null && flowPath[flowIndex] === node.id;
     return (
       <div key={node.id} className={depth === 0 ? "min-w-0" : "relative pl-5"}>
-        {depth > 0 ? <span aria-hidden="true" className="absolute left-1 top-5 h-px w-4 bg-blue-200" /> : null}
+        {depth > 0 ? (
+          <span
+            aria-hidden="true"
+            className={`absolute left-1 top-5 h-px w-4 ${isFlowActive ? "bg-[var(--color-primary)]" : "bg-blue-200"}`}
+          />
+        ) : null}
         <button
           type="button"
           onClick={() => toggle(node)}
           aria-expanded={hasChildren ? isOpen : undefined}
           className={`flex w-full items-center gap-2 rounded-xl border px-3 py-2.5 text-left text-sm transition-colors ${
             isFlowActive
-              ? "border-[var(--color-primary)] bg-blue-50 text-[var(--color-primary)] shadow-sm ring-2 ring-blue-100"
+              ? "border-2 border-[var(--color-primary)] bg-blue-50 text-[var(--color-primary)] shadow-sm ring-2 ring-blue-100"
               : isSelected
               ? "border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)]"
               : depth === 0
