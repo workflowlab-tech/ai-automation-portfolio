@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { projects } from "@/data/projects";
+import { getProject } from "@/data/projects";
 import FadeIn from "@/components/FadeIn";
 import ProjectPreviewCard from "@/components/projects/ProjectPreviewCard";
 
@@ -9,6 +9,16 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const projectOrder = [
+    "idol-fairies",
+    "idol-fairies-beauty",
+    "ghl-idol-air-lead-to-job",
+    "personal-income-expense",
+    "portfolio-ai-agent",
+    "daily-task-reminder",
+  ];
+  const orderedProjects = projectOrder.map((slug) => getProject(slug)).filter((project) => project !== undefined);
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-20">
       <FadeIn>
@@ -25,7 +35,7 @@ export default function ProjectsPage() {
       </FadeIn>
 
       <div className="mt-14 space-y-10">
-        {projects.map((project, i) => (
+        {orderedProjects.map((project, i) => (
           <FadeIn key={project.slug} delay={i * 80}>
             <ProjectPreviewCard project={project} />
           </FadeIn>

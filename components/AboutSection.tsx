@@ -180,6 +180,13 @@ export default function AboutSection() {
               </div>
 
               <div className="flex shrink-0 flex-wrap gap-2.5">
+                <Link
+                  href={site.aboutHref}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-blue-500 bg-white px-4 py-2.5 text-sm font-semibold text-blue-700 transition-colors hover:bg-blue-50"
+                >
+                  <FileText size={16} aria-hidden="true" />
+                  Read Full Credentials
+                </Link>
                 <a
                   href={site.resumeHref}
                   target="_blank"
