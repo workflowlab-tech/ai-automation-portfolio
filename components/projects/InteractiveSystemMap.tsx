@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronRight, Minus, Plus } from "lucide-react";
 
 type MapNode = {
@@ -96,6 +96,8 @@ const branches: MapNode[] = [
   },
 ];
 
+const flowPath = ["intake", "gmail", "extraction", "validation", "duplicates", "categories", "sheets", "archive", "confirmation"];
+
 function collectIds(nodes: MapNode[]): string[] {
   return nodes.flatMap((node) => [node.id, ...(node.children ? collectIds(node.children) : [])]);
 }
@@ -103,6 +105,29 @@ function collectIds(nodes: MapNode[]): string[] {
 export default function InteractiveSystemMap() {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<MapNode | null>(null);
+  const [flowIndex, setFlowIndex] = useState<number | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener("change", update);
+    return () => mediaQuery.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (flowIndex === null) return;
+    if (flowIndex >= flowPath.length - 1) {
+      const done = window.setTimeout(() => setFlowIndex(null), reducedMotion ? 350 : 900);
+      return () => window.clearTimeout(done);
+    }
+    const next = window.setTimeout(
+      () => setFlowIndex((current) => (current === null ? 0 : current + 1)),
+      reducedMotion ? 250 : 850,
+    );
+    return () => window.clearTimeout(next);
+  }, [flowIndex, reducedMotion]);
 
   const toggle = (node: MapNode) => {
     if (node.children?.length) {
@@ -118,10 +143,17 @@ export default function InteractiveSystemMap() {
 
   const setAll = (open: boolean) => setExpanded(open ? new Set(collectIds(branches)) : new Set());
 
+  const runFlow = () => {
+    setExpanded(new Set(["intake", "gmail", "processing", "validation", "duplicates", "categories", "outputs", "sheets"]));
+    setSelected(null);
+    setFlowIndex(0);
+  };
+
   const renderNode = (node: MapNode, depth = 0) => {
     const hasChildren = Boolean(node.children?.length);
     const isOpen = expanded.has(node.id);
     const isSelected = selected?.id === node.id;
+    const isFlowActive = flowIndex !== null && flowPath[flowIndex] === node.id;
     return (
       <div key={node.id} className={depth === 0 ? "min-w-0" : "relative pl-5"}>
         {depth > 0 ? <span aria-hidden="true" className="absolute left-1 top-5 h-px w-4 bg-blue-200" /> : null}
@@ -130,7 +162,9 @@ export default function InteractiveSystemMap() {
           onClick={() => toggle(node)}
           aria-expanded={hasChildren ? isOpen : undefined}
           className={`flex w-full items-center gap-2 rounded-xl border px-3 py-2.5 text-left text-sm transition-colors ${
-            isSelected
+            isFlowActive
+              ? "border-[var(--color-primary)] bg-blue-50 text-[var(--color-primary)] shadow-sm ring-2 ring-blue-100"
+              : isSelected
               ? "border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)]"
               : depth === 0
                 ? "border-blue-200 bg-blue-50/70 font-semibold text-[var(--color-ink)] hover:border-blue-300"
@@ -162,7 +196,10 @@ export default function InteractiveSystemMap() {
             Start with the three system branches, then open the parts you want to inspect.
           </p>
         </div>
-        <div className="flex shrink-0 gap-2">
+        <div className="flex flex-wrap shrink-0 gap-2">
+          <button type="button" onClick={runFlow} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-primary)] bg-[var(--color-primary)] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[var(--color-primary-dark)]">
+            <span aria-hidden="true">▶</span> Run Flow
+          </button>
           <button type="button" onClick={() => setAll(true)} className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] hover:bg-blue-50">
             <Plus size={14} /> Expand All
           </button>

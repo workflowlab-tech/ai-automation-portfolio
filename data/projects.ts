@@ -74,7 +74,7 @@ export const projects: Project[] = [
     overview:
       "Turns receipts, emails, and messages into clean income and expense records—without repetitive encoding or duplicate entries.",
     headerOverview:
-      "A real working n8n system built as a portfolio demonstration, not a tool run on live personal data day to day. It captures receipts, income notices, and statements from Gmail or Telegram, validates each transaction, prevents duplicates, and records the result with its source file.",
+      "Captures receipts, income notices, and statements from Gmail or Telegram, validates each transaction, prevents duplicates, and records the result with its source file.",
     problem:
       "Financial records arrive in different places, so tracking takes time and the same transaction can be entered twice.",
     solution:
