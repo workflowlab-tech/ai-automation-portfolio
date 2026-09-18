@@ -1,5 +1,5 @@
 export type Service = {
-  icon: "cart" | "calculator" | "bot" | "chart" | "users";
+  icon: "cart" | "calculator" | "bot" | "chart" | "users" | "shield";
   title: string;
   description: string;
   points: string[];
@@ -59,6 +59,16 @@ export const services: Service[] = [
       "Lead capture from web forms routed straight into a CRM pipeline",
       "Missed-call and no-response follow-up handled automatically",
       "Appointment booking and job status tracked end to end",
+    ],
+  },
+  {
+    icon: "shield",
+    title: "Automation Infrastructure & Reliability",
+    description:
+      "Build and maintain the infrastructure that keeps business automations running reliably.",
+    points: [
+      "Workflow health monitoring and failure alerts",
+      "VPS-hosted automation with databases, backups, and operational safeguards",
     ],
   },
 ];
