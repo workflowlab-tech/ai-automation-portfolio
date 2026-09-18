@@ -14,6 +14,7 @@ const branches: MapNode[] = [
   {
     id: "intake",
     label: "Document Intake",
+    detail: "The system requires a source receipt or statement and accepts records through Gmail or Telegram; it does not connect to a bank feed or move money.",
     children: [
       {
         id: "gmail",
@@ -70,6 +71,7 @@ const branches: MapNode[] = [
   {
     id: "outputs",
     label: "Outputs",
+    detail: "Validated records are written only to the specific Income or Expense sheets and archived in a dedicated Drive location.",
     children: [
       {
         id: "sheets",
@@ -83,7 +85,7 @@ const branches: MapNode[] = [
       {
         id: "archive",
         label: "Google Drive Archive",
-        detail: "The source document is retained in a dedicated archive location rather than a shared folder.",
+        detail: "The source document is retained in a dedicated archive location rather than a shared folder, with access limited to the required archive and Income/Expense sheets—not the full inbox or Drive.",
       },
       {
         id: "confirmation",
@@ -92,12 +94,6 @@ const branches: MapNode[] = [
       },
     ],
   },
-];
-
-const boundaryNodes: MapNode[] = [
-  { id: "bank-boundary", label: "No bank feed or money movement" },
-  { id: "source-boundary", label: "Requires a source receipt or statement" },
-  { id: "access-boundary", label: "Scoped sheet and archive access" },
 ];
 
 function collectIds(nodes: MapNode[]): string[] {
@@ -191,17 +187,6 @@ export default function InteractiveSystemMap() {
             {renderNode(branch)}
           </div>
         ))}
-      </div>
-
-      <div className="mt-8 border-t border-slate-100 pt-6">
-        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">System boundaries &amp; safeguards</p>
-        <div className="mt-3 grid gap-2 sm:grid-cols-3">
-          {boundaryNodes.map((node) => (
-            <button key={node.id} type="button" onClick={() => setSelected(node)} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-left text-xs leading-5 text-[var(--color-body)] hover:border-blue-200 hover:bg-blue-50/40">
-              {node.label}
-            </button>
-          ))}
-        </div>
       </div>
 
       {selected ? (

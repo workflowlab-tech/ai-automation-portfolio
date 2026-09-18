@@ -17,6 +17,7 @@ function disclosureDotColor(label: string) {
 }
 
 export default function ProjectHeader({ project }: { project: Project }) {
+  const isPilotProject = project.slug === "personal-income-expense";
   return (
     <section className="border-b border-blue-100 bg-gradient-to-b from-blue-50/80 via-white to-white">
       <div className="mx-auto max-w-4xl px-6 py-20 text-center">
@@ -40,12 +41,12 @@ export default function ProjectHeader({ project }: { project: Project }) {
           ) : null}
         </div>
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl">
+        <h1 className={`${isPilotProject ? "mt-3" : "mt-4"} text-4xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl`}>
           {project.title}
         </h1>
 
         {project.disclosure ? (
-          <div className="mx-auto mt-4 max-w-xl">
+          <div className={`mx-auto ${isPilotProject ? "mt-3" : "mt-4"} max-w-xl`}>
             <span
               className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${disclosureTone(project.disclosure.label)}`}
             >
@@ -57,20 +58,20 @@ export default function ProjectHeader({ project }: { project: Project }) {
               />
               {project.disclosure.label}
             </span>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{project.disclosure.detail}</p>
+            {!isPilotProject ? <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{project.disclosure.detail}</p> : null}
           </div>
         ) : null}
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[var(--color-body)]">
+        <p className={`mx-auto ${isPilotProject ? "mt-4 text-base leading-7" : "mt-6 text-lg leading-8"} max-w-2xl text-[var(--color-body)]`}>
           {project.headerOverview}
         </p>
 
-        <div className="mx-auto mt-7 max-w-3xl">
+        <div className={`mx-auto ${isPilotProject ? "mt-5" : "mt-7"} max-w-3xl`}>
           <ToolStack tools={project.tools} />
         </div>
 
         {project.liveSiteHref || project.demo.available || project.githubHref ? (
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className={`${isPilotProject ? "mt-5" : "mt-8"} flex flex-wrap items-center justify-center gap-3`}>
             {project.liveSiteHref ? (
               <a
                 href={project.liveSiteHref}
