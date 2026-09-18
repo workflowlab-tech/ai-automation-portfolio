@@ -26,7 +26,7 @@ export const ghlIdolAirProject: Project = {
   solution:
     "Six purpose-built GoHighLevel workflows (WF01–WF06) connect the public quote funnel to CRM lead intake, appointment booking and status handling, estimate follow-up, and job completion — each scoped to one responsibility so the pipeline stays predictable and testable.",
   result:
-    "A lead can move from a website quote request through quote visit, estimate acceptance, and a completed job without manual re-entry — the CRM opportunity, calendar, and communication history stay in sync at every stage, an automated review request goes out once the job is marked complete, and missed inbound calls are acknowledged automatically.",
+    "A lead can move from a website quote request through quote visit, estimate acceptance, and job completion to the automated review-request stage without duplicate manual entry.",
   role: "GoHighLevel automation builder",
   contributions: [
     "Built the public Idol Air & Electrical free-quote funnel and connected it to GHL lead capture.",
