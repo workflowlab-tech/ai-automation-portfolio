@@ -7,6 +7,7 @@ import BestForBand from "./BestForBand";
 import ProjectHeader from "./ProjectHeader";
 import ProjectVisual from "./ProjectVisual";
 import TestingTable from "./TestingTable";
+import InteractiveSystemMap from "./InteractiveSystemMap";
 
 export default function ProjectCaseStudy({
   project,
@@ -17,6 +18,8 @@ export default function ProjectCaseStudy({
   systemVisual?: ReactNode;
   showcase?: ReactNode;
 }) {
+  const isPilotProject = project.slug === "personal-income-expense";
+
   return (
     <div>
       <ProjectHeader project={project} />
@@ -48,7 +51,7 @@ export default function ProjectCaseStudy({
           </div>
         </FadeIn>
 
-        {project.role && project.contributions?.length ? (
+        {!isPilotProject && project.role && project.contributions?.length ? (
           <FadeIn delay={60} className="mt-6">
             <article className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">My Role</span>
@@ -65,11 +68,11 @@ export default function ProjectCaseStudy({
           </FadeIn>
         ) : null}
 
-        <FadeIn delay={80} className="mt-6">
+        {!isPilotProject ? <FadeIn delay={80} className="mt-6">
           <BestForBand items={project.bestFor} />
-        </FadeIn>
+        </FadeIn> : null}
 
-        {project.safeguards ? (
+        {!isPilotProject && project.safeguards ? (
           <FadeIn delay={100} className="mt-6">
             <article className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
               <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">
@@ -95,7 +98,17 @@ export default function ProjectCaseStudy({
         ) : null}
       </section>
 
-      <section className="border-y border-blue-100 bg-[var(--color-primary-light)]/60 py-20">
+      {isPilotProject ? (
+        <section className="border-y border-blue-100 bg-[var(--color-primary-light)]/60 py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <FadeIn>
+              <InteractiveSystemMap />
+            </FadeIn>
+          </div>
+        </section>
+      ) : null}
+
+      {!isPilotProject ? <section className="border-y border-blue-100 bg-[var(--color-primary-light)]/60 py-20">
         <div className="mx-auto max-w-6xl px-6">
           <FadeIn>
             <div className="mx-auto max-w-4xl">
@@ -130,7 +143,7 @@ export default function ProjectCaseStudy({
             </FadeIn>
           ) : null}
         </div>
-      </section>
+      </section> : null}
 
       <section id="demo" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20">
         <FadeIn>
