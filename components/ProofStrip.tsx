@@ -3,11 +3,6 @@ import FadeIn from "./FadeIn";
 
 const proofItems = [
   {
-    icon: ShieldCheck,
-    stat: "41 / 41",
-    label: "Regression tests passed on the flagship system",
-  },
-  {
     icon: CheckCircle2,
     stat: "6 years",
     label: "Across corporate finance, e-commerce operations, and automation",
@@ -16,6 +11,11 @@ const proofItems = [
     icon: GraduationCap,
     stat: "BS Accountancy",
     label: "Order-to-Cash and Accounts Payable background behind every build",
+  },
+  {
+    icon: ShieldCheck,
+    stat: "Tested Systems",
+    label: "Scenario-based QA and documented validation",
   },
 ];
 
