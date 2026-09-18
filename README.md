@@ -1,6 +1,6 @@
 # AI Automation Portfolio
 
-Portfolio site for Mary Joyce Ablanque — AI Automation Specialist | Finance & E-commerce Systems.
+Portfolio site for Mary Joyce Ablanque — AI Automation Specialist | Finance, E-Commerce & Business Process Automation.
 
 Built with Next.js (App Router) + TypeScript + Tailwind CSS 4.
 

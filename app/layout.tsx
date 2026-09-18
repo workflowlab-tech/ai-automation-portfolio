@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MJ Ablanque — AI Automation Specialist | Finance, E-commerce & Business Process Automation",
+  title: "MJ Ablanque — AI Automation Specialist | Finance, E-Commerce & Business Process Automation",
   description:
     "AI automation specialist with a BS Accountancy background, hands-on e-commerce operations, and CRM/lead automation experience. See Idol Fairies, a working e-commerce + finance automation ecosystem, and Idol Air & Electrical, a GoHighLevel lead-to-job system — both built end-to-end as portfolio demonstrations.",
 };
