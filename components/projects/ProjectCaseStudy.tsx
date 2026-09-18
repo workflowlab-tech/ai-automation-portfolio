@@ -8,17 +8,16 @@ import ProjectHeader from "./ProjectHeader";
 import ProjectVisual from "./ProjectVisual";
 import TestingTable from "./TestingTable";
 import InteractiveSystemMap from "./InteractiveSystemMap";
+import { systemMaps } from "@/data/systemMaps";
 
 export default function ProjectCaseStudy({
   project,
-  systemVisual,
   showcase,
 }: {
   project: Project;
-  systemVisual?: ReactNode;
   showcase?: ReactNode;
 }) {
-  const isPilotProject = project.slug === "personal-income-expense";
+  const showLegacySections = false;
 
   return (
     <div>
@@ -51,7 +50,7 @@ export default function ProjectCaseStudy({
           </div>
         </FadeIn>
 
-        {!isPilotProject && project.role && project.contributions?.length ? (
+        {showLegacySections && project.role && project.contributions?.length ? (
           <FadeIn delay={60} className="mt-6">
             <article className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">My Role</span>
@@ -68,11 +67,11 @@ export default function ProjectCaseStudy({
           </FadeIn>
         ) : null}
 
-        {!isPilotProject ? <FadeIn delay={80} className="mt-6">
+        {showLegacySections ? <FadeIn delay={80} className="mt-6">
           <BestForBand items={project.bestFor} />
         </FadeIn> : null}
 
-        {!isPilotProject && project.safeguards ? (
+        {showLegacySections && project.safeguards ? (
           <FadeIn delay={100} className="mt-6">
             <article className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-sm sm:p-8">
               <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">
@@ -98,52 +97,13 @@ export default function ProjectCaseStudy({
         ) : null}
       </section>
 
-      {isPilotProject ? (
         <section className="border-y border-blue-100 bg-[var(--color-primary-light)]/60 py-20">
           <div className="mx-auto max-w-6xl px-6">
             <FadeIn>
-              <InteractiveSystemMap />
+              <InteractiveSystemMap config={systemMaps[project.slug]} />
             </FadeIn>
           </div>
         </section>
-      ) : null}
-
-      {!isPilotProject ? <section className="border-y border-blue-100 bg-[var(--color-primary-light)]/60 py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <FadeIn>
-            <div className="mx-auto max-w-4xl">
-              <span className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">
-                Workflow Overview
-              </span>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-3xl">
-                How the System Works
-              </h2>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={80} className="mx-auto mt-8 max-w-4xl">
-            <ol className="rounded-3xl border border-blue-100 bg-white p-6 shadow-sm sm:p-8">
-              {project.howItWorks.shared.map((step, index) => (
-                <li
-                  key={step}
-                  className={`flex gap-4 py-4 ${index < project.howItWorks.shared.length - 1 ? "border-b border-slate-100" : ""}`}
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-xs font-bold text-white shadow-sm">
-                    {index + 1}
-                  </span>
-                  <p className="text-[15px] leading-7 text-[var(--color-body)]">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </FadeIn>
-
-          {systemVisual ? (
-            <FadeIn delay={140} className="mt-10">
-              {systemVisual}
-            </FadeIn>
-          ) : null}
-        </div>
-      </section> : null}
 
       <section id="demo" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20">
         <FadeIn>

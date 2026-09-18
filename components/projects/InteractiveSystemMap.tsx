@@ -3,11 +3,17 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, ChevronRight, Minus, Plus } from "lucide-react";
 
-type MapNode = {
+export type MapNode = {
   id: string;
   label: string;
   children?: MapNode[];
   detail?: string;
+};
+
+export type SystemMapConfig = {
+  rootLabel: string;
+  branches: MapNode[];
+  flowPath: string[];
 };
 
 const branches: MapNode[] = [
@@ -102,7 +108,18 @@ function collectIds(nodes: MapNode[]): string[] {
   return nodes.flatMap((node) => [node.id, ...(node.children ? collectIds(node.children) : [])]);
 }
 
-export default function InteractiveSystemMap() {
+function collectRequiredBranches(nodes: MapNode[], targetIds: string[]): string[] {
+  const required = new Set<string>();
+  const visit = (node: MapNode, parentIds: string[]) => {
+    if (targetIds.includes(node.id)) parentIds.forEach((id) => required.add(id));
+    node.children?.forEach((child) => visit(child, [...parentIds, node.id]));
+  };
+  nodes.forEach((node) => visit(node, []));
+  return [...required];
+}
+
+export default function InteractiveSystemMap({ config }: { config?: SystemMapConfig }) {
+  const mapConfig = config ?? { rootLabel: "Personal Income & Expense Automation", branches, flowPath };
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<MapNode | null>(null);
   const [flowIndex, setFlowIndex] = useState<number | null>(null);
@@ -118,7 +135,7 @@ export default function InteractiveSystemMap() {
 
   useEffect(() => {
     if (flowIndex === null) return;
-    if (flowIndex >= flowPath.length - 1) {
+    if (flowIndex >= mapConfig.flowPath.length - 1) {
       const done = window.setTimeout(() => setFlowIndex(null), reducedMotion ? 350 : 1100);
       return () => window.clearTimeout(done);
     }
@@ -127,7 +144,7 @@ export default function InteractiveSystemMap() {
       reducedMotion ? 250 : 1100,
     );
     return () => window.clearTimeout(next);
-  }, [flowIndex, reducedMotion]);
+  }, [flowIndex, reducedMotion, mapConfig.flowPath.length]);
 
   const toggle = (node: MapNode) => {
     if (node.children?.length) {
@@ -141,10 +158,10 @@ export default function InteractiveSystemMap() {
     setSelected(node.detail ? node : null);
   };
 
-  const setAll = (open: boolean) => setExpanded(open ? new Set(collectIds(branches)) : new Set());
+  const setAll = (open: boolean) => setExpanded(open ? new Set(collectIds(mapConfig.branches)) : new Set());
 
   const runFlow = () => {
-    setExpanded(new Set(["intake", "gmail", "processing", "validation", "duplicates", "categories", "outputs", "sheets"]));
+    setExpanded(new Set(collectRequiredBranches(mapConfig.branches, mapConfig.flowPath)));
     setSelected(null);
     setFlowIndex(0);
   };
@@ -153,7 +170,7 @@ export default function InteractiveSystemMap() {
     const hasChildren = Boolean(node.children?.length);
     const isOpen = expanded.has(node.id);
     const isSelected = selected?.id === node.id;
-    const isFlowActive = flowIndex !== null && flowPath[flowIndex] === node.id;
+    const isFlowActive = flowIndex !== null && mapConfig.flowPath[flowIndex] === node.id;
     return (
       <div key={node.id} className={depth === 0 ? "min-w-0" : "relative pl-5"}>
         {depth > 0 ? (
@@ -216,14 +233,14 @@ export default function InteractiveSystemMap() {
 
       <div className="mx-auto mt-8 max-w-sm text-center">
         <div className="rounded-2xl border border-[var(--color-primary)] bg-[var(--color-primary)] px-4 py-3 text-sm font-semibold text-white shadow-sm">
-          Personal Income &amp; Expense Automation
+          {mapConfig.rootLabel}
         </div>
         <div aria-hidden="true" className="mx-auto h-7 w-px bg-blue-200" />
       </div>
 
       <div className="relative grid gap-5 md:grid-cols-3 md:gap-6">
         <div aria-hidden="true" className="absolute left-[16.66%] right-[16.66%] top-0 hidden h-px bg-blue-200 md:block" />
-        {branches.map((branch) => (
+        {mapConfig.branches.map((branch) => (
           <div key={branch.id} className="relative pt-3 md:pt-5">
             <div aria-hidden="true" className="absolute left-1/2 top-0 hidden h-5 w-px -translate-x-1/2 bg-blue-200 md:block" />
             {renderNode(branch)}
