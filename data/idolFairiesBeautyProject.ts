@@ -45,7 +45,7 @@ export const idolFairiesBeautyProject: Project = {
   demo: {
     available: true,
     posterSrc: "/projects/idol-fairies-beauty/messenger-demo-poster.jpg",
-    videoSrc: "/videos/idol-fairies-beauty-messenger-demo.mp4",
+    videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/idol-fairies-beauty-messenger-demo.mp4",
   },
   liveSiteHref: "https://idolfairies-beauty.workflowlab.site",
   viewProjectHref: "/idol-fairies-beauty",

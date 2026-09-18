@@ -66,7 +66,7 @@ export const ghlIdolAirProject: Project = {
   demo: {
     available: true,
     posterSrc: "/videos/ghl-idol-air-demo-poster.jpg",
-    videoSrc: "/videos/ghl-idol-air-demo.mp4",
+    videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/ghl-idol-air-demo.mp4",
   },
   liveSiteHref: "https://idolair.workflowlab.site",
   viewProjectHref: "/projects/ghl-idol-air-lead-to-job",

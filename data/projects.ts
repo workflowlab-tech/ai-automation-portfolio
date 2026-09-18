@@ -109,7 +109,7 @@ export const projects: Project[] = [
     demo: {
       available: true,
       posterSrc: "/projects/personal-income-expense/personal-income-expense-thumbnail.png",
-      videoSrc: "/videos/personal-income-expense-demo.mp4",
+      videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/personal-income-expense-demo.mp4",
     },
     viewProjectHref: "/projects/personal-income-expense",
     howItWorks: {
@@ -263,7 +263,7 @@ export const projects: Project[] = [
     demo: {
       available: true,
       posterSrc: "/projects/portfolio-ai-agent/portfolio-ai-agent-thumbnail.png",
-      videoSrc: "/videos/portfolio-ai-agent.m4v",
+      videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/portfolio-ai-agent.m4v",
     },
     viewProjectHref: "/projects/portfolio-ai-agent",
     howItWorks: {
@@ -446,7 +446,7 @@ export const projects: Project[] = [
     demo: {
       available: true,
       posterSrc: "/projects/daily-task-reminder/daily-task-reminder-thumbnail.png",
-      videoSrc: "/videos/daily-task-reminder.m4v",
+      videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/daily-task-reminder.m4v",
     },
     viewProjectHref: "/projects/daily-task-reminder",
     howItWorks: {
@@ -578,7 +578,7 @@ export const idolFairiesProject: Project = {
   demo: {
     available: true,
     posterSrc: "/videos/idol-fairies-demo-poster.png",
-    videoSrc: "/videos/idol-fairies-demo.m4v",
+    videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/idol-fairies-demo.m4v",
   },
   viewProjectHref: "/idol-fairies",
   howItWorks: {
