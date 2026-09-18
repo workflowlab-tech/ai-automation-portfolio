@@ -538,7 +538,7 @@ export const projects: Project[] = [
 
 export const idolFairiesProject: Project = {
   slug: "idol-fairies",
-  category: "Flagship Project",
+  category: "Connected E-commerce System",
   title: "Idol Fairies",
   workflowCountLabel: "Connected E-commerce + Finance System",
   tools: ["Next.js", "n8n", "Supabase", "Gemini", "Metabase", "Gmail"],
