@@ -20,7 +20,7 @@ export const ghlIdolAirProject: Project = {
   overview:
     "An Australian home-services lead-to-job system for Idol Air & Electrical, built end-to-end in GoHighLevel — from free-quote lead capture through quote visit, estimate, and job completion.",
   headerOverview:
-    "A simulated Australia home-services client built to demonstrate a full GHL lead-to-job system: a public free-quote funnel feeds CRM lead capture, an opportunity pipeline, quote-visit booking and status handling, estimate follow-up, and job completion — plus an independent missed-call recovery workflow.",
+    "A full GHL lead-to-job system for Idol Air & Electrical: a public free-quote funnel feeds CRM lead capture, an opportunity pipeline, quote-visit booking and status handling, estimate follow-up, and job completion — plus an independent missed-call recovery workflow.",
   problem:
     "A home-services business needs a structured way to capture leads, manage quote visits, follow up with customers, manage opportunities, and move customers through the lead-to-job lifecycle.",
   solution:
