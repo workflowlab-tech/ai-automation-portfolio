@@ -646,5 +646,6 @@ export const idolFairiesProject: Project = {
 };
 
 export function getProject(slug: string) {
+  if (slug === idolFairiesProject.slug) return idolFairiesProject;
   return projects.find((p) => p.slug === slug);
 }
