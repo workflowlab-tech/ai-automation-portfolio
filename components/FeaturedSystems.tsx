@@ -11,7 +11,7 @@ const featured = [idolFairiesProject, ...featuredSlugs.map((slug) => getProject(
 export default function FeaturedSystems() {
   return (
     <section className="bg-[var(--color-surface-alt)] py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-[82rem] px-6">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary)]">
