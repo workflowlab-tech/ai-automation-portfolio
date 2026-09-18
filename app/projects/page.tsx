@@ -15,7 +15,6 @@ export default function ProjectsPage() {
     "ghl-idol-air-lead-to-job",
     "personal-income-expense",
     "portfolio-ai-agent",
-    "daily-task-reminder",
   ];
   const orderedProjects = projectOrder.map((slug) => getProject(slug)).filter((project) => project !== undefined);
 
