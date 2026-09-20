@@ -138,7 +138,8 @@ export default function AboutSection() {
                   reduce errors, and support growth. She understands{" "}
                   <strong className="font-semibold">real business processes</strong>
                   {" "}before automating them—so the solutions she builds are relevant, reliable, and
-                  easy to adopt.
+                  easy to adopt. She also builds GoHighLevel CRM and workflow automation systems,
+                  including simulated engagements for Idol Air & Electrical and Fairy Skin Studio.
                 </p>
               </FadeIn>
 

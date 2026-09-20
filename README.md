@@ -36,6 +36,15 @@ npm install
 npm run dev
 ```
 
+## Environment variables
+
+| Variable | Required | What it does |
+| --- | --- | --- |
+| `N8N_CHAT_WEBHOOK_URL` | For the chat widget | n8n webhook the `/api/chat` route proxies to |
+| `DISCOVERY_WEBHOOK_URL` | For the contact page booking form | GHL inbound webhook (or n8n webhook) that `/api/discovery` forwards discovery-call requests to. Never exposed to the client; if unset, the API returns an error instead of silently dropping the lead. |
+
+Set these in `.env.local` for local dev, and in the Vercel project's environment variables for production.
+
 ## Scripts
 
 | Command | What it does |

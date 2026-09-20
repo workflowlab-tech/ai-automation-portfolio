@@ -51,6 +51,9 @@ export default function Hero() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-body)]">
               {heroCopy.subhead}
             </p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--color-muted)]">
+              {heroCopy.ghlSubline}
+            </p>
           </FadeIn>
 
           <FadeIn delay={220}>

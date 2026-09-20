@@ -36,7 +36,7 @@ export default function ContactPage() {
               Share what happens today, where it gets stuck, and what a better outcome would look like. I’ll help identify the clearest practical next step.
             </p>
             <div className="mt-7 flex flex-wrap gap-2">
-              {["Finance operations", "E-commerce systems", "n8n + AI workflows"].map((focus) => (
+              {["Finance operations", "E-commerce systems", "n8n + AI workflows", "GoHighLevel CRM"].map((focus) => (
                 <span key={focus} className="rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-medium text-[var(--color-ink)]">
                   {focus}
                 </span>

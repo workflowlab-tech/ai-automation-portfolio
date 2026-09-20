@@ -18,6 +18,8 @@ export const heroCopy = {
   headline: "Turn Manual Business Processes into Systems That Run with Less Rework.",
   subhead:
     "I map the business process first — finance, e-commerce, or client operations — then build automation that captures, checks, records, and reports the work, so teams spend less time chasing details.",
+  ghlSubline:
+    "I also build GoHighLevel CRM and workflow automation for service businesses, including simulated engagements for Idol Air & Electrical and Fairy Skin Studio.",
   primaryCta: { label: "View Projects", href: "/projects" },
   secondaryCta: { label: "Discuss a Process", href: "/contact" },
 };
