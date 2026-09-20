@@ -18,7 +18,7 @@ export default function ContactCTA() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
             >
-              Discuss a process
+              Discuss Your Automation
               <ArrowRight size={18} />
             </Link>
             <Link

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, FileText } from "lucide-react";
+import { CalendarDays, FileText } from "lucide-react";
 import { site } from "@/data/site";
 import GithubIcon from "./icons/GithubIcon";
 
@@ -17,12 +17,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-2 text-sm">
-            <a
-              href={`mailto:${site.email}`}
-              className="flex items-center gap-2 text-[var(--color-body)] hover:text-[var(--color-primary)]"
-            >
-              <Mail size={16} /> {site.email}
-            </a>
+            <Link href="/contact#booking-flow" className="flex items-center gap-2 text-[var(--color-body)] hover:text-[var(--color-primary)]"><CalendarDays size={16} /> Discuss an automation</Link>
             <a
               href={site.github}
               target="_blank"

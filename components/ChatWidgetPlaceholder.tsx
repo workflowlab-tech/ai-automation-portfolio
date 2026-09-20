@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { X, ArrowLeft, Send, Mail } from "lucide-react";
-import { site } from "@/data/site";
 import { MAX_MESSAGE_LENGTH, type ChatHistoryMessage } from "@/types/chat";
 
 const suggestedPrompts = [
@@ -420,12 +419,7 @@ export default function ChatWidgetPlaceholder() {
                         ? `View the ${areaCopy[area].relatedLabel} example`
                         : "View a related project"}
                     </Link>
-                    <a
-                      href={`mailto:${site.email}?subject=${encodeURIComponent("Automation opportunity from your portfolio")}`}
-                      className="block w-full rounded-full border border-[var(--color-border)] px-4 py-2.5 text-center text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
-                    >
-                      Contact me to discuss the workflow
-                    </a>
+                    <Link href="/contact#booking-flow" onClick={() => setOpen(false)} className="block w-full rounded-full border border-[var(--color-border)] px-4 py-2.5 text-center text-sm font-semibold text-[var(--color-ink)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]">Discuss the workflow</Link>
                     <button
                       type="button"
                       onClick={resetDiagnostic}

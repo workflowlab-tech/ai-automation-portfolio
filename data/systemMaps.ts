@@ -68,4 +68,15 @@ export const systemMaps: Record<string, SystemMapConfig> = {
     ],
     flowPath: ["lead", "quote", "speed", "appointment", "booking", "showed", "estimate", "accepted", "won", "completed", "review-request"],
   },
+  "ghl-fairy-skin-consultation-to-treatment": {
+    rootLabel: "Fairy Skin Studio Consultation-to-Treatment System",
+    branches: [
+      node("lead", "Lead Intake", [node("landing", "Landing Page & Consultation Form"), node("unbooked", "Unbooked Follow-Up")], "One opportunity per client journey; resubmitting the form does not create a second one or restart follow-up."),
+      node("consultation", "Consultation Booking", [node("booking", "Booking & Reminders"), node("status", "Appointment Status", [node("cancelled", "Cancelled → rebooking sequence"), node("no-show", "No-Show → rebooking sequence"), node("showed", "Showed → Consultation Completed (Open)")])]),
+      node("treatment", "Treatment Conversion", [node("considering", "Considering Treatment"), node("converted", "Treatment Converted / Won")], "Only an explicit conversion moves the opportunity to Won; attending a consultation never does."),
+      node("post", "Post-Conversion", undefined, "Conversion triggers a thank-you email and, two days later, a review request; this does not claim that a public review was received."),
+      node("social", "Social Engagement", [node("planner", "Scheduled Social Posts"), node("comment", "Facebook Comment Auto-Reply")]),
+    ],
+    flowPath: ["lead", "landing", "unbooked", "consultation", "booking", "showed", "treatment", "considering", "converted", "post", "social"],
+  },
 };

@@ -3,7 +3,6 @@ export const site = {
   fullName: "Mary Joyce Ablanque",
   role: "AI Automation Specialist",
   tagline: "Finance, E-Commerce & Business Process Automation",
-  email: "mjablanque97@gmail.com",
   github: "https://github.com/workflowlab-tech",
   githubHandle: "workflowlab-tech",
   location: "Antipolo, Philippines",

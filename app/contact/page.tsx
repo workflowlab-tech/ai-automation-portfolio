@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { ArrowRight, CheckCircle2, Clock, FileText, Mail, Search, Send } from "lucide-react";
+import { CheckCircle2, FileText, Search, Send } from "lucide-react";
 import { site } from "@/data/site";
 import FadeIn from "@/components/FadeIn";
 import GithubIcon from "@/components/icons/GithubIcon";
+import DiscoveryBooking from "@/components/DiscoveryBooking";
 
 export const metadata: Metadata = {
   title: "Contact — MJ Ablanque",
   description: "Share a finance or e-commerce process and get a practical next step for improving or automating it.",
 };
-
-const mailtoHref = `mailto:${site.email}?subject=${encodeURIComponent(
-  "Process or automation inquiry"
-)}&body=${encodeURIComponent(
-  "Hi Mary Joyce,\n\nThe process today:\n\nWhere it slows us down:\n\nTools involved:\n\nWhat a better outcome would look like:\n\n"
-)}`;
 
 const usefulDetails = [
   { number: "01", title: "The Process Today", body: "A short step-by-step description is enough." },
@@ -52,23 +47,18 @@ export default function ContactPage() {
           <FadeIn delay={100}>
             <div className="rounded-3xl bg-[var(--color-ink)] p-8 text-white shadow-xl shadow-blue-200/60 sm:p-10">
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-blue-300">Start Here</span>
-              <h2 className="mt-4 text-2xl font-semibold sm:text-3xl">Send the Process. I’ll Help Clarify the Opportunity.</h2>
+              <h2 className="mt-4 text-2xl font-semibold sm:text-3xl">Tell me what you&apos;re trying to automate.</h2>
               <p className="mt-4 leading-7 text-slate-300">
-                Your email opens with a short prompt, so you don’t need to prepare a formal brief.
+                Answer a few quick questions and choose a time for a short discovery call.
               </p>
-              <a
-                href={mailtoHref}
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-4 text-base font-semibold text-white transition-colors hover:bg-blue-500"
-              >
-                <Mail size={18} /> Email Mary Joyce <ArrowRight size={18} />
-              </a>
-              <p className="mt-5 text-center text-sm text-slate-300">{site.email}</p>
-              <p className="mt-3 flex items-center justify-center gap-2 text-xs text-slate-400">
-                <Clock size={14} /> Usually replies within 1–2 business days
-              </p>
+              <a href="#booking-flow" className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-4 text-base font-semibold text-white transition-colors hover:bg-blue-500">Discuss Your Automation</a>
             </div>
           </FadeIn>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl scroll-mt-24 px-6 py-20">
+        <DiscoveryBooking />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-20">

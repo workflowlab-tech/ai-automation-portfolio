@@ -65,7 +65,7 @@ export const ghlIdolAirProject: Project = {
   previewVisualNote: "Preview shown: the live Idol Air & Electrical Free Quote funnel that feeds GHL lead capture.",
   demo: {
     available: true,
-    posterSrc: "/videos/ghl-idol-air-demo-poster.jpg",
+    posterSrc: "/videos/ghl-idol-air-demo-thumbnail.jpg",
     videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/ghl-idol-air-demo.mp4",
   },
   liveSiteHref: "https://idolair.workflowlab.site",

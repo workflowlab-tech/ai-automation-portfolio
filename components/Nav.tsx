@@ -38,7 +38,7 @@ export default function Nav() {
             href="/contact"
             className="rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
           >
-            Contact
+            Discuss automation
           </Link>
         </nav>
 
@@ -69,7 +69,7 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="mt-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-center text-sm font-semibold text-white"
           >
-            Contact
+            Discuss automation
           </Link>
         </nav>
       )}
