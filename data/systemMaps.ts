@@ -20,24 +20,6 @@ export const systemMaps: Record<string, SystemMapConfig> = {
     ],
     flowPath: ["question", "message", "validation", "knowledge", "intent", "capture", "leads", "telegram"],
   },
-  "daily-task-reminder": {
-    rootLabel: "Daily Task Reminder",
-    branches: [
-      node("schedule", "Scheduled Trigger", undefined, "The workflow starts automatically at the scheduled morning time."),
-      node("sources", "Information Sources", [
-        node("notion", "Notion Schedule"),
-        node("calendar", "Google Calendar"),
-        node("gmail", "Gmail Invitations"),
-        node("weather", "Open-Meteo Weather"),
-        node("inspiration", "Daily Inspiration"),
-      ]),
-      node("briefing", "Merge & Deliver", [
-        node("format", "Merge & Format", undefined, "Separate results are combined into one concise, personalized morning briefing."),
-        node("telegram", "Telegram Briefing", undefined, "Telegram receives one message with the day’s schedule, weather, devotional, quote, and reminders."),
-      ]),
-    ],
-    flowPath: ["schedule", "notion", "calendar", "gmail", "weather", "format", "telegram"],
-  },
   "idol-fairies": {
     rootLabel: "Idol Fairies Connected Commerce System",
     branches: [
