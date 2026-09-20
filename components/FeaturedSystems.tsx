@@ -4,7 +4,11 @@ import { idolFairiesProject, getProject } from "@/data/projects";
 import FadeIn from "./FadeIn";
 import ProjectVisual from "./projects/ProjectVisual";
 
-const featured = [idolFairiesProject, getProject("ghl-idol-air-lead-to-job")!, getProject("personal-income-expense")!];
+const featured = [
+  idolFairiesProject,
+  getProject("ghl-idol-air-lead-to-job")!,
+  getProject("ghl-fairy-skin-consultation-to-treatment")!,
+];
 
 export default function FeaturedSystems() {
   return (

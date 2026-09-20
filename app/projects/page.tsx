@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   const projectOrder = [
     "idol-fairies",
-    "idol-fairies-beauty",
     "ghl-idol-air-lead-to-job",
     "ghl-fairy-skin-consultation-to-treatment",
+    "idol-fairies-beauty",
     "personal-income-expense",
     "portfolio-ai-agent",
   ];
