@@ -66,7 +66,7 @@ export const ghlFairySkinProject: Project = {
   demo: {
     available: true,
     posterSrc: "/videos/ghl-fairy-skin-demo-thumbnail.jpg",
-    videoSrc: "/videos/ghl-fairy-skin-demo.mp4",
+    videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/ghl-fairy-skin-demo.mp4",
   },
   liveSiteHref: "https://fairyskin.workflowlab.site/",
   viewProjectHref: "/projects/ghl-fairy-skin-consultation-to-treatment",
