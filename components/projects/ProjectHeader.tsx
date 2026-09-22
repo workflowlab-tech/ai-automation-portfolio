@@ -47,17 +47,22 @@ export default function ProjectHeader({ project }: { project: Project }) {
 
         {project.disclosure ? (
           <div className={`mx-auto ${isCompactHero ? "mt-3" : "mt-4"} max-w-xl`}>
-            <span
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${disclosureTone(project.disclosure.label)}`}
-            >
+            <div className="flex flex-wrap items-center justify-center gap-2">
               <span
-                aria-hidden="true"
-                className={`h-1.5 w-1.5 rounded-full ${disclosureDotColor(project.disclosure.label)} ${
-                  /live/i.test(project.disclosure.label) ? "animate-pulse" : ""
-                }`}
-              />
-              {project.disclosure.label}
-            </span>
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${disclosureTone(project.disclosure.label)}`}
+              >
+                <span
+                  aria-hidden="true"
+                  className={`h-1.5 w-1.5 rounded-full ${disclosureDotColor(project.disclosure.label)} ${
+                    /live/i.test(project.disclosure.label) ? "animate-pulse" : ""
+                  }`}
+                />
+                {project.disclosure.label}
+              </span>
+              <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-500">
+                AI-assisted build
+              </span>
+            </div>
             {!isCompactHero ? <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{project.disclosure.detail}</p> : null}
           </div>
         ) : null}
