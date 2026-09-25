@@ -6,6 +6,7 @@ import ProjectVisual from "./projects/ProjectVisual";
 
 const featured = [
   idolFairiesProject,
+  getProject("ghl-fairy-property-lead-activation")!,
   getProject("ghl-idol-air-lead-to-job")!,
   getProject("ghl-fairy-skin-consultation-to-treatment")!,
 ];
