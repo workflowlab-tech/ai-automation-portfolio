@@ -13,6 +13,7 @@ export default function ProjectsPage() {
     "idol-fairies",
     "ghl-idol-air-lead-to-job",
     "ghl-fairy-skin-consultation-to-treatment",
+    "ghl-fairy-property-lead-activation",
     "idol-fairies-beauty",
     "personal-income-expense",
     "portfolio-ai-agent",

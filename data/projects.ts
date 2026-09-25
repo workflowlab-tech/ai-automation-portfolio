@@ -5,6 +5,7 @@ export type ProjectVisual =
 import { idolFairiesBeautyProject } from "./idolFairiesBeautyProject";
 import { ghlIdolAirProject } from "./ghlIdolAirProject";
 import { ghlFairySkinProject } from "./ghlFairySkinProject";
+import { ghlFairyPropertyProject } from "./ghlFairyPropertyProject";
 
 export type ProjectTestRow = {
   area: string;
@@ -406,6 +407,7 @@ export const projects: Project[] = [
   idolFairiesBeautyProject,
   ghlIdolAirProject,
   ghlFairySkinProject,
+  ghlFairyPropertyProject,
 ];
 
 export const idolFairiesProject: Project = {

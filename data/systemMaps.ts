@@ -61,4 +61,15 @@ export const systemMaps: Record<string, SystemMapConfig> = {
     ],
     flowPath: ["lead", "landing", "unbooked", "consultation", "booking", "showed", "treatment", "considering", "converted", "post", "social"],
   },
+  "ghl-fairy-property-lead-activation": {
+    rootLabel: "Fairy Property Group Lead Activation System",
+    branches: [
+      node("capture", "Lead Capture", [node("funnel", "3-Step Enquiry Funnel"), node("intake", "New Lead Intake")], "The funnel saves intent, suburb, and purchase timeline; WF01 sets Lifecycle New Lead and opens one opportunity."),
+      node("qualify", "Qualification", [node("hot", "Hot 0–3 months → booking + handoff"), node("warm", "Warm 3–12 months → nurture"), node("cold", "Cold 12+ months"), node("missing", "Missing info → ask")], "Contacts on DND or already handed off are stopped before any email."),
+      node("reactivate", "Database Reactivation", [node("gate", "Eligibility Gate (existing lead, no DND)"), node("replies", "Reply Routing", [node("yes", "YES → re-qualify"), node("notyet", "NOT YET → Warm"), node("stop", "STOP → DND")])]),
+      node("handoff", "Agent Handoff", undefined, "Stops WF02/WF03, assigns the owner, alerts the agent, and creates a call task."),
+      node("booking", "Consultation Booking", [node("reminders", "Confirmation & Reminders"), node("outcomes", "Showed / Cancelled / No-Show")], "Attending a consultation keeps the opportunity Open; it is never marked Won automatically."),
+    ],
+    flowPath: ["capture", "funnel", "intake", "qualify", "hot", "handoff", "booking", "reminders", "outcomes"],
+  },
 };
