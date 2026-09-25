@@ -139,7 +139,7 @@ export default function AboutSection() {
                   <strong className="font-semibold">real business processes</strong>
                   {" "}before automating them—so the solutions she builds are relevant, reliable, and
                   easy to adopt. She also builds GoHighLevel CRM and workflow automation systems,
-                  including simulated engagements for Idol Air & Electrical and Fairy Skin Studio.
+                  including simulated engagements for Fairy Property Group, Idol Air & Electrical, and Fairy Skin Studio.
                   Every system is built using AI-assisted development—she defines the business
                   requirements, designs the workflow logic, and reviews, tests, and iterates on
                   every result.
