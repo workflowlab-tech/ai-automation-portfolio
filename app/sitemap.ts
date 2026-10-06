@@ -4,7 +4,7 @@ import { idolFairiesProject, projects } from "@/data/projects";
 const BASE_URL = "https://portfolio.workflowlab.site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/projects", "/about", "/contact"].map((path) => ({
+  const staticRoutes = ["", "/services", "/projects", "/about", "/contact"].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
   }));
