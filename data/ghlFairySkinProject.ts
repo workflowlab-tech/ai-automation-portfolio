@@ -6,7 +6,7 @@ export const ghlFairySkinProject: Project = {
   slug: "ghl-fairy-skin-consultation-to-treatment",
   category: "UK Aesthetics Clinic | GoHighLevel CRM & Automation",
   title: "Fairy Skin Studio — GHL Consultation-to-Treatment Automation",
-  workflowCountLabel: "7 Workflows: WF01–WF07",
+  workflowCountLabel: "10 Workflows: WF01–WF09 (incl. WF02B)",
   tools: [
     "GoHighLevel",
     "CRM Automation",
@@ -14,19 +14,21 @@ export const ghlFairySkinProject: Project = {
     "Pipeline Management",
     "Appointment Automation",
     "Funnel / Form Integration",
-    "Email Workflow Design",
+    "Email/SMS Workflow Design",
+    "Consent-Based Messaging",
+    "Custom Values & Snapshots",
     "Social Planner",
     "Facebook Comment Auto-Reply",
     "QA / Regression Testing",
   ],
   overview:
-    "A UK aesthetics-clinic consultation-to-treatment system for Fairy Skin Studio, built end-to-end in GoHighLevel — from a branded landing page and booking form through consultation attendance, treatment conversion, and social engagement.",
+    "A UK aesthetics-clinic consultation-to-treatment system for Fairy Skin Studio, built end-to-end in GoHighLevel — from a branded landing page and booking form through consultation attendance, treatment conversion, filtered reviews, rebooking, and social engagement.",
   headerOverview:
-    "A GHL consultation-to-treatment system for a fictional Manchester aesthetics studio: a branded landing page feeds native lead capture and the booking calendar, one opportunity tracks each client journey from New Lead to Treatment Converted, and single-purpose workflows handle booking, cancellations, no-shows, attendance, and post-conversion — plus a Facebook comment auto-reply and scheduled social posts.",
+    "A GHL consultation-to-treatment system for a fictional Manchester aesthetics studio: a branded landing page feeds native lead capture and the booking calendar, one opportunity tracks each client journey from New Lead to Treatment Converted, and single-purpose workflows handle booking, cancellations, no-shows, attendance, and post-conversion — plus a closing sequence for clients still deciding, consent-based SMS, a filtered review request, rebooking and 90-day reactivation, a Facebook comment auto-reply, and scheduled social posts.",
   problem:
     "A skin clinic needs to turn enquiries into booked consultations and, later, treatments — without losing leads who never book, chasing cancellations by hand, or counting a consultation attendance as a sale.",
   solution:
-    "Seven single-purpose GoHighLevel workflows (WF01–WF07) connect the landing page, form, and calendar to one opportunity per client journey. Booking, cancellation, no-show, and attendance each have their own rules, and only an explicit treatment conversion moves an opportunity to Won.",
+    "Ten single-purpose GoHighLevel workflows (WF01–WF09, plus WF02B), organised into numbered folders, connect the landing page, form, and calendar to one opportunity per client journey. Booking, cancellation, no-show, and attendance each have their own rules, and only an explicit treatment conversion moves an opportunity to Won. Text messages and marketing emails only go to clients who ticked the matching consent box, and every name, link, and address comes from Custom Values so the system can be re-branded for a new clinic.",
   result:
     "A lead can move from a landing-page enquiry through booking, attendance, and treatment conversion on a single opportunity, with recovery sequences for cancellations and no-shows — verified in a 12-case regression: 10 passed, 0 failed, 1 blocked, 1 not tested.",
   role: "GoHighLevel automation builder & QA tester",
@@ -37,6 +39,8 @@ export const ghlFairySkinProject: Project = {
     "Built WF03 (Cancellation Recovery), WF04 (No-Show Recovery), WF05 (Showed / Post-Consultation), and WF06 (Treatment Converted & Post-Conversion).",
     "Built WF07 (Facebook Comment Auto-Reply) and scheduled brand posts in Social Planner.",
     "Ran a 12-case regression on 20 September 2026 using fictional UK test contacts, verifying each result inside GHL.",
+    "Upgraded the build (27 September 2026): Skin Concern, SMS-consent, and marketing-consent fields plus hidden UTM fields on the form; consent checks before every text or marketing email; WF02B (Confirm by Reply); a rating filter in WF06; WF08 (Rebooking & 90-Day Reactivation); and WF09 (Considering Treatment Closing Sequence).",
+    "Saved the build as a GHL snapshot and test-imported it into a blank sub-account (6 October 2026): all workflows came across intact.",
   ],
   bestFor: [
     "Aesthetics clinics, med spas, and salons",
@@ -72,11 +76,13 @@ export const ghlFairySkinProject: Project = {
   viewProjectHref: "/projects/ghl-fairy-skin-consultation-to-treatment",
   howItWorks: {
     shared: [
-      "Capture — A visitor completes the consultation form on the landing page. GHL creates the contact, WF01 tags the lead as unbooked, opens one opportunity at New Lead (or reuses the open one), and starts a three-email follow-up.",
-      "Book — Booking on the consultation calendar fires WF02: it removes the unbooked tag, takes the contact out of WF01, WF03, and WF04, moves the opportunity to Consultation Booked, and queues a confirmation plus 24-hour and 1-hour reminders.",
+      "Capture — A visitor completes the consultation form on the landing page. GHL creates the contact, WF01 tags the lead as unbooked, opens one opportunity at New Lead (or reuses the open one), and alerts staff. The booking email always goes out; the two unbooked follow-ups only go to leads who gave marketing consent.",
+      "Book — Booking on the consultation calendar fires WF02: it removes the unbooked tag, takes the contact out of WF01, WF03, and WF04, moves the opportunity to Consultation Booked, and queues a confirmation plus 24-hour and 1-hour reminders. Clients with SMS consent also get a 'Reply YES to confirm' text, and WF02B marks the appointment confirmed and alerts staff when they reply YES.",
       "Cancelled or no-show — WF03 and WF04 each send a three-step rebooking sequence and leave the opportunity where it is. Rebooking creates a new appointment on the same contact and opportunity, and WF02 takes the contact out of recovery.",
       "Showed — WF05 removes the contact from the booking and recovery workflows and moves the opportunity to Consultation Completed, still Open. Attending a consultation is never treated as a sale.",
-      "Convert — Moving the opportunity to Treatment Converted with status Won fires WF06: it tags the contact, sends a thank-you, waits two days, and sends a review request.",
+      "Close — Clients moved to Considering Treatment enter WF09: a treatment-plan email, a day-2 staff call alert, and (with marketing consent) two check-in emails. It stops as soon as the client replies.",
+      "Convert — Moving the opportunity to Treatment Converted with status Won fires WF06: a thank-you, a day-2 aftercare email, then a 1–5 rating text (with SMS consent). A 4 or 5 gets the review link; anything else alerts the owner. Clients without SMS consent get a review email instead.",
+      "Rebook — WF08 sends a rebooking reminder 28 days after conversion and a reactivation email at day 90, only to clients with marketing consent.",
       "Protect against duplicates — Resubmitting the form for an active lead creates no second opportunity and does not restart WF01.",
       "Engage on social — WF07 auto-replies to comments on the Fairy Skin Studio Facebook page, and Social Planner schedules brand posts.",
     ],
@@ -96,56 +102,68 @@ export const ghlFairySkinProject: Project = {
     },
     {
       type: "image",
-      src: img("workflow-list.jpg"),
-      label: "Workflow list — WF01–WF07 published",
+      src: img("workflow-folders.jpg"),
+      label: "Workflows organised into numbered folders — Intake, Booking, Outcomes, Conversion, Nurture, Social",
       aspect: "wide",
     },
     {
       type: "image",
-      src: img("wf01-lead-intake.jpg"),
-      label: "WF01 — Lead Intake & Unbooked Follow-Up (Find Opportunity branch, three-email follow-up)",
-      aspect: "wide",
+      src: img("wf01-lead-intake-v2.jpg"),
+      label: "WF01 — Consult Lead Intake & Unbooked (staff alert, booking email, follow-ups only with marketing consent)",
+      aspect: "portrait",
     },
     {
       type: "image",
-      src: img("wf02-booked-reminders.jpg"),
-      label: "WF02 — Consultation Booked & Reminders (removes unbooked tag and stale workflows, moves stage)",
-      aspect: "wide",
+      src: img("wf02-booked-reminders-v2.jpg"),
+      label: "WF02 — Consult Booked & Reminders (24h email; with SMS consent, a 'Reply YES' confirmation and 1h SMS)",
+      aspect: "portrait",
     },
     {
       type: "image",
-      src: img("wf03-cancellation-recovery.jpg"),
-      label: "WF03 — Cancellation Recovery (three-step rebooking sequence)",
-      aspect: "wide",
+      src: img("wf03-cancellation-recovery-v2.jpg"),
+      label: "WF03 — Consult Cancelled Recovery (three-step rebooking sequence)",
+      aspect: "portrait",
     },
     {
       type: "image",
-      src: img("wf04-no-show-recovery.jpg"),
-      label: "WF04 — No-Show Recovery (three-step rebooking sequence)",
-      aspect: "wide",
+      src: img("wf04-no-show-recovery-v2.jpg"),
+      label: "WF04 — Consult No-Show Recovery (three-step rebooking sequence)",
+      aspect: "portrait",
     },
     {
       type: "image",
-      src: img("wf05-showed-post-consultation.jpg"),
-      label: "WF05 — Showed / Post-Consultation (clears other workflows, moves to Consultation Completed)",
-      aspect: "wide",
+      src: img("wf05-consult-showed-v2.jpg"),
+      label: "WF05 — Consult Showed (clears booking and recovery workflows, moves to Consultation Completed)",
+      aspect: "portrait",
     },
     {
       type: "image",
-      src: img("wf06-treatment-converted.jpg"),
-      label: "WF06 — Treatment Converted & Post-Conversion (tag, thank-you, review request)",
-      aspect: "wide",
+      src: img("wf09-considering-treatment.jpg"),
+      label: "WF09 — Considering Treatment Closing Sequence (treatment-plan email, day-2 staff call alert, check-ins)",
+      aspect: "portrait",
+    },
+    {
+      type: "image",
+      src: img("wf06-treatment-converted-v2.jpg"),
+      label: "WF06 — Treatment Converted (aftercare email, rating SMS; 4–5 gets the review link, anything else alerts the owner)",
+      aspect: "portrait",
+    },
+    {
+      type: "image",
+      src: img("wf08-rebooking-reactivation.jpg"),
+      label: "WF08 — Rebooking & 90-Day Reactivation (marketing consent only)",
+      aspect: "portrait",
+    },
+    {
+      type: "image",
+      src: img("wf07-facebook-comment-reply-v2.jpg"),
+      label: "WF07 — Facebook Comment Reply (Fairy Skin Studio page trigger, Respond On Comment)",
+      aspect: "portrait",
     },
     {
       type: "image",
       src: img("opportunity-pipeline-final.jpg"),
       label: "Opportunity pipeline after regression — one opportunity per test contact, no duplicates",
-      aspect: "wide",
-    },
-    {
-      type: "image",
-      src: img("wf07-facebook-comment-auto-reply.jpg"),
-      label: "WF07 — Facebook Comment Auto-Reply (Fairy Skin Studio page trigger, Respond On Comment)",
       aspect: "wide",
     },
     {
@@ -216,7 +234,7 @@ export const ghlFairySkinProject: Project = {
     {
       area: "FSS-REG-011 — Reactivation guardrails",
       whatWeVerify: "Dormant-lead reactivation rules",
-      result: "NOT TESTED — dormant reactivation was intentionally not built in this project",
+      result: "NOT TESTED — reactivation was not part of the build at the time of the regression. It was added afterwards as WF08 (Rebooking & 90-Day Reactivation) and has not been live-tested yet",
     },
     {
       area: "FSS-REG-012 — Final regression",
@@ -229,14 +247,25 @@ export const ghlFairySkinProject: Project = {
       result:
         "Verified live with one test comment (reply visible on the page). Built after the regression run, so it is not part of FSS-REG-001 to 012",
     },
+    {
+      area: "Upgrade build check (27 Sep) — consent, WF02B, WF06 rating filter, WF08, WF09",
+      whatWeVerify: "Each new or changed workflow is wired correctly: triggers, consent checks, branches, and Custom Value links",
+      result:
+        "PASS on configuration audit — every step reviewed in the builder and the live form renders the business name and privacy link from Custom Values. NOT EXECUTED live: the regression was not re-run after the upgrade, and SMS needs a phone number",
+    },
+    {
+      area: "Snapshot test-import (6 Oct)",
+      whatWeVerify: "The saved snapshot loads into a blank sub-account with every workflow and folder intact",
+      result: "PASS — all [MS] workflows (WF01–WF09) imported; Custom Values arrive empty and are filled during client setup",
+    },
   ],
   testingSummary:
-    "A full regression pass (20 September 2026) ran 12 test cases against the live GHL sub-account using fictional UK test contacts, checking each result inside GHL rather than trusting workflow status alone. Ten cases passed, none failed, one was blocked (UTM attribution: the campaign was captured but the raw source and medium values could not be confirmed), and one was not tested (reactivation was intentionally not built). No workflows were changed during testing. Test emails used non-deliverable example addresses, so real email delivery is not claimed. WF07 was built after the regression run and is verified by one live comment reply only.",
+    "A full regression pass (20 September 2026) ran 12 test cases against the live GHL sub-account using fictional UK test contacts, checking each result inside GHL rather than trusting workflow status alone. Ten cases passed, none failed, one was blocked (UTM attribution: the campaign was captured but the raw source and medium values could not be confirmed), and one was not tested (reactivation was intentionally not built). No workflows were changed during testing. Test emails used non-deliverable example addresses, so real email delivery is not claimed. WF07 was built after the regression run and is verified by one live comment reply only. The 27 September upgrade (consent checks, WF02B, the review filter, WF08, and WF09) was checked step by step in the builder but has not been through a fresh live regression, and its text messages need a phone number to deliver. The finished build was saved as a snapshot and test-imported into a blank sub-account on 6 October.",
   regressionReportHref: "/documents/Fairy_Skin_Studio_GHL_Regression_QA_Report.docx",
   regressionReportLabel: "Download regression QA report",
   screenshotsHeading: "Selected CRM & Automation Evidence",
   screenshotsDescription:
-    "Screenshots from the Fairy Skin Studio GHL sub-account: the landing page and lead form, the seven published workflows and their builders, the opportunity pipeline after regression, and the Facebook comment auto-reply.",
+    "Screenshots from the Fairy Skin Studio GHL sub-account: the landing page and lead form, the numbered workflow folders, the builder for each workflow, the opportunity pipeline after regression, and the Facebook comment auto-reply.",
   ctaTitle: "Need Consultations Booked Without the Manual Chasing?",
   ctaDescription:
     "Share how your clinic handles enquiries today and I'll map where a GHL pipeline and workflows like these can take over the repetitive follow-up.",
@@ -247,10 +276,10 @@ export const ghlFairySkinProject: Project = {
   },
   safeguards: {
     boundaries:
-      "Covers the consultation-to-treatment journey from enquiry to treatment conversion and review request, plus a Facebook comment auto-reply. It does not include reactivation of dormant leads, and real email delivery is not claimed because test contacts used non-deliverable example addresses.",
+      "Covers the consultation-to-treatment journey from enquiry to treatment conversion and review request, plus a Facebook comment auto-reply. It includes rebooking and 90-day reactivation for converted clients, but not a campaign for old dormant leads. Real email delivery is not claimed for the regression (test contacts used non-deliverable example addresses), and text messages need a phone number to deliver.",
     exceptions:
-      "Cancelled appointments and no-shows each start their own rebooking sequence, and a rebook exits recovery. Attending a consultation never moves an opportunity to Won — only an explicit treatment conversion does.",
+      "Cancelled appointments and no-shows each start their own rebooking sequence, and a rebook exits recovery. Attending a consultation never moves an opportunity to Won — only an explicit treatment conversion does. Clients only get texts or marketing emails they consented to, and unhappy ratings go to the owner instead of a public review link.",
     security:
-      "Contact and appointment data stay inside the GHL CRM; no payment or card data passes through any of the seven workflows.",
+      "Contact and appointment data stay inside the GHL CRM; no payment or card data passes through any workflow.",
   },
 };
