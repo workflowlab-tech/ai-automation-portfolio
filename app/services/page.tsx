@@ -14,13 +14,34 @@ import {
 } from "@/data/offers";
 
 export const metadata: Metadata = {
-  title: "GoHighLevel Automation Packages — MJ Ablanque",
+  title: "Services — MJ Ablanque",
   description:
-    "Done-for-you GoHighLevel systems for home services, skin clinics and real estate agencies. Every enquiry answered in seconds, every quote and consult followed up. Fixed prices in USD, live in 7–14 business days.",
+    "GoHighLevel lead follow-up packages for home services, skin clinics and real estate agencies, plus custom finance, order and AI support workflows built in n8n. Mapped, tested and handed over documented.",
   alternates: { canonical: "https://portfolio.workflowlab.site/services" },
 };
 
 const AUDIT_HREF = "/contact#booking-flow";
+
+const otherWork = [
+  {
+    title: "Orders, stock and finance",
+    body: "Receipts, invoices and payments captured once, duplicates blocked, and owner approval kept where money moves.",
+    tools: "n8n · Supabase · Google Sheets",
+    proof: [
+      { label: "Idol Fairies", href: "/idol-fairies" },
+      { label: "Personal Income & Expense", href: "/projects/personal-income-expense" },
+    ],
+  },
+  {
+    title: "AI customer assistant",
+    body: "Answers from your approved product and policy information, and hands the conversation to a person when it can't verify.",
+    tools: "n8n · Gemini · Messenger via GoHighLevel",
+    proof: [
+      { label: "Idol Fairies Beauty", href: "/idol-fairies-beauty" },
+      { label: "Portfolio AI Agent", href: "/projects/portfolio-ai-agent" },
+    ],
+  },
+];
 
 const enquiryTimeline = [
   { time: "9:47:02 pm", text: "Enquiry submitted on the website" },
@@ -194,6 +215,53 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Non-GHL work */}
+      <section id="other-work" className="scroll-mt-20 border-b border-[var(--color-border)] bg-[var(--color-surface-alt)] py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <FadeIn>
+            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div className="max-w-3xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-primary)]">
+                  Not a GoHighLevel project?
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-ink)]">
+                  I also build finance, order and AI support workflows.
+                </h2>
+                <p className="mt-3 text-base leading-7 text-[var(--color-body)]">
+                  Same way of working: I map the process, build it in your tools, test the cases that usually break,
+                  and hand it over documented. Fixed quote after a short call.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-ink)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary)]"
+              >
+                Send me the process <ArrowRight size={16} />
+              </Link>
+            </div>
+          </FadeIn>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {otherWork.map((item, i) => (
+              <FadeIn key={item.title} delay={i * 60} className="h-full">
+                <div className="flex h-full flex-col rounded-2xl border border-[var(--color-border)] bg-white p-7">
+                  <h3 className="text-xl font-semibold text-[var(--color-ink)]">{item.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-[var(--color-body)]">{item.body}</p>
+                  <p className="mt-4 text-xs font-medium text-[var(--color-muted)]">{item.tools}</p>
+                  <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-[var(--color-border)] pt-4 text-sm">
+                    <span className="text-[var(--color-muted)]">See it built:</span>
+                    {item.proof.map((p) => (
+                      <Link key={p.href} href={p.href} className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)]">
+                        {p.label} <ArrowRight size={14} />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Founding offer */}
       <section id="pricing" className="scroll-mt-20 bg-[var(--color-ink)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-10 lg:flex-row lg:items-center lg:justify-between">
@@ -201,7 +269,7 @@ export default function ServicesPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-blue-300">Founding client pricing</p>
             <p className="mt-2 text-lg leading-8 text-white">
               The first 3 clients in each industry get these prices. After that they go up about 25%.
-              I&apos;m new to selling this, not to building it: every package below is fully built and tested.
+              I&apos;m new to selling this, not to building it: each industry has a working, tested demo you can see first.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">

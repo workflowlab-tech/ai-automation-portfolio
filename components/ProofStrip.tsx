@@ -14,8 +14,8 @@ const proofItems = [
   },
   {
     icon: ShieldCheck,
-    stat: "Tested Systems",
-    label: "Scenario-based QA and documented validation",
+    stat: "Tested Before Handover",
+    label: "On the Idol Air build, testing caught a booking step that silently skipped. I fixed it and re-tested.",
   },
 ];
 

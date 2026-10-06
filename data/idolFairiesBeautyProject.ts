@@ -94,8 +94,8 @@ export const idolFairiesBeautyProject: Project = {
     },
     {
       area: "Messenger AI — Accuracy",
-      whatWeVerify: "35 real customer questions across authenticity, pricing, condition/expiry, payment methods, delivery, returns, and owner-privacy",
-      result: "PASS — 35/35 post-fix, including one real hallucination caught live and corrected",
+      whatWeVerify: "35 test questions written from typical customer questions: authenticity, pricing, condition/expiry, payment methods, delivery, returns, and owner privacy",
+      result: "PASS — 35/35 after one fix. Testing caught one hallucinated answer in the live Messenger bot, which I corrected and re-tested.",
     },
     {
       area: "Messenger AI — Live Architecture",
@@ -113,17 +113,17 @@ export const idolFairiesBeautyProject: Project = {
       result: "FIXED — pointer-events hit-strip logic confirmed in code",
     },
   ],
-  testingSummary: "62 checks across two independent audits plus a live re-verification pass. 61 pass; 1 real hallucination was caught in an actual customer conversation and fixed the same day.",
+  testingSummary: "62 checks across two independent audits plus a live re-verification pass. 61 pass; 1 hallucination was caught while testing the live Messenger bot and fixed the same day.",
   regressionReportHref: "/documents/Idol_Fairies_Beauty_Regression_Report.docx",
   logoSrc: "/projects/idol-fairies-beauty/idol-fairies-logo.jpg",
   screenshotsHeading: "Selected Storefront & Automation Evidence",
-  screenshotsDescription: "Public-safe visual assets from the Beauty storefront, checkout, admin, and the live GHL + n8n Messenger AI workflow. Customer names and addresses are cropped to protect privacy.",
+  screenshotsDescription: "Public-safe visual assets from the Beauty storefront, checkout, admin, and the live GHL + n8n Messenger AI workflow. Names and addresses are cropped from test orders.",
   ctaTitle: "Build a Storefront That Runs Beyond Checkout.",
   ctaDescription: "Connect the customer journey to the inventory, payment, fulfillment, referral, and support workflows behind it.",
   disclosure: {
-    label: "Live business",
+    label: "Live store · my own clearance stock",
     detail:
-      "A real, currently operating storefront — the order, payment, and support activity behind this case study is real, with customer names and addresses cropped from every published screenshot.",
+      "A real, live storefront selling my own clearance stock. There are no sales yet: the orders, payments, and Messenger conversations shown are test runs I did myself on the live system.",
   },
   safeguards: {
     boundaries:
