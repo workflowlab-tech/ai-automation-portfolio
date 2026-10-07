@@ -119,8 +119,14 @@ export const ghlFairyPropertyProject: Project = {
     },
     {
       type: "image",
-      src: img("wf07-seller-appraisal-intake.jpg"),
-      label: "WF07 — Seller Appraisal Intake (appraisal opportunity, confirmation email, speed-to-lead SMS, agent alert)",
+      src: img("wf07-seller-appraisal-intake-v2.jpg"),
+      label: "WF07 — Seller Appraisal Intake (appraisal opportunity, confirmation email, agent alert, then an SMS Consent? split: only consented sellers get the speed-to-lead SMS)",
+      aspect: "portrait",
+    },
+    {
+      type: "image",
+      src: img("seller-appraisal-form-consent.jpg"),
+      label: "Seller Appraisal Form — separate optional SMS consent and marketing consent checkboxes",
       aspect: "portrait",
     },
     {
@@ -128,6 +134,12 @@ export const ghlFairyPropertyProject: Project = {
       src: img("wf08-post-appraisal-nurture.jpg"),
       label: "WF08 — Post-Appraisal Nurture (day 2, 7, and 21 emails, then a monthly market check-in)",
       aspect: "portrait",
+    },
+    {
+      type: "image",
+      src: img("wf10-stop-seller-nurture.jpg"),
+      label: "WF10 — Stop Seller Nurture on Outcome (Lost, Listed, or Listing Agreement removes the seller from WF08)",
+      aspect: "wide",
     },
     {
       type: "image",
@@ -170,6 +182,12 @@ export const ghlFairyPropertyProject: Project = {
       src: img("wf06-agent-handoff-v2.jpg"),
       label: "WF06 — Agent Handoff (stop automations, assign owner, alert, call task)",
       aspect: "portrait",
+    },
+    {
+      type: "image",
+      src: img("owner-view-dashboard.jpg"),
+      label: "Agency Owner View dashboard — contacts by source and medium, appointments, opportunities, and leads by UTM source (test data)",
+      aspect: "wide",
     },
   ],
   testing: [

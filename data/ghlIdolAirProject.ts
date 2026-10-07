@@ -162,6 +162,12 @@ export const ghlIdolAirProject: Project = {
     },
     {
       type: "image",
+      src: "/projects/ghl-idol-air/owner-view-dashboard.jpg",
+      label: "Owner View dashboard — contacts by source, appointments, no-shows, won jobs, and leads by UTM source (test data)",
+      aspect: "wide",
+    },
+    {
+      type: "image",
       src: "/projects/ghl-idol-air/contact-activity-timeline.png",
       label: "Contact activity timeline — form submission through appointment booking",
       aspect: "wide",

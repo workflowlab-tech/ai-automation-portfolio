@@ -146,14 +146,20 @@ export const ghlFairySkinProject: Project = {
     },
     {
       type: "image",
-      src: img("wf06-treatment-converted-v2.jpg"),
-      label: "WF06 — Treatment Converted (aftercare email, rating SMS; 4–5 gets the review link, anything else alerts the owner)",
+      src: img("wf06-treatment-converted-v3.jpg"),
+      label: "WF06 — Treatment Converted (removes the contact from WF09, aftercare email, rating SMS; 4–5 gets the review link, anything else alerts the owner)",
       aspect: "portrait",
     },
     {
       type: "image",
       src: img("wf08-rebooking-reactivation.jpg"),
       label: "WF08 — Rebooking & 90-Day Reactivation (marketing consent only)",
+      aspect: "portrait",
+    },
+    {
+      type: "image",
+      src: img("wf10-stop-rebook.jpg"),
+      label: "WF10 — Stop Rebook Reminders (an inbound reply or a new booking removes the client from WF08)",
       aspect: "portrait",
     },
     {
@@ -166,6 +172,12 @@ export const ghlFairySkinProject: Project = {
       type: "image",
       src: img("opportunity-pipeline-final.jpg"),
       label: "Opportunity pipeline after regression — one opportunity per test contact, no duplicates",
+      aspect: "wide",
+    },
+    {
+      type: "image",
+      src: img("owner-view-dashboard.jpg"),
+      label: "Clinic Owner View dashboard — contacts by source, appointments, no-shows, won opportunities, and leads by UTM source (test data)",
       aspect: "wide",
     },
     {
