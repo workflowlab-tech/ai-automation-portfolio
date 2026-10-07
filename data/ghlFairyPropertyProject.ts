@@ -6,7 +6,7 @@ export const ghlFairyPropertyProject: Project = {
   slug: "ghl-fairy-property-lead-activation",
   category: "Australian Real Estate | GoHighLevel CRM & Automation",
   title: "Fairy Property Group — GHL Lead Activation & Qualification System",
-  workflowCountLabel: "11 Workflows: WF01–WF09 (WF05 A/B/C)",
+  workflowCountLabel: "12 Workflows: WF01–WF10 (WF05 A/B/C)",
   tools: [
     "GoHighLevel",
     "CRM Automation",
@@ -29,9 +29,9 @@ export const ghlFairyPropertyProject: Project = {
   problem:
     "Real-estate agencies sit on old buyer databases that are never followed up, and new enquiries get the same generic reply whether the buyer is ready now or in a year — so hot buyers wait and cold ones get chased.",
   solution:
-    "Eleven single-purpose GoHighLevel workflows, organised into numbered folders, connect a 3-step funnel and two new forms (Seller Appraisal and Open Home Check-in) to a Buyer/Investor pipeline and a separate Appraisal pipeline. New leads are classified by timeline, old contacts are reactivated with reply routing and DND guardrails, bookings get confirmations and reminders, and appointment outcomes and agent handoffs each have their own rules.",
+    "Twelve single-purpose GoHighLevel workflows, organised into numbered folders, connect a 3-step funnel and two new forms (Seller Appraisal and Open Home Check-in) to a Buyer/Investor pipeline and a separate Appraisal pipeline. New leads are classified by timeline, old contacts are reactivated with reply routing and DND guardrails, bookings get confirmations and reminders, and appointment outcomes and agent handoffs each have their own rules.",
   result:
-    "A buyer can move from a funnel enquiry through qualification, agent handoff, and a booked consultation on one contact and one opportunity — verified end to end on the live domain in a 12-case regression: 9 passed, 0 failed, 3 not executed live (time-based or reply-based paths). The seller appraisal and open-home workflows added on 3 October passed their own live form tests, and the full build was saved as a snapshot that imported cleanly into a blank sub-account.",
+    "A buyer can move from a funnel enquiry through qualification, agent handoff, and a booked consultation on one contact and one opportunity — verified end to end on the live domain. Of the 12 regression cases, 11 have now passed and none failed; only reactivation reply routing is still untested, because it needs real inbound texts. The seller appraisal, open-home, and stop-nurture workflows passed their own live tests, and the full build is saved as a snapshot that imported cleanly into a blank sub-account.",
   role: "GoHighLevel automation builder & QA tester",
   contributions: [
     "Set up the CRM foundation: 8 custom fields, the Buyer/Investor pipeline, tags, 6 Smart Lists, and 15 realistic historical contacts (two on DND to prove the guardrails).",
@@ -45,6 +45,8 @@ export const ghlFairyPropertyProject: Project = {
     "Added open-home follow-up: an Open Home Check-in form and WF09, which creates the buyer opportunity, sends a thank-you, alerts the agent on day 2, and hands the buyer to WF02 qualification based on their buying status.",
     "Added Purchased and Lost stages to the Buyer/Investor pipeline, hidden UTM fields and consent checkboxes on both new forms, and moved names, phone numbers, and links into Custom Values.",
     "Saved the build as a GHL snapshot and test-imported it into a blank sub-account (6 October 2026): all 11 workflows, 3 pipelines, and both forms came across with their links intact.",
+    "Closed the remaining gaps (7 October 2026): WF10 stops the seller nurture once a seller lists, signs a listing agreement, or is lost; WF02 now re-qualifies returning buyers; the seller form has its own optional SMS consent box, and WF07 only texts sellers who tick it; an owner dashboard shows leads by source and UTM, appointments, and won or lost deals.",
+    "Re-ran the untested cases live on 7 October 2026 (Warm, Cold, and Missing-info qualification, the 24-hour reminder, the SMS consent gate, and the seller nurture start and stop) and refreshed the snapshot to v3.",
   ],
   bestFor: [
     "Real-estate agencies and buyer's agents",
@@ -86,7 +88,7 @@ export const ghlFairyPropertyProject: Project = {
       "Hand off — The human-handoff tag fires WF06: it stops WF02 and WF03, assigns the owner, sends an in-app alert with the qualification fields, and creates a call task that skips weekends.",
       "Book — Booking the Buyer Consultation calendar fires WF04: it stops the other follow-ups, moves the opportunity to Appointment Booked, and sends a confirmation plus 24-hour and 1-hour reminders.",
       "Outcomes — WF05A (Showed) moves the opportunity to Appointment Completed and keeps it Open, WF05B (Cancelled) stops the reminders and sends a rebooking link, and WF05C (No-Show) stops the reminders, sends a 'sorry we missed you' email, and creates a call task.",
-      "Sellers — The Seller Appraisal Form fires WF07: it opens an opportunity in the Appraisal pipeline, emails the next steps and booking link, texts the seller, and alerts agents to call within five minutes. When the appraisal is marked done, WF08 sends follow-up emails on days 2, 7, and 21, then a market check-in every month until the seller replies.",
+      "Sellers — The Seller Appraisal Form fires WF07: it opens an opportunity in the Appraisal pipeline, emails the next steps and booking link, alerts agents to call within five minutes, and texts the seller only if they ticked the SMS consent box. When the appraisal is marked done, WF08 sends follow-up emails on days 2, 7, and 21, then a market check-in every month until the seller replies. WF10 stops that nurture as soon as the seller signs a listing agreement, is listed, or is marked lost.",
       "Open homes — Visitors check in on the Open Home form. WF09 opens a buyer opportunity, sends a same-day thank-you, alerts the agent on day 2, and sets the purchase timeline from their buying status, which starts WF02 qualification.",
     ],
   },
@@ -219,7 +221,7 @@ export const ghlFairyPropertyProject: Project = {
     {
       area: "FPG-REG-010 — 24-hour and 1-hour reminders (WF04)",
       whatWeVerify: "Reminder emails send before the appointment",
-      result: "NOT EXECUTED — time-based; configuration reviewed, and the test appointment was cancelled before the reminders were due",
+      result: "PASS (24-hour) — re-run 7 Oct 2026: a consultation booked ~30 hours ahead received the 24-hour reminder email on time. The 1-hour reminder is due 8 Oct",
     },
     {
       area: "FPG-REG-011 — Reactivation reply routing (WF03)",
@@ -229,7 +231,7 @@ export const ghlFairyPropertyProject: Project = {
     {
       area: "FPG-REG-012 — Warm, Cold, and Missing-info branches (WF02)",
       whatWeVerify: "3–12 month, 12+ month, and incomplete leads take their own branch",
-      result: "NOT EXECUTED — only the Hot path was run end to end; the other branches were reviewed in the builder",
+      result: "PASS — re-run 7 Oct 2026: a 3–6 month lead was marked Warm, a 12+ month lead was marked Cold and got the long-term nurture email, and a lead with no timeline got the one 'quick question' email",
     },
     {
       area: "Issues found & fixed after the regression",
@@ -250,6 +252,21 @@ export const ghlFairyPropertyProject: Project = {
         "PASS — thank-you email delivered, day-2 alert sent, timeline set to 3–6 months, and WF02's trigger fired. WF02 skipped this contact only because the same test contact had already been through WF02 (re-entry is off); a new buyer enters normally",
     },
     {
+      area: "SMS consent gate on the seller form (7 Oct)",
+      whatWeVerify: "Only sellers who tick the optional SMS consent box get the speed-to-lead text; everyone still gets the email and the agent alert",
+      result: "PASS — consent ticked: SMS step ran (not delivered: no number in the account); not ticked: no SMS; email and agent alert sent for both",
+    },
+    {
+      area: "Seller nurture start and stop — WF08 / WF10 (7 Oct)",
+      whatWeVerify: "Marking an appraisal done starts the nurture; moving the seller to Listed stops it",
+      result: "PASS — Appraisal Done enrolled the seller in WF08; moving to Listed removed them via WF10",
+    },
+    {
+      area: "UTM capture + owner dashboard (7 Oct)",
+      whatWeVerify: "UTM source, medium, and campaign from the form link are saved on the contact and shown on the dashboard",
+      result: "PASS — seller-form leads show qa_test / email / campaign on the contact and in the dashboard's 'Leads by UTM Source' chart. The coded buyer funnel page does not yet pass UTMs through (per-client setup)",
+    },
+    {
       area: "Snapshot test-import (6 Oct)",
       whatWeVerify: "The saved snapshot loads into a blank sub-account with workflows, pipelines, and forms still linked",
       result:
@@ -257,12 +274,12 @@ export const ghlFairyPropertyProject: Project = {
     },
   ],
   testingSummary:
-    "A full end-to-end regression (25 September 2026) ran 12 test cases on the live domain with one test contact, checking each result inside GHL rather than trusting workflow status alone. Nine cases passed, none failed, and three were not executed live: the time-based reminders, reactivation reply routing (needs real replies), and the Warm/Cold/Missing-info branches. Six emails were delivered to a real test inbox; no SMS was sent, because the sub-account has no purchased phone number. Four minor issues found during the run were fixed afterwards. The seller appraisal and open-home workflows added on 3 October were each tested live with a form submission: emails were delivered with every Custom Value filled in, and the open-home hand-off to qualification was confirmed on day 2. The finished build was saved as a snapshot and test-imported into a blank sub-account on 6 October.",
+    "A full end-to-end regression (25 September 2026) ran 12 test cases on the live domain with one test contact, checking each result inside GHL rather than trusting workflow status alone. Nine cases passed, none failed, and three were not executed live at first; on 7 October the Warm/Cold/Missing-info branches and the 24-hour reminder were run live and passed, leaving only reactivation reply routing (it needs real inbound texts). Six emails were delivered to a real test inbox; no SMS was sent, because the sub-account has no purchased phone number. Four minor issues found during the run were fixed afterwards. The seller appraisal and open-home workflows added on 3 October were each tested live with a form submission: emails were delivered with every Custom Value filled in, and the open-home hand-off to qualification was confirmed on day 2. On 7 October the SMS consent gate, the seller nurture start and stop, and UTM capture also passed. The finished build was saved as a snapshot, test-imported into a blank sub-account on 6 October, and refreshed to v3 on 7 October.",
   regressionReportHref: "/documents/Fairy_Property_Group_GHL_Regression_QA_Report.docx",
   regressionReportLabel: "Download regression QA report",
   screenshotsHeading: "Selected CRM & Automation Evidence",
   screenshotsDescription:
-    "Screenshots from the Fairy Property Group GHL sub-account: the live enquiry funnel, the numbered workflow folders, and the builder for each of the eleven workflows, including the new seller appraisal, post-appraisal nurture, and open-home follow-up.",
+    "Screenshots from the Fairy Property Group GHL sub-account: the live enquiry funnel, the numbered workflow folders, and the builder for the main workflows, including the new seller appraisal, post-appraisal nurture, and open-home follow-up.",
   ctaTitle: "Sitting on an Old Buyer Database?",
   ctaDescription:
     "Share how your agency follows up enquiries today and I'll map where a GHL pipeline, qualification, and reactivation workflows like these can take over.",
@@ -273,9 +290,9 @@ export const ghlFairyPropertyProject: Project = {
   },
   safeguards: {
     boundaries:
-      "Covers buyer and investor enquiries, qualification, database reactivation, agent handoff, and consultation booking. Speed-to-lead and appraisal text messages are built, but none are delivered until a phone number is connected, and the Conversation AI assistant is built but switched off.",
+      "Covers buyer and investor enquiries, qualification, database reactivation, agent handoff, and consultation booking. Speed-to-lead and appraisal text messages are built, but none are delivered until a phone number is connected (SMS is live-tested at client launch on the client's number), and the Conversation AI assistant is built but switched off.",
     exceptions:
-      "Contacts on DND or already handed to an agent are stopped before any outreach; replying STOP turns on DND; booking or handoff stops the other follow-ups so a buyer is never chased twice; attending a consultation never marks the opportunity Won.",
+      "Contacts on DND or already handed to an agent are stopped before any outreach; replying STOP turns on DND; booking or handoff stops the other follow-ups so a buyer is never chased twice; attending a consultation never marks the opportunity Won; sellers are only texted if they gave SMS consent, and the seller nurture stops once they list or are lost.",
     security:
       "Contact data stays inside the GHL CRM, the funnel and both new forms ask for consent before contact, and no payment or card data passes through any workflow.",
   },

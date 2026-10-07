@@ -38,6 +38,7 @@ export const ghlIdolAirProject: Project = {
     "Built WF06 (Missed Call Text-Back) as an independent operational-alert workflow.",
     "Moved every customer-facing name, phone number, booking link, and review link into Custom Values; added hidden UTM fields to the quote form and a seasonal tune-up campaign template.",
     "Saved the build as a GHL snapshot and test-imported it into a blank sub-account (6 October 2026): all workflows, folders, and pipeline came across intact.",
+    "Built an Owner View dashboard (6 October 2026): leads by source and by UTM source, appointments booked versus showed, no-shows and cancellations, and won and lost jobs. The snapshot was refreshed to v3 to include it.",
     "Ran a full regression pass across the happy path plus three exception branches (Cancelled, No-Show, Declined) across five test contacts.",
     "Found and fixed a live WF02 defect during regression testing — a missing Find Opportunity step was silently skipping the booking-stage pipeline update — then re-verified the fix with a fresh contact.",
   ],
@@ -230,9 +231,14 @@ export const ghlIdolAirProject: Project = {
       result:
         "PASS — all [HS] workflows (WF01A–WF08) imported with triggers still linked. Custom Values arrive empty, so filling them is step one of every client setup",
     },
+    {
+      area: "Owner View dashboard + UTM (6 Oct)",
+      whatWeVerify: "The owner can see where leads come from (including UTM source), appointments booked versus showed, and won and lost jobs in one view",
+      result: "PASS — dashboard saved and shared with account admins; the 'Leads by UTM Source' chart shows the qa_test value captured by the 27 Sep form test, confirming UTM capture end to end",
+    },
   ],
   testingSummary:
-    "A full regression pass (17 September 2026) covered the happy path plus three exception branches — Appointment Cancelled, Appointment No-Show, and Quote Declined — across five test contacts, in addition to the original scene-by-scene happy-path run on 16 September. All four scenarios passed. Regression testing also caught a live defect in WF02 (the opportunity wasn't advancing on booking); it was fixed and re-verified with a fresh contact. WF06 remains configuration-audited only — live telephony was not available in the simulated environment. After the upgrade (27 September), a second live test confirmed UTM capture, emergency routing, booking reminders reaching a real inbox, and the job-completed review and maintenance enrolments; it also caught and fixed a skipped staff alert. Text messages fire on schedule but are not delivered because no phone number is connected. The finished build was saved as a snapshot and test-imported into a blank sub-account on 6 October.",
+    "A full regression pass (17 September 2026) covered the happy path plus three exception branches — Appointment Cancelled, Appointment No-Show, and Quote Declined — across five test contacts, in addition to the original scene-by-scene happy-path run on 16 September. All four scenarios passed. Regression testing also caught a live defect in WF02 (the opportunity wasn't advancing on booking); it was fixed and re-verified with a fresh contact. WF06 remains configuration-audited only — live telephony was not available in the simulated environment. After the upgrade (27 September), a second live test confirmed UTM capture, emergency routing, booking reminders reaching a real inbox, and the job-completed review and maintenance enrolments; it also caught and fixed a skipped staff alert. Text messages fire on schedule but are not delivered because no phone number is connected. The finished build was saved as a snapshot and test-imported into a blank sub-account on 6 October; an Owner View dashboard was added the same day and the snapshot refreshed to v3.",
   regressionReportHref: "/documents/Idol_Air_GHL_Regression_QA_Report.docx",
   regressionReportLabel: "Download regression QA report",
   screenshotsHeading: "Selected CRM & Automation Evidence",
