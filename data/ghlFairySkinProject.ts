@@ -265,7 +265,7 @@ export const ghlFairySkinProject: Project = {
       area: "Upgrade build check (27 Sep) — consent, WF02B, WF06 rating filter, WF08, WF09",
       whatWeVerify: "Each new or changed workflow is wired correctly: triggers, consent checks, branches, and Custom Value links",
       result:
-        "PASS live (7 Oct 2026) — WF01: a consented lead is queued for follow-ups, a non-consented lead got the booking email only. WF09: treatment-plan email delivered, day-2 alert queued, and converted clients are removed. WF06: thank-you email delivered, day-2 aftercare queued. WF02: booking confirmation delivered for a client with no SMS consent (24-hour email due 7 Oct). SMS still needs a phone number",
+        "PASS live (7–9 Oct 2026) — WF01: a consented lead got the day-1 follow-up email on time, a non-consented lead got the booking email only. WF09: treatment-plan email delivered, the day-2 check-in email arrived on day 2, and converted clients are removed. WF06: thank-you email delivered, then the day-2 aftercare email. WF02: booking confirmation and the 24-hour reminder email delivered for a client with no SMS consent. SMS still needs a phone number",
     },
     {
       area: "Snapshot test-import (6 Oct)",
@@ -275,7 +275,7 @@ export const ghlFairySkinProject: Project = {
   ],
   testingSummary:
     "A full regression pass (20 September 2026) ran 12 test cases against the live GHL sub-account using fictional UK test contacts, checking each result inside GHL rather than trusting workflow status alone. Ten cases passed, none failed, one was blocked (UTM attribution) and one was not tested (reactivation was not built yet). Both were re-run live on 7 October 2026 after the upgrade and passed. No workflows were changed during testing. Test emails used non-deliverable example addresses, so real email delivery is not claimed. WF07 was built after the regression run and is verified by one live comment reply only. The 27 September upgrade (consent checks, WF02B, the review filter, WF08, and WF09) was run live on 7 October with three new test contacts and real test inboxes: every consent check took the right branch, emails were delivered, and two small gaps were fixed (WF10 and the WF09 removal). Its text messages still need a phone number to deliver. The finished build was saved as a snapshot, test-imported into a blank sub-account on 6 October, and refreshed to v3 on 7 October.",
-  regressionReportHref: "/documents/Fairy_Skin_Studio_GHL_Regression_QA_Report.docx",
+  regressionReportHref: "/documents/Fairy_Skin_Studio_GHL_Regression_QA_Report.pdf",
   regressionReportLabel: "Download regression QA report",
   screenshotsHeading: "Selected CRM & Automation Evidence",
   screenshotsDescription:

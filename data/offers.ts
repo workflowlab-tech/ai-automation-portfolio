@@ -40,7 +40,7 @@ export const offers: IndustryOffer[] = [
     ],
     demoName: "Idol Air & Electrical",
     caseStudyHref: "/projects/ghl-idol-air-lead-to-job",
-    qaReportHref: "/documents/Idol_Air_GHL_Regression_QA_Report.docx",
+    qaReportHref: "/documents/Idol_Air_GHL_Regression_QA_Report.pdf",
     ctaLabel: "Find where your leads are leaking",
     tiers: [
       {
@@ -105,7 +105,7 @@ export const offers: IndustryOffer[] = [
     ],
     demoName: "Fairy Skin Studio",
     caseStudyHref: "/projects/ghl-fairy-skin-consultation-to-treatment",
-    qaReportHref: "/documents/Fairy_Skin_Studio_GHL_Regression_QA_Report.docx",
+    qaReportHref: "/documents/Fairy_Skin_Studio_GHL_Regression_QA_Report.pdf",
     ctaLabel: "Get consults booked without the chasing",
     tiers: [
       {
@@ -171,7 +171,7 @@ export const offers: IndustryOffer[] = [
     ],
     demoName: "Fairy Property Group",
     caseStudyHref: "/projects/ghl-fairy-property-lead-activation",
-    qaReportHref: "/documents/Fairy_Property_Group_GHL_Regression_QA_Report.docx",
+    qaReportHref: "/documents/Fairy_Property_Group_GHL_Regression_QA_Report.pdf",
     ctaLabel: "Reply to every enquiry first",
     tiers: [
       {

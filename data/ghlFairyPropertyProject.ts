@@ -239,7 +239,7 @@ export const ghlFairyPropertyProject: Project = {
     {
       area: "FPG-REG-010 — 24-hour and 1-hour reminders (WF04)",
       whatWeVerify: "Reminder emails send before the appointment",
-      result: "PASS (24-hour) — re-run 7 Oct 2026: a consultation booked ~30 hours ahead received the 24-hour reminder email on time. The 1-hour reminder is due 8 Oct",
+      result: "PASS — re-run 7–8 Oct 2026: a consultation booked ~30 hours ahead received the 24-hour reminder email on time, then the 1-hour reminder email one hour before the start",
     },
     {
       area: "FPG-REG-011 — Reactivation reply routing (WF03)",
@@ -293,7 +293,7 @@ export const ghlFairyPropertyProject: Project = {
   ],
   testingSummary:
     "A full end-to-end regression (25 September 2026) ran 12 test cases on the live domain with one test contact, checking each result inside GHL rather than trusting workflow status alone. Nine cases passed, none failed, and three were not executed live at first; on 7 October the Warm/Cold/Missing-info branches and the 24-hour reminder were run live and passed, leaving only reactivation reply routing (it needs real inbound texts). Six emails were delivered to a real test inbox; no SMS was sent, because the sub-account has no purchased phone number. Four minor issues found during the run were fixed afterwards. The seller appraisal and open-home workflows added on 3 October were each tested live with a form submission: emails were delivered with every Custom Value filled in, and the open-home hand-off to qualification was confirmed on day 2. On 7 October the SMS consent gate, the seller nurture start and stop, and UTM capture also passed. The finished build was saved as a snapshot, test-imported into a blank sub-account on 6 October, and refreshed to v3 on 7 October.",
-  regressionReportHref: "/documents/Fairy_Property_Group_GHL_Regression_QA_Report.docx",
+  regressionReportHref: "/documents/Fairy_Property_Group_GHL_Regression_QA_Report.pdf",
   regressionReportLabel: "Download regression QA report",
   screenshotsHeading: "Selected CRM & Automation Evidence",
   screenshotsDescription:

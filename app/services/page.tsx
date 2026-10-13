@@ -154,7 +154,7 @@ function IndustrySection({ offer, index }: { offer: IndustryOffer; index: number
             {offer.demoName} demo <ArrowRight size={14} />
           </Link>
           <a href={offer.qaReportHref} className="inline-flex items-center gap-1.5 font-semibold text-[var(--color-ink)] hover:text-[var(--color-primary)]">
-            <FileText size={14} /> Test report (.docx)
+            <FileText size={14} /> Test report (PDF)
           </a>
         </div>
       </div>
