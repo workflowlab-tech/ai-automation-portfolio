@@ -265,7 +265,7 @@ export const ghlFairySkinProject: Project = {
       area: "Upgrade build check (27 Sep) — consent, WF02B, WF06 rating filter, WF08, WF09",
       whatWeVerify: "Each new or changed workflow is wired correctly: triggers, consent checks, branches, and Custom Value links",
       result:
-        "PASS live (7–9 Oct 2026) — WF01: a consented lead got the day-1 follow-up email on time, a non-consented lead got the booking email only. WF09: treatment-plan email delivered, the day-2 check-in email arrived on day 2, and converted clients are removed. WF06: thank-you email delivered, then the day-2 aftercare email. WF02: booking confirmation and the 24-hour reminder email delivered for a client with no SMS consent. SMS still needs a phone number",
+        "PASS live (7–9 Oct 2026) — WF01: a consented lead got the day-1 follow-up email on time, a non-consented lead got the booking email only. WF09: treatment-plan email delivered, the day-2 check-in email arrived on day 2, and converted clients are removed. WF06: thank-you email delivered, then the day-2 aftercare email. WF02: booking confirmation and the 24-hour reminder email delivered for a client with no SMS consent, and no SMS was attempted. SMS still needs a phone number",
     },
     {
       area: "Snapshot test-import (6 Oct)",
