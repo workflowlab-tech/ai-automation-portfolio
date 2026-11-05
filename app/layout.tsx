@@ -14,7 +14,7 @@ const SITE_URL = "https://portfolio.workflowlab.site";
 const SITE_TITLE = "MJ Ablanque — AI Automation Specialist | Finance, E-Commerce & Business Process Automation";
 const SITE_DESCRIPTION =
   "AI automation specialist with a BS Accountancy background, hands-on e-commerce operations, and CRM/lead automation experience. See Idol Fairies, a working e-commerce + finance automation ecosystem, and Idol Air & Electrical, a GoHighLevel lead-to-job system — both built end-to-end as portfolio demonstrations.";
-const SHARE_IMAGE = "/videos/ghl-idol-air-demo-thumbnail.jpg";
+const SHARE_IMAGE = "/og/portfolio.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "MJ Ablanque — AI Automation Portfolio",
     type: "website",
-    images: [{ url: SHARE_IMAGE, width: 1920, height: 1080, alt: SITE_TITLE }],
+    images: [{ url: SHARE_IMAGE, width: 1200, height: 630, alt: SITE_TITLE }],
   },
   twitter: {
     card: "summary_large_image",

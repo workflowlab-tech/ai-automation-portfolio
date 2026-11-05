@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects, getProject } from "@/data/projects";
+import { shareMetadata, projectShareImage } from "@/lib/shareMetadata";
 import ProjectCaseStudy from "@/components/projects/ProjectCaseStudy";
 
 export function generateStaticParams() {
@@ -11,10 +12,10 @@ export async function generateMetadata(props: PageProps<"/projects/[slug]">): Pr
   const { slug } = await props.params;
   const project = getProject(slug);
   if (!project) return {};
-  return {
-    title: `${project.title} — MJ Ablanque`,
-    description: project.overview,
-  };
+  const title = `${project.title} — MJ Ablanque`;
+  const image = projectShareImage(project);
+  if (!image) return { title, description: project.overview };
+  return shareMetadata({ title, description: project.overview, path: `/projects/${slug}`, image });
 }
 
 export default async function ProjectDetailPage(props: PageProps<"/projects/[slug]">) {
