@@ -73,7 +73,7 @@ export const ghlIdolAirProject: Project = {
     posterSrc: "/videos/ghl-idol-air-demo-thumbnail.jpg",
     videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/ghl-idol-air-demo.mp4",
   },
-  liveSiteHref: "https://idolair.workflowlab.site",
+  liveSiteHref: "https://idol-air-funnel-4.vibepreview.app",
   viewProjectHref: "/projects/ghl-idol-air-lead-to-job",
   howItWorks: {
     shared: [

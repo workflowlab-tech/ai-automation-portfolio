@@ -74,7 +74,7 @@ export const ghlFairySkinProject: Project = {
     posterSrc: "/videos/ghl-fairy-skin-demo-thumbnail.jpg",
     videoSrc: "https://igsavpvqpxgcnntciudo.supabase.co/storage/v1/object/public/portfolio-videos/ghl-fairy-skin-demo.mp4",
   },
-  liveSiteHref: "https://fairyskin.workflowlab.site/",
+  liveSiteHref: "https://fairy-skinconsult-4.vibepreview.app/",
   viewProjectHref: "/projects/ghl-fairy-skin-consultation-to-treatment",
   howItWorks: {
     shared: [

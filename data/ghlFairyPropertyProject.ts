@@ -73,12 +73,12 @@ export const ghlFairyPropertyProject: Project = {
     aspect: "wide",
   },
   previewVisualNote:
-    "Preview shown: the Fairy Property Group enquiry funnel on property.workflowlab.site that feeds GHL lead capture and consultation booking.",
+    "Preview shown: the Fairy Property Group enquiry funnel that feeds GHL lead capture and consultation booking.",
   demo: {
     available: false,
     note: "Demo video coming soon. The live funnel and the screenshots below show the full system.",
   },
-  liveSiteHref: "https://property.workflowlab.site/",
+  liveSiteHref: "https://fairy-property-fun-4.vibepreview.app/",
   viewProjectHref: "/projects/ghl-fairy-property-lead-activation",
   howItWorks: {
     shared: [
@@ -96,7 +96,7 @@ export const ghlFairyPropertyProject: Project = {
     {
       type: "image",
       src: img("fairy-property-landing-page-v2.jpg"),
-      label: "Fairy Property Group enquiry funnel on property.workflowlab.site",
+      label: "Fairy Property Group enquiry funnel",
       aspect: "wide",
     },
     {
