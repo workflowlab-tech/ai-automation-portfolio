@@ -8,6 +8,18 @@ export type Credential = {
 export const credentials: Credential[] = [
   { label: "BS Accountancy", issuer: "Polytechnic University of the Philippines, 2017" },
   {
+    label: "Integrations: APIs & Connected Workflows (N8N102)",
+    issuer: "n8n Academy, 2026",
+    href: "https://learn.n8n.io/certificates/93d73f68d3d742cba5c6d4ca7970626e",
+    previewHref: "/certificates/icons/n8n-academy-n8n102.png",
+  },
+  {
+    label: "Essentials: Your First Workflows (N8N101)",
+    issuer: "n8n Academy, 2026",
+    href: "https://learn.n8n.io/certificates/ad47c61e58b94a3fb42ce9fb6ec1e7ef",
+    previewHref: "/certificates/icons/n8n-academy-n8n101.png",
+  },
+  {
     label: "Building Marketing Workflows with n8n",
     issuer: "DataCamp, 2026",
     href: "/documents/certificates/portfolio/building-marketing-workflows-n8n.pdf",

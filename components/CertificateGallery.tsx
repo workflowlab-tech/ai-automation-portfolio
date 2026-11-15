@@ -21,7 +21,7 @@ export default function CertificateGallery() {
               </h2>
             </div>
             <p className="max-w-lg text-sm leading-6 text-[var(--color-body)]">
-              Nine completed programs in automation, AI tools, coding, and data workflows.
+              Eleven completed programs in automation, AI tools, coding, and data workflows.
             </p>
           </div>
         </FadeIn>
